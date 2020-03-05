@@ -1,0 +1,21 @@
+netcdf part {
+dimensions:
+	Dimension = 3 ;
+	Vertices = 28694 ;
+	Edges = 1905 ;
+	Triangles = 14890 ;
+	Tetrahedrons = 150779 ;
+	Two = 2 ;
+	Three = 3 ;
+	Four = 4 ;
+	Eight = 8 ;
+variables:
+	double Vertex_Coordinate(Vertices, Three) ;
+	int Vertex_Label(Vertices) ;
+	int Edge_Vertex(Edges, Two) ;
+	int Edge_Label(Edges) ;
+	int Triangle_Vertex(Triangles, Three) ;
+	int Triangle_Label(Triangles) ;
+	int Tetrahedron_Vertex(Tetrahedrons, Four) ;
+	int Tetrahedron_Label(Tetrahedrons) ;
+}

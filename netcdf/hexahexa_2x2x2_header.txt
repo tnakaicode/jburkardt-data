@@ -1,0 +1,18 @@
+netcdf hexahexa_2x2x2 {
+dimensions:
+	Dimension = 3 ;
+	Vertices = 27 ;
+	Quadrilaterals = 24 ;
+	Hexahedrons = 8 ;
+	Two = 2 ;
+	Three = 3 ;
+	Four = 4 ;
+	Eight = 8 ;
+variables:
+	double Vertex_Coordinate(Vertices, Three) ;
+	int Vertex_Label(Vertices) ;
+	int Quadrilateral_Vertex(Quadrilaterals, Four) ;
+	int Quadrilateral_Label(Quadrilaterals) ;
+	int Hexahedron_Vertex(Hexahedrons, Eight) ;
+	int Hexahedron_Label(Hexahedrons) ;
+}

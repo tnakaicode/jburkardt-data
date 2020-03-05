@@ -1,0 +1,202 @@
+<html>
+
+  <head>
+    <title>
+      MTL Files - Material Definitions for OBJ Files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      MTL Files <br> Material Definitions for OBJ Files
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>MTL</b> is a data directory which
+      contains examples of MTL files.  An MTL file is an auxilliary
+      file containing definitions of materials that may be accessed by
+      an OBJ file.  The OBJ file must specify the name of the MTL file
+      by a command such as
+      <pre>
+        mltlib <i>file_name</i>
+      </pre>
+      It is presumed that the MTL file names and defines various
+      materials, such as, perhaps, "shinyred" or "iron".
+      Then, within the OBJ file, the command
+      <pre>
+        usemtl shinyred
+      </pre>
+      indicates that all subsequence faces should be rendered with
+      this material, until a new material is invoked.
+    </p>
+
+    <p>
+      An MTL file contains a sequence of definitions of materials.
+      Each definition begins with a <b>newmtl</b> statement that defines
+      the name of the material, followed by lines specifying particular
+      properties.
+    </p>
+
+    <h3 align = "center">
+      Example MTL File:
+    </h3>
+
+    <p>
+      <pre>
+        newmtl shinyred
+        Ka  0.1986  0.0000  0.0000
+        Kd  0.5922  0.0166  0.0000
+        Ks  0.5974  0.2084  0.2084
+        illum 2
+        Ns 100.2237
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      MTL File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      Comments begin with a '#' character in column 1.  Blank lines
+      may be inserted for clarity.  Otherwise, the file consists of
+      a sequence of <b>newmtl</b> statements, followed by a definition
+      of various properties for that material.
+    </p>
+
+    <p>
+      The quantities that may be defined for a material include:
+      <dl>
+        <dt>
+          <b>Ka</b> <i>r g b</i>
+        </dt>
+        <dd>
+          defines the ambient color of the material to be (r,g,b).
+          The default is (0.2,0.2,0.2);
+        </dd>
+        <dt>
+          <b>Kd</b> <i>r g b</i>
+        </dt>
+        <dd>
+          defines the diffuse color of the material to be (r,g,b).
+          The default is (0.8,0.8,0.8);
+        </dd>
+        <dt>
+          <b>Ks</b> <i>r g b</i>
+        </dt>
+        <dd>
+          defines the specular color of the material to be (r,g,b).
+          This color shows up in highlights.
+          The default is (1.0,1.0,1.0);
+        </dd>
+        <dt>
+          <b>d</b> <i>alpha</i>
+        </dt>
+        <dd>
+          defines the non-transparency of the material to be alpha.
+          The default is 1.0 (not transparent at all).  The quantities
+          <b>d</b> and <b>Tr</b> are the opposites of each other, and specifying
+          transparency or nontransparency is simply a matter of user convenience.
+        </dd>
+        <dt>
+          <b>Tr</b> <i>alpha</i>
+        </dt>
+        <dd>
+          defines the transparency of the material to be alpha.
+          The default is 0.0 (not transparent at all).  The quantities
+          <b>d</b> and <b>Tr</b> are the opposites of each other, and specifying
+          transparency or nontransparency is simply a matter of user convenience.
+        </dd>
+        <dt>
+          <b>Ns</b> <i>s</i>
+        </dt>
+        <dd>
+          defines the shininess of the material to be s.
+          The default is 0.0;
+        </dd>
+        <dt>
+          <b>illum</b> <i>n</i>
+        </dt>
+        <dd>
+          denotes the illumination model used by the material.
+          <b>illum</b> = 1 indicates a flat material with no specular
+          highlights, so the value of <b>Ks</b> is not used.  <b>illum</b> = 2
+          denotes the presence of specular highlights, and so a specification
+          for <b>Ks</b> is required.
+        </dd>
+        <dt>
+          <b>map_Ka</b> <i>filename</i>
+        </dt>
+        <dd>
+          names a file containing a texture map, which should just be
+          an ASCII dump of RGB values;
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "http://www.aliaswavefront.com/">
+          The Alias Wavefront website.</a>
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "primary.mtl">primary.mtl</a>, defines simple
+          primary color materials;
+        </li>
+        <li>
+          <a href = "example.mtl">example.mtl</a>, defines three
+          materials;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 07 June 2018.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

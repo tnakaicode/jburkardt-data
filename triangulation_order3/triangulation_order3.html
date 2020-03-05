@@ -1,0 +1,483 @@
+<html>
+
+  <head>
+    <title>
+      TRIANGULATION_ORDER3 - Files Defining an Order 3 Triangulation
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      TRIANGULATION_ORDER3 <br> Files Defining an Order 3 Triangulation
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TRIANGULATION_ORDER3</b>
+      is a data directory which
+      contains examples of triangulation data of order 3.
+    </p>
+
+    <p>
+      Defining a triangulation requires two files:
+      <ul>
+        <li>
+          the <i>node file</i> lists the coordinates of
+          a set of points.  NODE_XY(I,J) is the I-th coordinate of the J-th node.
+        </li>
+        <li>
+          the <i>element file</i> lists triples of node indices, forming
+          the elements.  ELEMENT_NODE(I,J) is the index of the I-th node that
+          forms the J-th element.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      Other files that may be supplied include:
+      <ul>
+        <li>
+          the <i>element neighbor file</i>.  ELEMENT_NEIGHBOR(I,J)
+          lists the index of the element that is a neighbor along the
+          element edge that is opposite to node ELEMENT_NODE(I,J),
+          or -1 if no such neighbor exists.
+        </li>
+        <li>
+          the <i>boundarynode file</i> lists a 0 for each interior node,
+          and a 1 for each node on the boundary of the region.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      This is the simplest form of a triangulation.  It is sometimes
+      called a <i>linear triangulation</i>.
+    </p>
+
+    <p>
+      At the moment, no facility is provided for allowing the specification
+      of constrained edges, or the existence of holes in the region, both
+      of which are of some interest.
+    </p>
+
+    <h3 align = "center">
+      Example of a node file:
+    </h3>
+
+    <p>
+      A node file can come from anywhere.  In most cases, you generate
+      this data by observation or the characteristics of a particular
+      problem or set of data you are working on.  In some cases, you start
+      only with a region, and must fill the region with random points, or
+      with well separated points.
+    </p>
+
+    <p>
+      As a simple example, suppose we had the following set of points:
+      <pre>
+        19 20 21
+
+        16 17 18
+
+        11 12 13 14 15
+
+         6  7  8  9 10
+
+         1  2  3  4  5
+      </pre>
+      then the node file might look like this:
+      <pre>
+        0.0  0.0
+        1.0  0.0
+        2.0  0.0
+        3.0  0.0
+        4.0  0.0
+        0.0  1.0
+        1.0  1.0
+        2.0  1.0
+        3.0  1.0
+        4.0  1.0
+        0.0  2.0
+        1.0  2.0
+        2.0  2.0
+        3.0  2.0
+        4.0  2.0
+        0.0  3.0
+        1.0  3.0
+        2.0  3.0
+        0.0  4.0
+        1.0  4.0
+        2.0  4.0
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Example of an element file:
+    </h3>
+
+    <p>
+      An element file describes how triangular elements are formed from the nodes.
+      In an order 3 triangulation, each element is described by just 3 nodes.
+      (An order 6 triangulation includes an extra node along the middle of each side).
+      If you have nodes, but no triangulation of them, then there are programs
+      available which can form a Delaunay triangulation of the nodes.
+    </p>
+
+    <p>
+      A possible order 3 triangulation of these nodes is:
+      <pre>
+        19-20-21
+         |\ |\ |
+         | \| \|
+        16-17-18
+         |\ |\ |
+         | \| \|
+        11-12-13-14-15
+         |\ |\ |\ |\ |
+         | \| \| \| \|
+         6--7--8--9-10
+         |\ |\ |\ |\ |
+         | \| \| \| \|
+         1--2--3--4--5
+      </pre>
+      in which case the element file would look like this:
+      <pre>
+         1  2  6
+         7  6  2
+         2  3  7
+         8  7  3
+         3  4  8
+         9  8  4
+         4  5  9
+        10  9  5
+         6  7 11
+        12 11  7
+         7  8 12
+        13 12  8
+         8  9 13
+        14 13  9
+         9 10 14
+        15 14 10
+        11 12 16
+        17 16 12
+        12 13 17
+        18 17 13
+        16 17 19
+        20 19 17
+        17 18 20
+        21 20 18
+      </pre>
+      The elements could be listed in any order.  The three nodes
+      of the element could be listed in any <i>counterclockwise</i>
+      order.
+    </p>
+
+     <h3 align = "center">
+      Example of an element neighbor file:
+    </h3>
+
+    <p>
+      The element neighbor file lists the elements which are neighbors to
+      a given element.  The convention is that ELEMENT_NEIGHBOR(I,J) is the
+      index of the element that is adjacent to the triangle on the side 
+      opposite ELEMENT_NODE(I,J).  If there is no neighbor on that side
+      then we set the entry to -1.
+    </p>
+
+    <p>
+      For the example problem, the neighbor file would look like:
+      <pre>
+ 2  -1  -1   
+ 1   3   9   
+ 4   2  -1      
+ 3   5  11   
+ 6   4  -1   
+ 5   7  13   
+ 8   6  -1   
+ 7  -1  15   
+10  -1   2  
+ 9  11  17   
+12  10   4  
+11  13  19  
+14  12   6  
+13  15  -1  
+16  14   8  
+15  -1  -1  
+18  -1  10  
+17  19  21  
+20  18  12  
+19  -1  23  
+22  -1  18  
+21  23  -1  
+24  22  20  
+23  -1  -1  
+      </pre>
+    </p>
+
+     <h3 align = "center">
+      Example of an boundarynode file:
+    </h3>
+
+    <p>
+      The boundary node file could list a 0 for each interior node, a 1 for each
+      boundary node.  This approach is convenient if inefficient, since it allows
+      us to set aside space for the array immediately.
+    </p>
+
+    <p>
+      For the example problem, the boundarynode file would look like:
+      <pre>
+        1
+        1
+        1
+        1
+        1
+        1
+        0
+        0
+        0
+        1
+        1
+        0
+        1
+        1
+        1
+        1
+        0
+        1
+        1
+        1
+        1
+      </pre>
+    </p>
+
+    <p>
+      An alternative format would simply list the indices of the boundary nodes:
+      <pre>
+         1
+         2
+         3
+         4
+         5
+         6
+        10
+        11
+        13
+        14
+        15
+        16
+        18
+        19
+        20
+        21
+      </pre>
+      and while this file lists the nodes in order, this is not essential.
+    </p>
+
+     <h3 align = "center">
+      Example of an boundary edge file:
+    </h3>
+
+    <p>
+      We might wish to describe the boundary by listing the edges that form it.
+      We would describe an edge as a pair of nodes.  We will want to list
+      these pairs in such a way that the boundary is traversed in counterclockwise
+      order.  Interior holes can also be handled this way, although then the
+      curve is essentially traversed in clockwise order.
+    </p>
+
+    <p>
+      For the example problem, a boundary edge file might look like:
+      <pre>
+         1  2
+         2  3
+         3  4
+         4  5
+         5 10
+        10 15
+        15 14
+        14 13
+        13 18
+        18 21
+        21 20
+        20 19
+        19 16
+        16 11
+        11  6
+         6  1
+      </pre>
+      Although we have listed the edges in a way that traverses the entire
+      boundary consecutively, that is not of the highest importance.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/fem2d/fem2d.html">
+      FEM2D</a>,
+      a data directory which
+      contains examples of 2D FEM files, three text files that can be used to describe
+      many finite element models;
+    </p>
+
+    <p>
+      <a href = "../../m_src/fem_basis_t3_display/fem_basis_t3_display.html">
+      FEM_BASIS_T3_DISPLAY</a>
+      a MATLAB program which
+      displays a basis function associated with a 3-node triangle "T3" mesh.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mesh_bandwidth/mesh_bandwidth.html">
+      MESH_BANDWIDTH</a>
+      a C++ program which
+      returns the geometric bandwidth associated with a mesh of
+      elements of any order and in a space of arbitrary dimension.
+    </p>
+
+    <p>
+      <a href = "../../c_src/triangulate/triangulate.html">
+      TRIANGULATE</a>
+      a C program which
+      triangulates a (possibly nonconvex) polygon.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation/triangulation.html">
+      TRIANGULATION</a>
+      a C++ library which
+      performs various operations on order 3 ("linear") or order 6 ("quadratic") triangulations.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_display_opengl/triangulation_display_opengl.html">
+      TRIANGULATION_DISPLAY_OPENGL</a>
+      a C++ program which
+      reads files defining a 2D triangulation and displays an image using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../datasets/triangulation_order3/triangulation_order3.html">
+      TRIANGULATION_ORDER3</a>,
+      a dataset directory of TRIANGULATION_ORDER3 files,
+      a linear triangulation
+      of a set of 2D points, using a pair of files to list the node
+      coordinates and the 3 nodes that make up each triangle;
+    </p>
+
+    <p>
+      <a href = "../../data/triangulation_order4/triangulation_order4.html">
+      TRIANGULATION_ORDER4</a>,
+      a data directory which defines TRIANGULATION_ORDER4 files,
+      a description of a triangulation
+      of a set of 2D points, using a pair of files to list the node
+      coordinates and the 4 nodes that make up each triangle (3 vertices and the centroid);
+    </p>
+
+    <p>
+      <a href = "../../data/triangulation_order6/triangulation_order6.html">
+      TRIANGULATION_ORDER6</a>,
+      a data directory which
+      contains examples of TRIANGULATION_ORDER6 files,
+      a description of a quadratic triangulation
+      of a set of 2D points, using a pair of files to list the node
+      coordinates and the 6 nodes that make up each triangle.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_orient/triangulation_orient.html">
+      TRIANGULATION_ORIENT</a>,
+      a C++ program which
+      ensures that the triangles in an order 3 or order 6 triangulation
+      have positive orientation;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_plot/triangulation_plot.html">
+      TRIANGULATION_PLOT</a>
+      is a C++ program which
+      makes a PostScript image of a triangulation of points.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_quality/triangulation_quality.html">
+      TRIANGULATION_QUALITY</a>
+      is a C++ program which
+      computes quality measures of a triangulation.
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>ELL3</b> is an L-shaped region.<br>
+      There are 21 nodes and 24 elements.
+      <ul>
+        <li>
+          <a href = "ell3_nodes.txt">ell3_nodes.txt</a>,
+          the node coordinates.
+        </li>
+        <li>
+          <a href = "ell3_nodes.png">ell3_nodes.png</a>,
+          a PNG image of the nodes.
+        </li>
+        <li>
+          <a href = "ell3_elements.txt">ell3_elements.txt</a>,
+          the triangulation;
+        </li>
+        <li>
+          <a href = "ell3_elements.png">ell3_elements.png</a>,
+          a PNG image of the triangulation;
+        </li>
+        <li>
+          <a href = "ell3_element_neighbors.txt">
+          ell3_element_neighbors.txt</a>,
+          the neighbor triangles.
+        </li>
+        <li>
+          <a href = "ell3_element_neighbors.png">
+          ell3_element_neighbors.png</a>,
+          a PNG image in which the neighbor triangles are indicated.
+        </li>
+        <li>
+          <a href = "ell3_boundarynodes.txt">ell3_boundarynodes.txt</a>,
+          holds a 0 for each interior node and a 1 for each boundary node.
+        </li>
+        <li>
+          <a href = "ell3_boundaryedges.txt">ell3_boundaryedges.txt</a>,
+          lists pairs of node indices defining edges along the boundary.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 30 August 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

@@ -1,0 +1,21 @@
+netcdf foo {
+dimensions:
+	lat = 10 ;
+	lon = 5 ;
+	time = UNLIMITED ; // (0 currently)
+variables:
+	int lat(lat) ;
+		lat:units = "degrees_north" ;
+	int lon(lon) ;
+		lon:units = "degrees_east" ;
+	int time(time) ;
+		time:units = "seconds" ;
+	float z(time, lat, lon) ;
+		z:units = "meters" ;
+		z:valid_range = 0., 5000. ;
+	float t(time, lat, lon) ;
+	double p(time, lat, lon) ;
+		p:_FillValue = -999. ;
+	int rh(time, lat, lon) ;
+		rh:_FillValue = -1 ;
+}

@@ -1,0 +1,586 @@
+<html>
+
+  <head>
+    <title>
+      GRAPH_REPRESENTATION - Abstract Graph Representation
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      GRAPH_REPRESENTATION <br> Abstract Graph Representation
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>GRAPH_REPRESENTATION</b>
+      is a data directory which
+      contains examples of a variety of representations for
+      a few mathematical or abstract graphs.
+    </p>
+
+    <p>
+      Graphs are abstract models of a set of objects and some kind
+      of pairwise relationship that exists between some pairs of
+      the objects.  The objects are called <i>nodes</i> and the
+      relationships are called <i>edges</i> or <i>links</i>.
+    </p>
+
+    <p>
+      A graph is often depicted as a set of points (the nodes),
+      some pairs of which are connected by lines (the edges or links).
+    </p>
+
+    <p>
+      A <b>simple graph</b> is a set of vertices <b>V</b> and a set of
+      edges <b>E</b>, where each edge <b>e</b> in <b>E</b> is a set of
+      two distinct nodes from <b>V</b>.  By the conventions of set theory,
+      no distinction is made between the edges {A,B} and {B,A}.
+      This corresponds to the idea that the relationship being represented
+      is symmetric.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../datasets/cities/cities.html">
+      CITIES</a>,
+      a dataset directory which
+      contains sets of information about cities and the distances between them;
+    </p>
+
+    <p>
+      <a href = "../../f_src/codepack/codepack.html">
+      CODEPACK</a>,
+      a FORTRAN90 library which
+      computes "codes" that can determine if two graphs are isomorphic.
+    <p>
+
+    <p>
+      <a href = "../../c_src/dijkstra/dijkstra.html">
+      DIJKSTRA</a>,
+      a C program which
+      runs a simple example of Dijkstra's minimum distance algorithm for graphs.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/floyd/floyd.html">
+      FLOYD</a>,
+      a C++ library which
+      implements Floyd's algorithm for finding the shortest distance between pairs of
+      nodes on a directed graph.
+    </p>
+
+    <p>
+      <a href = "../../datasets/graffiti/graffiti.html">
+      GRAFFITI</a>,
+      a dataset directory which
+      contains 195 abstract graphs, with adjacency and embedding information,
+      stored in the GRF format.
+    </p>
+
+    <p>
+      <a href = "../../f_src/grafpack/grafpack.html">
+      GRAFPACK</a>,
+      a FORTRAN90 library which
+      carries out operations on abstract graphs.
+    </p>
+
+    <p>
+      <a href = "../../m_src/graph_representation/graph_representation.html">
+      GRAPH_REPRESENTATION</a>,
+      a MATLAB library which
+      can express the representation of an abstract mathematical graph
+      in several ways.
+    </p>
+
+    <p>
+      <a href = "../../data/grf/grf.html">
+      GRF</a>,
+      a data directory which
+      contains examples of GRF files,
+      an abstract graph file format, 2D graphics;
+    </p>
+
+    <p>
+      <a href = "../../m_src/grf_display/grf_display.html">
+      GRF_DISPLAY</a>,
+      a MATLAB program which
+      reads a GRF file defining a mathematical graph and
+      displays it in the MATLAB graphics window.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/grf_display_opengl/grf_display_opengl.html">
+      GRF_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads a GRF file defining a mathematical graph and
+      displays it in an OpenGL graphics window.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/grf_io/grf_io.html">
+      GRF_IO</a>,
+      a C++ library which
+      reads or writes a GRF file;
+    </p>
+
+    <p>
+      <a href = "../../f_src/laupack/laupack.html">
+      LAUPACK</a>,
+      a FORTRAN90 library which
+      carries out various operations on graphs.
+    </p>
+
+    <p>
+      <a href = "../../f_src/table_graph_code/table_graph_code.html">
+      TABLE_GRAPH_CODE</a>,
+      a FORTRAN90 program which
+      reads a TABLE file
+      representing the adjacency matrix of a graph, and computes the graph code.
+    </p>
+
+    <p>
+      <a href = "../../data/xyl/xyl.html">
+      XYL</a>,
+      a data directory which
+      contains examples of XYL files,
+      a simple 2D graphics point and line format;
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>DISCONNECTED</b> is an example of a disconnected graph.  It includes 8 nodes,
+      and 6 edges.
+      <ul>
+        <li>
+          <a href = "disconnected.grf">disconnected.grf</a>,
+          a GRF file;
+        </li>
+        <li>
+          <a href = "disconnected.png">disconnected.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "disconnected_adjacency_matrix.txt">disconnected_adjacency_matrix.txt</a>,
+          the adjacency matrix;
+        </li>
+        <li>
+          <a href = "disconnected_adjacency_structure.txt">disconnected_adjacency_structure.txt</a>,
+          the adjacency structure;
+        </li>
+        <li>
+          <a href = "disconnected_edges.txt">disconnected_edges.txt</a>,
+          the edge list;
+        </li>
+        <li>
+          <a href = "disconnected_incidence_matrix.txt">disconnected_incidence_matrix.txt</a>,
+          the incidence matrix;
+        </li>
+        <li>
+          <a href = "disconnected_node_components.txt">disconnected_node_components.txt</a>,
+          indicates the connected subcomponent to which each node belongs.
+        </li>
+        <li>
+          <a href = "disconnected_node_coordinates.txt">disconnected_node_coordinates.txt</a>,
+          node coordinates.
+        </li>
+        <li>
+          <a href = "disconnected_node_labels.txt">disconnected_node_labels.txt</a>,
+          node labels.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>KN57</b> is an example of an edge-weighted graph.  It includes 57 nodes,
+      and 1,596 = (57*56)/2 edges.  These are represented by a distance matrix.
+      <ul>
+        <li>
+          <a href = "kn57_distance_matrix.txt">kn57_distance_matrix.txt</a>,
+          the distance matrix.
+        </li>
+        <li>
+          <a href = "kn57_node_coordinates.txt">kn57_node_coordinates.txt</a>,
+          the node coordinates.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>MST</b> is an example of an edge-weighted graph.  It includes 10 nodes,
+      and 17 edges.
+      <ul>
+        <li>
+          <a href = "mst.grf">mst.grf</a>,
+          a GRF file;
+        </li>
+        <li>
+          <a href = "mst.png">mst.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "mst_adjacency_matrix.txt">mst_adjacency_matrix.txt</a>,
+          the adjacency matrix;
+        </li>
+        <li>
+          <a href = "mst_adjacency_structure.txt">mst_adjacency_structure.txt</a>,
+          the adjacency structure;
+        </li>
+        <li>
+          <a href = "mst_distance_matrix.txt">mst_distance_matrix.txt</a>,
+          the distance matrix;
+        </li>
+        <li>
+          <a href = "mst_edges.txt">mst_edges.txt</a>,
+          the edge list;
+        </li>
+        <li>
+          <a href = "mst_edge_weights.txt">mst_edge_weights.txt</a>,
+          the edge weights;
+        </li>
+        <li>
+          <a href = "mst_incidence_matrix.txt">mst_incidence_matrix.txt</a>,
+          the incidence matrix;
+        </li>
+        <li>
+          <a href = "mst_node_coordinates.txt">mst_node_coordinates.txt</a>,
+          node coordinates.
+        </li>
+        <li>
+          <a href = "mst_node_labels.txt">mst_node_labels.txt</a>,
+          node labels.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>MST2</b> is an example of an edge-weighted graph.  It includes 13 nodes,
+      and 21 edges.
+      <ul>
+        <li>
+          <a href = "mst2.grf">mst2.grf</a>,
+          a GRF file;
+        </li>
+        <li>
+          <a href = "mst2.png">mst2.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "mst2_adjacency_matrix.txt">mst2_adjacency_matrix.txt</a>,
+          the adjacency matrix;
+        </li>
+        <li>
+          <a href = "mst2_adjacency_structure.txt">mst2_adjacency_structure.txt</a>,
+          the adjacency structure;
+        </li>
+        <li>
+          <a href = "mst2_distance_matrix.txt">mst2_distance_matrix.txt</a>,
+          the distance matrix;
+        </li>
+        <li>
+          <a href = "mst2_edges.txt">mst2_edges.txt</a>,
+          the edge list;
+        </li>
+        <li>
+          <a href = "mst2_edge_weights.txt">mst2_edge_weights.txt</a>,
+          the edge weights;
+        </li>
+        <li>
+          <a href = "mst2_incidence_matrix.txt">mst2_incidence_matrix.txt</a>,
+          the incidence matrix;
+        </li>
+        <li>
+          <a href = "mst2_node_coordinates.txt">mst2_node_coordinates.txt</a>,
+          node coordinates.
+        </li>
+        <li>
+          <a href = "mst2_node_labels.txt">mst2_node_labels.txt</a>,
+          node labels.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>MUSEUM</b> is an example of a simple, connected graph.
+      It is actually a tree (a graph with no circuits).
+      It includes 18 nodes, and 17 edges.
+      <ul>
+        <li>
+          <a href = "museum.grf">museum.grf</a>,
+          a GRF file;
+        </li>
+        <li>
+          <a href = "museum.png">museum.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "museum_adjacency_matrix.txt">museum_adjacency_matrix.txt</a>,
+          the adjacency matrix;
+        </li>
+        <li>
+          <a href = "museum_adjacency_structure.txt">museum_adjacency_structure.txt</a>,
+          the adjacency structure;
+        </li>
+        <li>
+          <a href = "museum_edges.txt">museum_edges.txt</a>,
+          the edge list;
+        </li>
+        <li>
+          <a href = "museum_incidence_matrix.txt">museum_incidence_matrix.txt</a>,
+          the incidence matrix;
+        </li>
+        <li>
+          <a href = "museum_node_coordinates.txt">museum_node_coordinates.txt</a>,
+          node coordinates.
+        </li>
+        <li>
+          <a href = "museum_node_labels.txt">museum_node_labels.txt</a>,
+          node labels.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>PATHS</b> is an example of a simple, unconnected graph.
+      It includes 20 nodes and 22 edges.
+      <ul>
+        <li>
+          <a href = "paths.grf">paths.grf</a>,
+          a GRF file;
+        </li>
+        <li>
+          <a href = "paths.png">paths.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "paths_adjacency_matrix.txt">paths_adjacency_matrix.txt</a>,
+          the adjacency matrix;
+        </li>
+        <li>
+          <a href = "paths_adjacency_structure.txt">paths_adjacency_structure.txt</a>,
+          the adjacency structure;
+        </li>
+        <li>
+          <a href = "paths_edges.txt">paths_edges.txt</a>,
+          the edge list;
+        </li>
+        <li>
+          <a href = "paths_incidence_matrix.txt">paths_incidence_matrix.txt</a>,
+          the incidence matrix;
+        </li>
+        <li>
+          <a href = "paths_node_coordinates.txt">paths_node_coordinates.txt</a>,
+          node coordinates.
+        </li>
+        <li>
+          <a href = "paths_node_labels.txt">pathscd _node_labels.txt</a>,
+          node labels.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SIMPLE</b> is an example of a simple graph.  It includes 5 nodes,
+      and 4 edges.
+      <ul>
+        <li>
+          <a href = "simple.grf">simple.grf</a>,
+          a GRF file;
+        </li>
+        <li>
+          <a href = "simple.png">simple.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "simple_adjacency_matrix.txt">simple_adjacency_matrix.txt</a>,
+          the adjacency matrix;
+        </li>
+        <li>
+          <a href = "simple_adjacency_structure.txt">simple_adjacency_structure.txt</a>,
+          the adjacency structure;
+        </li>
+        <li>
+          <a href = "simple_edges.txt">simple_edges.txt</a>,
+          the edge list;
+        </li>
+        <li>
+          <a href = "simple_incidence_matrix.txt">simple_incidence_matrix.txt</a>,
+          the incidence matrix;
+        </li>
+        <li>
+          <a href = "simple_node_coordinates.txt">simple_node_coordinates.txt</a>,
+          node coordinates.
+        </li>
+        <li>
+          <a href = "simple_node_labels.txt">simple_node_labels.txt</a>,
+          node labels.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TSP</b> is an example of an edge-weighted complete graph.
+      It includes 5 nodes,
+      and 10 edges.
+      <ul>
+        <li>
+          <a href = "tsp.grf">tsp.grf</a>,
+          a GRF file;
+        </li>
+        <li>
+          <a href = "tsp.png">tsp.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "tsp_adjacency_matrix.txt">tsp_adjacency_matrix.txt</a>,
+          the adjacency matrix;
+        </li>
+        <li>
+          <a href = "tsp_adjacency_structure.txt">tsp_adjacency_structure.txt</a>,
+          the adjacency structure;
+        </li>
+        <li>
+          <a href = "tsp_distance_matrix.txt">tsp_distance_matrix.txt</a>,
+          the distance matrix;
+        </li>
+        <li>
+          <a href = "tsp_edges.txt">tsp_edges.txt</a>,
+          the edge list;
+        </li>
+        <li>
+          <a href = "tsp_edge_weights.txt">tsp_edge_weights.txt</a>,
+          the edge weights;
+        </li>
+        <li>
+          <a href = "tsp_incidence_matrix.txt">tsp_incidence_matrix.txt</a>,
+          the incidence matrix;
+        </li>
+        <li>
+          <a href = "tsp_node_coordinates.txt">tsp_node_coordinates.txt</a>,
+          node coordinates.
+        </li>
+        <li>
+          <a href = "tsp_node_labels.txt">tsp_node_labels.txt</a>,
+          node labels.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>USA</b> is an example of a simple graph of three components,
+      two of which are single isolated nodes.
+      It includes 51 nodes and 107 edges.
+      <ul>
+        <li>
+          <a href = "usa.grf">usa.grf</a>,
+          a GRF file;
+        </li>
+        <li>
+          <a href = "usa.png">usa.png</a>,
+          a PNG image based on the GRF file.
+        </li>
+        <li>
+          <a href = "usa_knuth.png">usa_knuth.png</a>,
+          a PNG image of the data (omitting Alaska and Hawaii) by Knuth.
+        </li>
+        <li>
+          <a href = "usa_adjacency_matrix.txt">usa_adjacency_matrix.txt</a>,
+          the adjacency matrix;
+        </li>
+        <li>
+          <a href = "usa_adjacency_structure.txt">usa_adjacency_structure.txt</a>,
+          the adjacency structure;
+        </li>
+        <li>
+          <a href = "usa_edges.txt">usa_edges.txt</a>,
+          the edge list;
+        </li>
+        <li>
+          <a href = "usa_incidence_matrix.txt">usa_incidence_matrix.txt</a>,
+          the incidence matrix;
+        </li>
+        <li>
+          <a href = "usa_node_coordinates.txt">usa_node_coordinates.txt</a>,
+          node coordinates.
+        </li>
+        <li>
+          <a href = "usa_node_labels.txt">usa_node_labels.txt</a>,
+          node labels.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>WALTHER</b> is an example of a simple, connected graph.
+      It includes 25 nodes,
+      and 31 edges.
+      <ul>
+        <li>
+          <a href = "walther.grf">walther.grf</a>,
+          a GRF file;
+        </li>
+        <li>
+          <a href = "walther.png">walther.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "walther_adjacency_matrix.txt">walther_adjacency_matrix.txt</a>,
+          the adjacency matrix;
+        </li>
+        <li>
+          <a href = "walther_adjacency_structure.txt">walther_adjacency_structure.txt</a>,
+          the adjacency structure;
+        </li>
+        <li>
+          <a href = "walther_edges.txt">walther_edges.txt</a>,
+          the edge list;
+        </li>
+        <li>
+          <a href = "walther_incidence_matrix.txt">walther_incidence_matrix.txt</a>,
+          the incidence matrix;
+        </li>
+        <li>
+          <a href = "walther_node_coordinates.txt">walther_node_coordinates.txt</a>,
+          node coordinates.
+        </li>
+        <li>
+          <a href = "walther_node_labels.txt">walther_node_labels.txt</a>,
+          node labels.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../data.html">
+      the DATA directory</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 24 January 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

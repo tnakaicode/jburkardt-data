@@ -1,0 +1,71 @@
+netcdf channel {
+dimensions:
+	nCells = 2660 ;
+	nEdges = 8205 ;
+	nVertices = 5545 ;
+	maxEdges = 10 ;
+	maxEdges2 = 20 ;
+	TWO = 2 ;
+	vertexDegree = 3 ;
+	nVertLevels = 3 ;
+	nTracers = 2 ;
+	Time = UNLIMITED ; // (1 currently)
+variables:
+	double latCell(nCells) ;
+	double lonCell(nCells) ;
+	double xCell(nCells) ;
+	double yCell(nCells) ;
+	double zCell(nCells) ;
+	int indexToCellID(nCells) ;
+	double latEdge(nEdges) ;
+	double lonEdge(nEdges) ;
+	double xEdge(nEdges) ;
+	double yEdge(nEdges) ;
+	double zEdge(nEdges) ;
+	int indexToEdgeID(nEdges) ;
+	double latVertex(nVertices) ;
+	double lonVertex(nVertices) ;
+	double xVertex(nVertices) ;
+	double yVertex(nVertices) ;
+	double zVertex(nVertices) ;
+	int indexToVertexID(nVertices) ;
+	int maxLevelCell(nCells) ;
+	int cellsOnEdge(nEdges, TWO) ;
+	int nEdgesOnCell(nCells) ;
+	int nEdgesOnEdge(nEdges) ;
+	int edgesOnCell(nCells, maxEdges) ;
+	int edgesOnEdge(nEdges, maxEdges2) ;
+	double weightsOnEdge(nEdges, maxEdges2) ;
+	double dvEdge(nEdges) ;
+	double dcEdge(nEdges) ;
+	double angleEdge(nEdges) ;
+	double areaCell(nCells) ;
+	double areaTriangle(nVertices) ;
+	int cellsOnCell(nCells, maxEdges) ;
+	int verticesOnCell(nCells, maxEdges) ;
+	int verticesOnEdge(nEdges, TWO) ;
+	int edgesOnVertex(nVertices, vertexDegree) ;
+	int cellsOnVertex(nVertices, vertexDegree) ;
+	double kiteAreasOnVertex(nVertices, vertexDegree) ;
+	double fEdge(nEdges) ;
+	double fVertex(nVertices) ;
+	double h_s(nCells) ;
+	double u(Time, nEdges, nVertLevels) ;
+	int boundaryEdge(nEdges, nVertLevels) ;
+	int boundaryVertex(nVertices, nVertLevels) ;
+	double u_src(nEdges, nVertLevels) ;
+	double v(Time, nEdges, nVertLevels) ;
+	double h(Time, nCells, nVertLevels) ;
+	double vh(Time, nEdges, nVertLevels) ;
+	double circulation(Time, nVertices, nVertLevels) ;
+	double vorticity(Time, nVertices, nVertLevels) ;
+	double ke(Time, nCells, nVertLevels) ;
+	double rho(Time, nCells, nVertLevels) ;
+	double tracers(Time, nCells, nVertLevels, nTracers) ;
+	double temperature(Time, nCells, nVertLevels) ;
+	double salinity(Time, nCells, nVertLevels) ;
+
+// global attributes:
+		:on_a_sphere = "YES             " ;
+		:sphere_radius = 6371220. ;
+}

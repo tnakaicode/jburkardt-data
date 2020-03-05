@@ -1,0 +1,311 @@
+<html>
+
+  <head>
+    <title>
+      DSP - A Sparse Triplet Matrix File Format
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      DSP <br> A Sparse Triplet Matrix File Format
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>DSP</b> is a data directory which
+      contains examples of the DSP sparse matrix data structure and file format.
+    </p>
+
+    <p>
+      The <b>DSP</b> format is used by CSPARSE ( "sparse triplet",
+      except that there the indices are 0-based),
+      by DLAP/SLAP (nonsymmetric SLAP triad format),
+      by MATLAB, and by SPARSEKIT ("COO" or "coordinate" format).
+    </p>
+
+    <p>
+      The <i>DSP data structure</i> simply records, for each nonzero
+      entry of the matrix, the row, column and value.  Thus, the information
+      in the data structure might be
+      <ul>
+        <li>
+          <b>M</b> and <b>N</b>, the number of rows and columns in the
+          (original full) matrix;
+        </li>
+        <li>
+          <b>NZ_NUM</b>, the number of nonzero elements in the matrix;
+        </li>
+        <li>
+          <b>ROW(1:NZ_NUM)</b>, the row indices of the nonzero elements;
+        </li>
+        <li>
+          <b>COL(1:NZ_NUM)</b>, the column indices of the nonzero elements;
+        </li>
+        <li>
+          <b>VAL(1:NZ_NUM)</b>, the values of the nonzero elements;
+        </li>
+      </ul>
+      Row and column indices are 1-based.
+    </p>
+
+    <p>
+      It is possible that a pair of indices (I,J) may occur more than
+      once.  Presumably, in this case, the intent is that the actual value
+      of A(I,J) is the sum of all such entries.  This is not a good thing
+      to do, but I seem to have come across this in MATLAB.
+    </p>
+
+    <p>
+      The data structure does not require that the data be sorted.
+      However, for efficient lookup and modification, it is very useful
+      to be able to assume that the data is sorted.  One natural sorting
+      would be by ROW first, and then by COLUMN.
+    </p>
+
+    <p>
+      Another sorting convention might require that the first N entries
+      of the data structure contain the information describing the diagonal
+      entries of the matrix.  If this is done, then diagonal preconditioning
+      is easy to carry out.
+    </p>
+
+    <p>
+      The <i>DSP file format</i> is an ASCII file of
+      <b>NZ_NUM</b> lines, with each line corresponding to a
+      nonzero entry of the matrix, and containing the row index,
+      column index and value of that entry, separated by spaces.
+    </p>
+
+    <p>
+      Note that MATLAB has the ability to read in a DSP file directly,
+      via commands like:
+      <pre><b>
+        data = load ( 'mydata.dsp' );
+        A = spconvert ( data );
+      </b></pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../c_src/csparse/csparse.html">
+      CSPARSE</a>,
+      a C library which
+      carries out the direct solution
+      of sparse linear systems.  It uses a 0-based indexing variant
+      of the DSP format.
+    </p>
+
+    <p>
+      <a href = "../../f_src/dlap/dlap.html">
+      DLAP</a>,
+      a FORTRAN90 library which
+      solves sparse systems
+      of linear equations, and includes routines for handling
+      matrices in the DLAP "Nonsymmetric Triad format" that is
+      equivalent to the DSP format described here.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/linplus/linplus.html">
+      LINPLUS</a>,
+      a C++ library which
+      carries out simple manipulations of matrices in a variety of formats.
+    </p>
+
+    <p>
+      <a href = "../../f_src/mgmres/mgmres.html">
+      MGMRES</a>,
+      a FORTRAN90 library which
+      applies the restarted GMRES
+      iterative technique to a sparse linear system stored in the
+      DSP format.
+    </p>
+
+    <p>
+      <a href = "../../f_src/sparsekit/sparsekit.html">
+      SPARSEKIT</a>,
+      a FORTRAN90 library which
+      includes routines for
+      the conversion and manipulation of matrices in the "COO" format,
+      which is equivalent to the DSP format described here.
+    </p>
+
+    <p>
+      <a href = "../../data/st/st.html">
+      ST</a>,
+      a data directory which
+      describes a sparse matrix
+      file format that is identical to the DSP format,
+      except that it uses 0-based indexing, which is suitable for
+      C and C++ programming.
+    </p>
+
+    <h3 align = "center">
+      Example:
+    </h3>
+
+    <p>
+      The 4 by 6 matrix
+      <pre>
+        11   0   0  14   0  16
+         0  22   0   0  25  26
+         0   0  33  34   0  36
+        41   0  43  44   0  46
+      </pre>
+      could be stored as a DSP file which reads:
+      <pre>
+       ROW  COL   VAL
+       ---  ---  ----
+        1    1   11.0
+        1    4   14.0
+        1    6   16.0
+        2    3   22.0
+        2    4   25.0
+        2    6   26.0
+        3    3   33.0
+        3    4   34.0
+        3    6   36.0
+        4    1   41.0
+        4    3   43.0
+        4    4   44.0
+        4    6   46.0
+      </pre>
+    </p>
+
+    <p>
+      Note that the data for this matrix is SORTED in the natural way,
+      that is, the ROW and COLUMN entries are lexically sorted.
+    </p>
+
+    <p>
+      If we specify that the diagonal elements must be listed first,
+      we might instead have the following:
+      <pre>
+       ROW  COL   VAL
+       ---  ---  ----
+        1    1   11.0
+        2    2    0.0
+        3    3   33.0
+        4    4   44.0
+        1    4   14.0
+        1    6   16.0
+        2    3   22.0
+        2    4   25.0
+        2    6   26.0
+        3    4   34.0
+        3    6   36.0
+        4    1   41.0
+        4    3   43.0
+        4    6   46.0
+      </pre>
+      Note that we had to insert a dummy "0.0" value for A(2,2), so that the storage
+      requirements increased slightly.
+    </p>
+
+    <h3 align = "center">
+      DSP File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII format;
+        </li>
+        <li>
+          each line has the form <b>I J A(I,J)</b>
+        </li>
+        <li>
+          the <b>I</b> and <b>J</b> indices are 1-based.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Timothy Davis,<br>
+          Direct Methods for Sparse Linear Systems,<br>
+          SIAM, 2006,<br>
+          ISBN: 0898716136,<br>
+          LC: QA188.D386.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "5by5.dsp">5by5.dsp</a>, a 5 by 5 matrix.
+        </li>
+        <li>
+          <a href = "ash219.dsp">ash219.dsp</a>
+        </li>
+        <li>
+          <a href = "bcsstk01.dsp">bcsstk01.dsp</a>
+        </li>
+        <li>
+          <a href = "bcsstk16.dsp">bcsstk16.dsp</a>
+        </li>
+        <li>
+          <a href = "fs_183_1.dsp">fs_183_1.dsp</a>
+        </li>
+        <li>
+          <a href = "kershaw.dsp">kershaw.dsp</a>, the 4 by 4 Kershaw matrix.
+        </li>
+        <li>
+          <a href = "lp_afiro.dsp">lp_afiro.dsp</a>, a 27 by 51 matrix with 102 nonzero entries.
+        </li>
+        <li>
+          <a href = "mbeacxc.dsp">mbeacxc.dsp</a>
+        </li>
+        <li>
+          <a href = "t1.dsp">t1.dsp</a>, a 4 by 4 matrix.
+        </li>
+        <li>
+          <a href = "west0067.dsp">west0067.dsp</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 08 August 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

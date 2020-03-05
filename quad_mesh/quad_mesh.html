@@ -1,0 +1,206 @@
+<html>
+
+  <head>
+    <title>
+      QUAD_MESH - Quadrilateral Mesh in 2D
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      QUAD_MESH <br> Quadrilateral Mesh in 2D
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>QUAD_MESH</b>
+      is a data directory which
+      contains examples of files that define a quad mesh.
+    </p>
+
+    <p>
+      A quad mesh is a mesh of a 2D region based on quadrilaterals.
+      A quad mesh can be defined by using two files:
+      <ul>
+        <li>
+          the <i>node file</i> lists the coordinates of
+          a set of points.
+        </li>
+        <li>
+          the <i>element file</i> lists sets of 4 node indices, forming
+          the elements.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../f_src/fem_io/fem_io.html">
+      FEM_IO</a>,
+      a FORTRAN90 library which
+      reads or writes node, element and data files defining a finite element model.
+    </p>
+
+    <p>
+      <a href = "../../f_src/fem2d_pack/fem2d_pack.html">
+      FEM2D_PACK</a>,
+      a FORTRAN90 library which
+      handles various tasks associated with 2D finite element meshes.
+    </p>
+
+    <p>
+      <a href = "../../f_src/mesh_bandwidth/mesh_bandwidth.html">
+      MESH_BANDWIDTH</a>,
+      a FORTRAN90 program which
+      returns the geometric bandwidth associated with a mesh of
+      elements of any order and in a space of arbitrary dimension.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mesh_display_opengl/mesh_display_opengl.html">
+      MESH_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads files defining a polygonal mesh and displays an image using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../f_src/quad_mesh/quad_mesh.html">
+      QUAD_MESH</a>,
+      a FORTRAN90 library which
+      handles meshes of quadrilaterals over a 2D region;
+    </p>
+
+    <p>
+      <a href = "../../data/quad_mesh_order1/quad_mesh_order1.html">
+      QUAD_MESH_ORDER1</a>,
+      a data directory of examples of QUAD_MESH files,
+      a quadrilateral mesh in 2D, with an associated data value that is
+      constant over each element of the mesh;
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>RECTANGLE</b> is a simple rectilinear mesh using 30 points that form 20 quadrilateral
+      elements in a 4x5 mesh of squares.
+      <ul>
+        <li>
+          <a href = "rectangle_nodes.txt">rectangle_nodes.txt</a>,
+          the coordinates of nodes;
+        </li>
+        <li>
+          <a href = "rectangle_elements.txt">rectangle_elements.txt</a>,
+          the nodes that form the elements.
+        </li>
+        <li>
+          <a href = "rectangle.png">rectangle.png</a>,
+          a PNG image of
+          the mesh created by MESH_DISPLAY_OPEN_GL.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>HOLE</b> is a simple rectilinear mesh using 28 points that form 17 quadrilateral
+      elements.  The mesh includes a small interior hole.
+      <ul>
+        <li>
+          <a href = "hole_nodes.txt">hole_nodes.txt</a>,
+          the coordinates of nodes;
+        </li>
+        <li>
+          <a href = "hole_elements.txt">hole_elements.txt</a>,
+          the nodes that form the elements.
+        </li>
+        <li>
+          <a href = "hole_element_neighbors.txt">hole_element_neighbors.txt</a>,
+          lists the neighboring element on each side of a given element.
+        </li>
+        <li>
+          <a href = "hole.png">hole.png</a>,
+          a PNG image of
+          the mesh created by MESH_DISPLAY_OPEN_GL.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SEMICIRCLE</b> is a mesh in which the elements are not rectilinear.  And because
+      the mesh is in a semicircle, there is one row of "degenerate" quadrilaterals
+      which are actually triangles..  It uses 37 points that form 32 quadrilateral
+      elements.
+      <ul>
+        <li>
+          <a href = "semicircle_nodes.txt">semicircle_nodes.txt</a>,
+          the coordinates of nodes;
+        </li>
+        <li>
+          <a href = "semicircle_elements.txt">semicircle_elements.txt</a>,
+          the nodes that form the elements.
+        </li>
+        <li>
+          <a href = "semicircle_element_neighbors.txt">semicircle_element_neighbors.txt</a>,
+          lists the neighboring element on each side of a given element.
+        </li>
+        <li>
+          <a href = "semicircle.png">semicircle.png</a>,
+          a PNG image of
+          the mesh created by MESH_DISPLAY_OPEN_GL.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>WEB</b> is a mesh in which the elements are not rectilinear.  It looks a bit
+      like a creepy spider web.  It uses 100 points that form 81 quadrilateral
+      elements.
+      <ul>
+        <li>
+          <a href = "web_nodes.txt">web_nodes.txt</a>,
+          the coordinates of nodes;
+        </li>
+        <li>
+          <a href = "web_elements.txt">web_elements.txt</a>,
+          the nodes that form the elements.
+        </li>
+        <li>
+          <a href = "web.png">web.png</a>,
+          a PNG image of
+          the mesh created by MESH_DISPLAY_OPEN_GL.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 29 September 2009.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

@@ -1,0 +1,255 @@
+<html>
+
+  <head>
+    <title>
+      QUAD_MESH_ORDER1 - Quadrilateral Mesh with Piecewise Constant Data
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      QUAD_MESH_ORDER1 <br> Quadrilateral Mesh with Piecewise Constant Data
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>QUAD_MESH_ORDER1</b>
+      is a data directory which
+      contains examples of files that define a quad mesh and an associated
+      data value that is constant over each element of the mesh.
+    </p>
+
+    <p>
+      An order 1 quad mesh is a mesh of a 2D region based on quadrilaterals,
+      with a piecewise constant value.
+      An order1 quad mesh can be defined by three files:
+      <ul>
+        <li>
+          the <i>node file</i> lists the coordinates of
+          a set of points.
+        </li>
+        <li>
+          the <i>element file</i> lists sets of 4 node indices, forming
+          the elements.
+        </li>
+        <li>
+          the <i>value file</i> lists a value associated with each element.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../f_src/fem_io/fem_io.html">
+      FEM_IO</a>,
+      a FORTRAN90 library which
+      reads or writes node, element and data files defining a finite element model.
+    </p>
+
+    <p>
+      <a href = "../../f_src/fem2d_pack/fem2d_pack.html">
+      FEM2D_PACK</a>,
+      a FORTRAN90 library which
+      handles various tasks associated with 2D finite element meshes.
+    </p>
+
+    <p>
+      <a href = "../../f_src/mesh_bandwidth/mesh_bandwidth.html">
+      MESH_BANDWIDTH</a>,
+      a FORTRAN90 program which
+      returns the geometric bandwidth associated with a mesh of
+      elements of any order and in a space of arbitrary dimension.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mesh_display_opengl/mesh_display_opengl.html">
+      MESH_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads files defining a polygonal mesh and displays an image using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../data/quad_mesh/quad_mesh.html">
+      QUAD_MESH</a>,
+      a data directory which
+      defines a format for storing meshes of quadrilaterals over a 2D region.
+    </p>
+
+    <p>
+      <a href = "../../m_src/quad_mesh_order1_display/quad_mesh_order1_display.html">
+      QUAD_MESH_ORDER1_DISPLAY</a>,
+      a MATLAB program which
+      plots piecewise constant data associated with a mesh of quadrilaterals;
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>B5</b> displays the Hamming distance matrix for the binary codes for integers
+      0 through 5.
+      <ul>
+        <li>
+          <a href = "b5_nodes.txt">b5_nodes.txt</a>,
+          the coordinates of nodes;
+        </li>
+        <li>
+          <a href = "b5_elements.txt">b5_elements.txt</a>,
+          the nodes that form the elements.
+        </li>
+        <li>
+          <a href = "b5_values.txt">b5_values.txt</a>,
+          the value associated with each node.
+        </li>
+        <li>
+          <a href = "b5_2d.png">b5_2d.png</a>,
+          an overhead view of the mesh.
+        </li>
+        <li>
+          <a href = "b5_3d.png">b5_3d.png</a>,
+          a 3D view of the piecewise constant mesh function.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>B15</b> displays the Hamming distance matrix for the binary codes for integers
+      0 through 15.
+      <ul>
+        <li>
+          <a href = "b15_nodes.txt">b15_nodes.txt</a>,
+          the coordinates of nodes;
+        </li>
+        <li>
+          <a href = "b15_elements.txt">b15_elements.txt</a>,
+          the nodes that form the elements.
+        </li>
+        <li>
+          <a href = "b15_values.txt">b15_values.txt</a>,
+          the value associated with each node.
+        </li>
+        <li>
+          <a href = "b15_2d.png">b15_2d.png</a>,
+          an overhead view of the mesh.
+        </li>
+        <li>
+          <a href = "b15_3d.png">b15_3d.png</a>,
+          a 3D view of the piecewise constant mesh function.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>G5</b> displays the Hamming distance matrix for the Gray codes for integers
+      0 through 5.
+      <ul>
+        <li>
+          <a href = "g5_nodes.txt">g_nodes.txt</a>,
+          the coordinates of nodes;
+        </li>
+        <li>
+          <a href = "g5_elements.txt">g5_elements.txt</a>,
+          the nodes that form the elements.
+        </li>
+        <li>
+          <a href = "g5_values.txt">g5_values.txt</a>,
+          the value associated with each node.
+        </li>
+        <li>
+          <a href = "g5_2d.png">g5_2d.png</a>,
+          an overhead view of the mesh.
+        </li>
+        <li>
+          <a href = "g5_3d.png">g5_3d.png</a>,
+          a 3D view of the piecewise constant mesh function.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>G15</b> displays the Hamming distance matrix for the Gray codes for integers
+      0 through 15.
+      <ul>
+        <li>
+          <a href = "g15_nodes.txt">g15_nodes.txt</a>,
+          the coordinates of nodes;
+        </li>
+        <li>
+          <a href = "g15_elements.txt">g15_elements.txt</a>,
+          the nodes that form the elements.
+        </li>
+        <li>
+          <a href = "g15_values.txt">g15_values.txt</a>,
+          the value associated with each node.
+        </li>
+        <li>
+          <a href = "g15_2d.png">g15_2d.png</a>,
+          an overhead view of the mesh.
+        </li>
+        <li>
+          <a href = "g15_3d.png">g15_3d.png</a>,
+          a 3D view of the piecewise constant mesh function.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>POOL</b> is a simple rectilinear mesh using 28 points in a 7x4 grid, forming
+      18 elements, along with a value that we can think of as the depth of a swimming pool
+      measured once in each element.
+      <ul>
+        <li>
+          <a href = "pool_nodes.txt">pool_nodes.txt</a>,
+          the coordinates of nodes;
+        </li>
+        <li>
+          <a href = "pool_elements.txt">pool_elements.txt</a>,
+          the nodes that form the elements.
+        </li>
+        <li>
+          <a href = "pool_values.txt">pool_values.txt</a>,
+          the value associated with each node.
+        </li>
+        <li>
+          <a href = "pool_2d.png">pool_2d.png</a>,
+          an overhead view of the mesh.
+        </li>
+        <li>
+          <a href = "pool_3d.png">pool_3d.png</a>,
+          a 3D view of the piecewise constant mesh function.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 30 January 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

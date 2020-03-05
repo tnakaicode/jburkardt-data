@@ -1,0 +1,242 @@
+<html>
+
+  <head>
+    <title>
+      TECPLOT ASCII Files - (extension ".dat")
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      TECPLOT ASCII Files <br> (extension ".dat")
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TEC</b> is a data directory which
+      contains examples of TECPLOT ASCII files.  TECPLOT ASCII files are used by
+      the TECPLOT program, which is a visualization program for
+      technical data.  Typically, a user has an application program
+      (fluid flow solver, engineering stress program, aeronautic
+      simulator, heat flow program), that produces lots of data.
+    </p>
+
+    <p>
+      The user must write a subroutine that packages this data into
+      a TECPLOT ASCII file format ( there are several, including special finite
+      element forms).  Then the user can postprocess the data, and
+      display it, by running TECPLOT.
+    </p>
+
+    <h3 align = "center">
+      TECPLOT ASCII File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII (although TECPLOT can also create and use binary data files
+          which typically have the ".plt" extension);
+        </li>
+        <li>
+          Color is not associated with the data, but can be added
+          during postprocessing by the TECPLOT program, or by associating
+          variables "R", "G" and "B" with data, for instance;
+        </li>
+        <li>
+          2D or 3D data, and can have time dependence;
+        </li>
+        <li>
+          No compression (except for the binary data format option);
+        </li>
+        <li>
+          Geometric data is stored, but the user can also store associated
+          quantities such as pressure, temperature, or velocity.
+        </li>
+        <li>
+          Data is grouped into zones whose meaning is determined by the user.
+          Animation is achieved by starting with each zone being a
+          "time snapshot", and displaying one zone at a time.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          The TECPLOT home page:<br>
+          <a href = "http://www.datplot.com/">
+                     http://www.datplot.com/</a>
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "3dgeom.dat">3dgeom.dat</a>,
+          3D geometries, using
+          using POINT and BLOCK formats.  Contains 2 zones;
+        </li>
+        <li>
+          <a href = "block_febrick_3d.dat">block_febrick_3d.dat</a>,
+          3D finite element, scalar data T(X,Y,Z),
+           using the "BLOCK" datapacking and
+          "FEBRICK" element;
+        </li>
+        <li>
+          <a href = "block_fetet_3d.dat">feblock_tet_3d.dat</a>,
+          3D finite element tetrahedral data, using "BLOCK" datapacking
+          and "FETETRAHEDRON" element;
+        </li>
+        <li>
+          <a href = "channel.dat">channel.dat</a>,
+          2D channel flow, with two
+          boundary lines and an internal dashed line drawn, using POINT
+          format;
+        </li>
+        <li>
+          <a href = "crystal_plot.dat">crystal_plot.dat</a>,
+          2D data,
+          uses the BLOCK format, created by the
+          <a href = "../../f_src/crystal_plot/crystal_plot.html">
+          CRYSTAL_PLOT</a> program;
+        </li>
+        <li>
+          <a href = "cylinder_3d.dat">cylinder_3d.dat</a>;
+        </li>
+        <li>
+          <a href = "cylinder_slice.dat">cylinder_slice.dat</a>;
+        </li>
+        <li>
+          <a href = "cylindrical.dat">cylindrical.dat</a>,
+          uses the POINT format;
+        </li>
+        <li>
+          <a href = "ell.dat">
+          ell.dat</a>,
+          a small dataset on an L-shaped 2D region.
+        </li>
+        <li>
+          <a href = "humanoid_quad.dat">humanoid_quad.dat</a>
+          color data (R,G,B)(X,Y,Z), for the SURFACE of a 3D human
+          figure, using "DATAPACKING=POINT" and the "FEQUADRILATERAL" element;
+        </li>
+        <li>
+          <a href = "humanoid_tri.dat">humanoid_tri.dat</a>
+          color data (R,G,B)(X,Y,Z), for the SURFACE of a 3D human
+          figure, using "DATAPACKING=POINT" and the "FETRIANGLE" element;
+        </li>
+        <li>
+          <a href = "humanoid_tri.png">humanoid_tri.png</a>
+          a <a href = "../../data/png/png.html">PNG</a> image of the
+          humanoid;
+        </li>
+        <li>
+          <a href = "movie.dat">movie.dat</a>,
+          a very simple "animation"
+          of two tiny frames, using the POINT format.  Contains 2 zones.
+        </li>
+        <li>
+          <a href = "multzn2d.dat">multzn2d.dat</a>,
+          a multizone 2D plot,
+          using the POINT format;  Contains 2 zones.
+        </li>
+        <li>
+          <a href = "plane_slice.dat">plane_slice.dat</a>;
+        </li>
+        <li>
+          <a href = "point_febrick_3d_01.dat">fepoint_brick_3d_01.dat</a>,
+          3D finite element volume data T(X,Y,Z), using "DATAPACKING=POINT"
+          and "FEBRICK" element;
+        </li>
+        <li>
+          <a href = "point_febrick_3d_02.dat">fepoint_brick_3d_02.dat</a>,
+          3D finite element data PSI(X,Y,Z), representing a superconductivity
+          computation, using "DATAPACKING=POINT" and "FEBRICK" element;
+        </li>
+        <li>
+          <a href = "point_fequad_2d.dat">fepoint_quad_2d.dat</a>,
+          2D finite element data, using "DATAPACKING=POINT" and
+          and "FEQUADRILATERAL" element;
+        </li>
+        <li>
+          <a href = "point_fetet_3d.dat">fepoint_tet_3d.dat</a>,
+          3D finite element tetrahedral data, using "DATAPACKING=POINT"
+          and "FETETRAHEDRON" element;
+        </li>
+        <li>
+          <a href = "point_fetri_2d_01.dat">fepoint_tri_2d_01.dat</a>,
+          2D finite element data, (a very simple cube), uses
+          "DATAPACKING=POINT" and "FETRIANGLE" elements;
+        </li>
+        <li>
+          <a href = "point_fetri_2d_02.dat">fepoint_tri_2d_02.dat</a>,
+          a 2D finite element flow field, (U,V)(X,Y), Rho(X,Y), using
+          "DATAPACKING=POINT" and "FETRIANGLE" elements.
+          computed and written by the
+          <a href = "../../f_src/flow5/flow5.html">FLOW5 program</a>;
+        </li>
+        <li>
+          <a href = "point_fetri_2d_03.dat">fepoint_tri_2d_03.dat</a>,
+          a 2D finite element flow field, (U,V)(X,Y), Rho(X,Y), using
+          "DATAPACKING=POINT" and "FETRIANGLE" elements.
+          computed and written by the
+          <a href = "../../f_src/flow6/flow6.html">FLOW6 program</a>;
+        </li>
+        <li>
+          <a href = "simp3dbk.dat">simp3dbk.dat</a>,
+          simple 3D block volume data, density(X,Y,Z), using the BLOCK format;
+        </li>
+        <li>
+          <a href = "simp3dpt.dat">simp3dpt.dat</a>,
+          simple 3D point volume data, density(X,Y,Z), using the POINT format;
+        </li>
+        <li>
+          <a href = "simpscat.dat">simpscat.dat</a>,
+          a scatter plot using POINT format;
+        </li>
+        <li>
+          <a href = "simpxy.dat">simpxy.dat</a>,
+          a simple (X,Y(X)) plot of temperature versus distance;
+        </li>
+        <li>
+          <a href = "simpxy2.dat">
+          simpxy2.dat</a>,
+          an (X,Y(X)) plot of temperature versus distance.  Uses weights.  Contains 4 zones.
+        </li>
+
+        <li>
+          <a href = "tiny.dat">
+          tiny.dat</a>,
+          a "tiny" dataset.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 11 March 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

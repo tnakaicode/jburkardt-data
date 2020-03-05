@@ -1,0 +1,207 @@
+<html>
+
+  <head>
+    <title>
+      MEDIT - A File Format for Finite Element Meshes
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      MEDIT <br> A File Format for Finite Element Meshes
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>MEDIT</b>
+      is a data directory which
+      contains examples of files which can be used by the MEDIT program
+      to define a 2D or 3D mesh for use by the finite element method (FEM), 
+      using triangles, quadrilaterals, tetrahedrons or hexahedrons.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../examples/medit/medit.html">
+      MEDIT</a>,
+      examples which
+      illustrate the use of medit, an interactive graphics program developed 
+      to visualize numerical simulation results on unstructured meshes in
+      two and three dimensions.  Scalar, vector and tensor fields can be 
+      easily associated and displayed with meshes.
+      The program is by Pascal Frey.
+    </p>
+
+    <p>
+      <a href = "../../c_src/medit_io/medit_io.html">
+      MEDIT_IO</a>,
+      a C library which
+      can read or write files used by the MEDIT program, which can be used to 
+      define the a mesh associated with the finite element method (FEM) 
+      in 2D or 3D, using triangles, quadrilaterals, tetrahedrons or hexahedrons.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Pascal Frey,<br>
+          MEDIT: An interactive mesh visualization software,<br>
+          Technical Report RT-0253,<br>
+          Institut National de Recherche en Informatique et en Automatique,<br>
+          03 December 2001.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>CUBE86</b> subdivides the unit cube, using 39 vertices to
+      form 86 tetrahedra.  There are 72 boundary triangles.
+      <ul>
+        <li>
+          <a href = "cube86.mesh">cube86.mesh</a>, the mesh file.
+        </li>
+        <li>
+          <a href = "cube86.png">cube86.png</a>, a PNG snapshot.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>CYL248</b> is a cylinder defined by 92 vertices.  The volume
+      is subdivided into 248 tetrahedra which have 154 boundary triangles.
+      <ul>
+        <li>
+          <a href = "cyl248.mesh">cyl248.mesh</a>, the mesh file.
+        </li>
+        <li>
+          <a href = "cyl248.png">cyl248.png</a>, a PNG snapshot.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>ELL</b> is a 2D L-shaped region, with a grid of 65 nodes
+      and 96 elements of order 3 triangles.
+      <ul>
+        <li>
+          <a href = "ell.mesh">ell.mesh</a>, the mesh file.
+        </li>
+        <li>
+          <a href = "ell.png">ell.png</a>, a PNG snapshot.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>GREENLAND</b> is a triangulation of Greenland, using 66,425 nodes and
+      131,189 elements of order 3 triangles.
+      <ul>
+        <li>
+          <a href = "greenland.mesh">greenland.mesh</a>, the mesh file.
+        </li>
+        <li>
+          <a href = "greenland.bb">greenland.bb</a>, the ice thickness
+          at each node.
+        </li>
+        <li>
+          <a href = "greenland_thickness.png">greenland_thickness.png</a>,
+          a color contour image of the ice thickness.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>GREENLAND_OLD</b> is a triangulation of Greenland, using 33,343 nodes and
+      64,125 elements of order 3 triangles.
+      <ul>
+        <li>
+          <a href = "greenland_old.mesh">greenland_old.mesh</a>, the mesh file.
+        </li>
+        <li>
+          <a href = "greenland_old.png">greenland_old.png</a>,
+          an image of a portion of the triangulation, after "zooming in" twice.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>HEXAHEXA_2x2x2</b> subdivides the unit 3D cube into a 2x2x2 mesh
+      of 8 subcubes or "hexahedra", using 27 vertices, and 24 boundary
+      quadrilaterals.
+      <ul>
+        <li>
+          <a href = "hexahexa_2x2x2.mesh">hexahexa_2x2x2.mesh</a>, the mesh file.
+        </li>
+        <li>
+          <a href = "hexahexa_2x2x2.png">hexahexa_2x2x2.png</a>, a PNG snapshot.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>P01</b> is 3D data for a rectangular channel of dimensions
+      3x1x1 physical units, using 584 nodes and 2568 tetrahedral elements.
+      <ul>
+        <li>
+          <a href = "p01.mesh">p01.mesh</a>,
+          the mesh file.
+        </li>
+        <li>
+          <a href = "p01.png">p01.png</a>,
+          an image of the mesh.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>PART</b> is a large 3D object including 28,694 vertices, 14,890 triangles,
+      150,779 tetrahedrons, 50 corners, 1905 edges and 1905 ridges.
+      <ul>
+        <li>
+          <a href = "part.mesh">part.mesh</a>, the mesh file.
+        </li>
+        <li>
+          <a href = "part.png">part.png</a>, a PNG snapshot.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../data.html">
+      the DATA directory</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 10 October 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

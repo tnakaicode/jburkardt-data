@@ -1,0 +1,207 @@
+<html>
+
+  <head>
+    <title>
+      NETCDF Files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      NETCDF Files
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>NETCDF</b> is a data directory which
+      contains examples of files that use the NETCDF format.
+    </p>
+
+    <p>
+      NETCDF (Network Common Data Form) is a set of software libraries
+      and machine-independent data formats that support the creation,
+      access, and sharing of array-oriented scientific data.
+    </p>
+
+    <p>
+      NETCDF provides a program called <b>ncdump</b> which can be used to create
+      a text version of the data, or to extract the header information.
+      Since the data files are often enormous, it is usually the header
+      information that is most useful, and this information has been
+      extracted and provided separately for the example files given here.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/cdl/cdl.html">
+      CDL</a>,
+      a data directory which
+      contains examples of CDL files,
+      a text version of NETCDF files created by the NCDUMP program;
+    </p>
+
+    <p>
+      <a href = "../../datasets/gfd2/gfd2.html">
+      GFD2</a>,
+      a dataset directory which
+      contains geophysical data, stored in NETCDF format.
+    </p>
+
+    <p>
+      <a href = "../../c_src/netcdf/netcdf.html">
+      NETCDF</a>,
+      C programs which
+      read and write NETCDF files.
+    </p>
+
+    <p>
+      <a href = "../../data/netcdf_gis/netcdf_gis.html">
+      NETCDF_GIS</a>,
+      a data directory which
+      contains examples of GIS data stored as NETCDF files.
+    </p>
+
+    <p>
+      <a href = "../../data/netcdf_glimmer/netcdf_glimmer.html">
+      NETCDF_GLIMMER</a>,
+      a data directory which
+      contains examples of GLIMMER data from Oak Ridge, stored as NETCDF files.
+    </p>
+
+    <p>
+      <a href = "../../data/netcdf_mpas/netcdf_mpas.html">
+      NETCDF_MPAS</a>,
+      a data directory which
+      contains examples of MPAS grid data stored as NETCDF files.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Russ Rew, Glenn Davis, Steve Emmerson, Harvey Davies, Ed Hartney,
+          The NetCDF User's Guide,<br>
+          Unidata Program Center, March 2009.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>FOO</b> is a tiny example with
+      named dimensions "lat", "lon", "time", and variables "z", "t",
+      "p", "rh", "lat", "lon", "time", variable attributes "units",
+      "_FillValue", "valid_range", and some data;
+      <ul>
+        <li>
+          <a href = "foo.nc">foo.nc</a>
+        </li>
+        <li>
+          <a href = "foo_header.txt">foo_header.txt</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>HEXAHEXA_2X2X2</b> subdivides the unit cube
+      into a 2x2x2 mesh of 8 subcubes or "hexahedra", using 27 vertices,
+      and 24 boundary quadrilaterals.
+      <ul>
+        <li>
+          <a href = "hexahexa_2x2x2.nc">hexahexa_2x2x2.nc</a>
+        </li>
+        <li>
+          <a href = "hexahexa_2x2x2_header.txt">hexahexa_2x2x2_header.txt</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>PART</b> defines a large 3D object including 28,694 vertices,
+      14,890 triangles, 150,779 tetrahedrons, 50 corners, 1905 edges
+      and 1905 ridges.
+      <ul>
+        <li>
+          <a href = "part.nc">part.nc</a>
+        </li>
+        <li>
+          <a href = "part_header.txt">part_header.txt</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>PRES_TEMP_4D</b> stores pressure and temperature as 4D arrays,
+      at 2 times, 2 heights, 6 latitudes and 12 longitudes.
+      <ul>
+        <li>
+          <a href = "pres_temp_4D.nc">pres_temp_4D.nc</a>;
+        </li>
+        <li>
+          <a href = "pres_temp_4D_header.txt">pres_temp_4D_header.txt</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SFC_PRES_TEMP</b> stores latitude, longitude, pressure
+      and temperature on a 6 by 12 grid.
+      <ul>
+        <li>
+          <a href = "sfc_pres_temp.nc">sfc_pres_temp.nc</a>;
+        </li>
+        <li>
+          <a href = "sfc_pres_temp_header.txt">sfc_pres_temp_header.txt</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SIMPLE_XY</b> stores a quantity "data" on a 6 by 12 XY mesh.
+      <ul>
+        <li>
+          <a href = "simple_xy.nc">simple_xy.nc</a>;
+        </li>
+        <li>
+          <a href = "simple_xy_header.txt">simple_xy_header.txt</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 25 February 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

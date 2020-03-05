@@ -1,0 +1,440 @@
+<html>
+
+  <head>
+    <title>
+      STLA Files - ASCII stereolithography files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      STLA Files <br> ASCII stereolithography files
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>STLA</b> is a data directory which
+      contains examples of "ASCII STL" files.  "STL" stands for
+      "stereolithography", and indicates that the primary purpose of this
+      file format is to describe the shape of a 3D stationary object.
+      Stereolithography is a means of creating physical 3D models of
+      such objects, using resin or carefully cut and joined pieces of paper.
+    </p>
+
+    <p>
+      An ASCII or binary STL file usually has a filename extension of ".stl".
+    </p>
+
+    <p>
+      An STL file contains a description of the surface of a solid that has been
+      decomposed into triangles.  The vertices of the triangles should
+      be listed in counterclockwise order, as viewed from outside the surface.
+      A normal vector for the triangle may also be listed.
+    </p>
+
+    <p>
+      The file begins with a <b>solid</b> record, (which can include a name
+      for the object), and ends with an <b>endsolid</b> record.  Each
+      triangle begins with a <b>facet</b> record and ends with an
+      <b>endfacet</b> record.  The normal vector, if given, is included as
+      part of the <b>facet</b> record, and is identified by the <b>normal</b>
+      keyword.  The normal vector should have unit length.  The three vertices
+      of the triangle are delimited by <b>outer loop</b> and <b>endloop</b>
+      records.  Each vertex is described on a <b>vertex</b> record that
+      lists its (X,Y,Z) coordinates.
+    </p>
+
+    <p>
+      An ASCII STL file for a four-face figure that's a slice of a cube
+      would be:
+      <pre>
+        solid cube_corner
+          facet normal 0.0 -1.0 0.0
+            outer loop
+              vertex 0.0 0.0 0.0
+              vertex 1.0 0.0 0.0
+              vertex 0.0 0.0 1.0
+            endloop
+          endfacet
+          facet normal 0.0 0.0 -1.0
+            outer loop
+              vertex 0.0 0.0 0.0
+              vertex 0.0 1.0 0.0
+              vertex 1.0 0.0 0.0
+            endloop
+          endfacet
+          facet normal -1.0 0.0 0.0
+            outer loop
+              vertex 0.0 0.0 0.0
+              vertex 0.0 0.0 1.0
+              vertex 0.0 1.0 0.0
+            endloop
+          endfacet
+          facet normal 0.577 0.577 0.577
+            outer loop
+              vertex 1.0 0.0 0.0
+              vertex 0.0 1.0 0.0
+              vertex 0.0 0.0 1.0
+            endloop
+          endfacet
+        endsolid
+      </pre>
+      <i>(Thanks to Mike Amling for correcting a bad normal vector in this example!)</i>
+    </p>
+
+    <p>
+      The <b>facet</b> record has the form:
+      <ul>
+        <li>
+          The <b>normal</b> vector, 3 floating values of 4 bytes each;
+        </li>
+        <li>
+          <b>vertex</b> 1 coordinates, 3 floating values of 4 bytes each;
+        </li>
+        <li>
+          <b>vertex</b> 2 coordinates, 3 floating values of 4 bytes each;
+        </li>
+        <li>
+          <b>vertex</b> 3 coordinates, 3 floating values of 4 bytes each;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      STLA File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          3D;
+        </li>
+        <li>
+          ASCII;
+        </li>
+        <li>
+          No color information;
+        </li>
+        <li>
+          Normal vectors are associated with faces;
+        </li>
+        <li>
+          Triangulated surfaces;
+        </li>
+        <li>
+          No compression;
+        </li>
+        <li>
+          1 image;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/ivcon/ivcon.html">
+      IVCON</a>,
+      a C++ program which
+      can convert graphics information between various 3D formats.
+      <i>(ASCII STL is a supported format.)</i>
+    </p>
+
+    <p>
+      <a href = "../../f_src/ivread/ivread.html">
+      IVREAD</a>,
+      a FORTRAN90 program which
+      can convert graphics information between various 3D formats.
+      (ASCII STL is a supported format.)
+    </p>
+
+    <p>
+      <a href = "../../examples/meshlab/meshlab.html">
+      MESHLAB</a>,
+      examples which
+      illustrate the use of the meshlab program, 
+      an advanced mesh processing system for automatic or user-assisted
+      editing, cleaning, filtering, converting and rendering of large
+      unstructured 3D triangular meshes.
+    </p>
+
+    <p>
+      <a href = "../../m_src/stla_display/stla_display.html">
+      STLA_DISPLAY</a>,
+      a MATLAB program which
+      reads an ASCII STL file and displays it on the screen.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/stla_io/stla_io.html">
+      STLA_IO</a>,
+      a C++ library which
+      reads and writes the 3D graphics information
+      in an ASCII STL (stereolithography) file;
+    </p>
+
+    <p>
+      <a href = "../../f_src/stla_io/stla_io.html">
+      STLA_IO</a>,
+      a FORTRAN90 library which
+      reads and writes the 3D graphics information
+      in an ASCII STL (stereolithography) file;
+    </p>
+
+    <p>
+      <a href = "../../m_src/stla_io/stla_io.html">
+      STLA_IO</a>,
+      a MATLAB library which
+      reads and writes the 3D graphics information
+      in an ASCII STL (stereolithography) file;
+    </p>
+
+    <p>
+      <a href = "../../m_src/stla_to_tri_surface/stla_to_tri_surface.html">
+      STLA_TO_TRI_SURFACE</a>,
+      a MATLAB program which
+      reads an ASCII STL file and extracts
+      the surface mesh data as a TRI_SURFACE dataset.
+    </p>
+
+    <p>
+      <a href = "../../data/stlb/stlb.html">
+      STLB</a>,
+      a data directory which
+      contains examples of binary STL files,
+      binary Stereolithography files, 3D graphics;
+    </p>
+
+    <p>
+      <a href = "../../m_src/tri_surface_to_stla/tri_surface_to_stla.html">
+      TRI_SURFACE_TO_STLA</a>,
+      a MATLAB program which
+      reads a TRI_SURFACE dataset and extracts
+      the surface mesh data as an ASCII STL file.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          3D Systems, Inc,<br>
+          Stereolithography Interface Specification,<br>
+          October 1989.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>BLOCK</b> is a cube of side 100, using 12 triangular faces.
+      <ul>
+        <li>
+          <a href = "block100.stl">block100.stl</a>,
+          the ASCII STL file;
+        </li>
+        <li>
+          <a href = "block100.png">block100.png</a>,
+          a PNG image;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>BOTTLE</b> is a bottle using 1240 triangular faces.
+      <ul>
+        <li>
+          <a href = "bottle.stl">bottle.stl</a>,
+          the ASCII STL file;
+        </li>
+        <li>
+          <a href = "bottle.png">bottle.png</a>,
+          a PNG image;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>CUBE</b> is a cube using 12 triangular faces.
+      <ul>
+        <li>
+          <a href = "cube.stl">cube.stl</a>,
+          the ASCII STL file;
+        </li>
+        <li>
+          <a href = "cube.png">cube.png</a>,
+          a PNG image;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>FLAT</b> is a flat shape using 3 triangular faces.
+      <ul>
+        <li>
+          <a href = "flat.stl">flat.stl</a>,
+          the ASCII STL file;
+        </li>
+        <li>
+          <a href = "flat.png">flat.png</a>,
+          a PNG image;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>HUMANOID</b> is a humanoid shape.
+      <ul>
+        <li>
+          <a href = "humanoid.stl">humanoid.stl</a>,
+          the ASCII STL file;
+        </li>
+        <li>
+          <a href = "humanoid.png">humanoid.png</a>,
+          a PNG image;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>HUMANOID_TRI</b> is a humanoid shape using 96 triangular faces.
+      <ul>
+        <li>
+          <a href = "humanoid_tri.stl">humanoid_tri.stl</a>,
+          the ASCII STL file;
+        </li>
+        <li>
+          <a href = "humanoid_tri.png">humanoid_tri.png</a>,
+          a PNG image;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>LIVER</b> is a human liver, using 38,142 triangular faces
+      and 19,073 nodes.
+      <ul>
+        <li>
+          <a href = "liver.stl">liver.stl</a>,
+          the ASCII STL file;
+        </li>
+        <li>
+          <a href = "liver.png">liver.png</a>,
+          a PNG image;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>MAGNOLIA</b> is a magnolia blossom, using 1247 triangular faces
+      and 3741 nodes.
+      <ul>
+        <li>
+          <a href = "magnolia.stl">magnolia.stl</a>,
+          the ASCII STL file;
+        </li>
+        <li>
+          <a href = "magnolia.png">magnolia.png</a>,
+          a PNG image;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SPACE_INVADER_MAGNET</b> is a file that can be used to make a
+      refrigerator magnet in the shape of one of the aliens from the
+      game of "Space Invaders".
+      <ul>
+        <li>
+          <a href = "space_invader_magnet.stl">space_invader_magnet.stl</a>,
+          the ASCII STL file;
+        </li>
+        <li>
+          <a href = "space_invader_magnet.png">space_invader_magnet.png</a>,
+          a PNG image;
+        </li>
+        <li>
+          <a href = "space_invader_magnet_photo.png">space_invader_magnet_photo.png</a>,
+          a photograph of the space invader magnet, as "printed" by MakerBot.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SPHERE</b> is a sphere using 228 triangular faces and 684 nodes.
+      <ul>
+        <li>
+          <a href = "sphere.stl">sphere.stl</a>,
+          the ASCII STL file;
+        </li>
+        <li>
+          <a href = "sphere.png">sphere.png</a>,
+          a PNG image;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TEAPOT</b> is (half of) a teapot using 2016 triangular faces
+      and 6048 nodes.
+      <ul>
+        <li>
+          <a href = "teapot.stl">teapot.stl</a>,
+          the ASCII STL file;
+        </li>
+        <li>
+          <a href = "teapot.png">teapot.png</a>,
+          a PNG image;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TILER_3D</b> is a tiling pattern in 3D.
+      <ul>
+        <li>
+          <a href = "tiler_3d.stl">tiler_3d.stl</a>,
+          the ASCII STL file;
+        </li>
+        <li>
+          <a href = "tiler_3d.png">tiler_3d.png</a>,
+          a PNG image;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 10 July 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

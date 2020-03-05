@@ -1,0 +1,132 @@
+<html>
+
+  <head>
+    <title>
+      PGH_MRI - Pittsburgh MRI File Format
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      PGH_MRI <br> Pittsburgh MRI File Format
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>PGH_MRI</b> is a data directory which
+      contains examples of files stored in a format for magnetic resonance
+      imaging (MRI) data.  It was proposed as an intermediate format,
+      much simpler than the standard DICOM format, but more extensible than
+      formats such as that used by ANALYZE.
+    </p>
+
+    <p>
+      A typical dataset comprises two files:
+      <ul>
+        <li>
+          a <i>header file</i>, an ASCII formatted file, each line of
+          which contains a keyword and value;
+        </li>
+        <li>
+          a <i>data file</i>, a binary file containing ((X*Y)*Z)*T sets of
+          values, representing Z slices, each an X by Y image, possibly
+          repeated over T times.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../c_src/ascii_to_mri/ascii_to_mri.html">
+      ASCII_TO_MRI</a>,
+      a C program which
+      restores MRI data to its original binary format, having been
+      previously converted to an ASCII text file.
+    </p>
+
+    <p>
+      <a href = "../../c_src/mri_to_ascii/mri_to_ascii.html">
+      MRI_TO_ASCII</a>,
+      a C program which
+      converts the binary data in an MRI file to ASCII text.
+    </p>
+
+    <p>
+      <a href = "../../c_src/mri_to_pgm/mri_to_pgm.html">
+      MRI_TO_PGM</a>,
+      a C program which
+      converts the binary data in an MRI file to a sequence of PGM image files.
+    </p>
+
+    <p>
+      <a href = "../../f_src/region/region.html">
+      REGION</a>,
+      a FORTRAN90 library which
+      reads 3D MRI voxel data, and groups the voxels into connected regions;
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Mark Hahn, Greg Hood,<br>
+          The Pittsburgh MRI File Format, Version 1.0,<br>
+          <a href = "http://www.stat.cmu.edu/~fiasco/fiasco_doc/mri_pgh.html">
+                     http://www.stat.cmu.edu/~fiasco/fiasco_doc/mri_pgh.html </a>
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>ROI</b> is a sample PGH_MRI dataset.
+      <ul>
+        <li>
+          <a href = "roi.mri">roi.mri</a>, the ASCII header file.
+        </li>
+        <li>
+          <a href = "roi.dat">roi.dat</a>, the binary data file,
+          containing (64x64) images over 26 slices.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 26 December 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

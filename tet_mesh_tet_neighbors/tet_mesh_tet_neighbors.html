@@ -1,0 +1,158 @@
+<html>
+
+  <head>
+    <title>
+      TET_MESH_TET_NEIGHBORS - Adjacency information in a tetrahedral mesh
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      TET_MESH_TET_NEIGHBORS <br> Adjacency information in a tetrahedral mesh
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TET_MESH_TET_NEIGHBORS</b> is a data directory which
+      contains examples of a format for
+      recording tetrahedral adjacency in a tetrahedral mesh of 3D points.
+    </p>
+
+    <p>
+      The tetrahedral mesh is presumed to be constructed in such a way
+      that the only possible adjacency occurs if two tetrahedrons share
+      a face.  A tetrahedron has four faces, and hence may have anywhere
+      from 0 to 4 neighbors.  The faces and neighbors are conveniently
+      associated with the index of the single tetrahedron vertex that is
+      <i>not</i> part of the shared face.  Thus neighbor 1 is presumed to
+      share the face constructed from local nodes 2, 3 and 4.  If there
+      is no neighbor sharing a particular face, the index of that neighbor
+      is recorded as -1.
+    </p>
+
+    <p>
+      This adjacency information is derived from the more fundamental
+      data structures that define the tetrahedral mesh.  For more information,
+      see <a href = "../../data/tet_mesh_order4/tet_mesh_order4.html">
+      order 4 tet mesh format</a> or
+      <a href = "../../data/tet_mesh_order10/tet_mesh_order10.html">
+      order 10 tet mesh format</a>.
+    </p>
+
+    <p>
+      The neighbor information may be stored as an array with
+      4 rows and TETRA_NUM columns, or it may be written to a file
+      of TETRA_NUM lines, each containing the indices of the four
+      neighbors of the corresponding tetrahedron.
+    </p>
+
+
+    <h3 align = "center">
+      Example TET_MESH_TET_NEIGHBORS File:
+    </h3>
+
+    <p>
+      For a tetrahedral mesh with 6 tetrahedrons, here is what
+      a file might look like that contained the adjacency information:
+      <pre>
+       -1  2 -1  3
+       -1  1 -1  5
+       -1  1  4 -1
+       -1  6  3 -1
+       -1  2  6 -1
+       -1  4  5 -1
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      TET_MESH_TET_NEIGHBORS File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Herbert Edelsbrunner,<br>
+          Geometry and Topology for Mesh Generation,<br>
+          Cambridge, 2001,<br>
+          QA377.E36,<br>
+          ISBN 0-521-79309-2.
+        </li>
+        <li>
+          Barry Joe,<br>
+          GEOMPACK - a software package for the generation of meshes
+          using geometric algorithms,<br>
+          Advances in Engineering Software,<br>
+          Volume 13, pages 325-331, 1991.
+        </li>
+        <li>
+          Per-Olof Persson and Gilbert Strang,<br>
+          A Simple Mesh Generator in MATLAB,<br>
+          SIAM Review,<br>
+          Volume 46, Number 2, pages 329-345, June 2004.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>CUBE</b> is a tetrahedral mesh that dissects a cube.
+      The files include:
+      <ul>
+        <li>
+          <a href = "cube_nodes.txt">cube_nodes.txt</a>,
+          the node file for a linear tet mesh of a cube;
+        </li>
+        <li>
+          <a href = "cube_elements.txt">cube_elements.txt</a>,
+          the tetra file for a linear tet mesh of a cube;
+        </li>
+        <li>
+          <a href = "cube_element_neighbors.txt">cube_element_neighbors.txt</a>,
+          the neighbor file for a linear tet mesh of a cube;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 17 January 2007.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

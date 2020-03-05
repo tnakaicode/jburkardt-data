@@ -1,0 +1,176 @@
+<html>
+
+  <head>
+    <title>
+      FREEFEM++_MSH - A Finite Element Mesh Format for FreeFem++
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FREEFEM++_MSH <br> A Finite Element Mesh Format for FreeFem++
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FREEFEM++_MSH</b>,
+      a data directory which
+      contains examples of the mesh files created by the FreeFem++ program,
+      which use the extension ".msh".
+    </p>
+
+    <p>
+      Note that the GMSH program creates mesh files that use the ".msh"
+      extension, but which are an entirely different format.
+    </p>
+
+    <p>
+      The msh file format is obliquely described in section 12.5 of the
+      FreeFem++ documentation.
+    <p>
+
+    <p>
+      At least for the 2D case of a triangular mesh, the format seems 
+      to be as follows:
+      <ol>
+        <li>
+          a single line giving NV, NE, NT, the number of vertices, boundary edges, and triangles
+        </li>
+        <li>
+          NV lines, each containing the (X,Y) coordinates and integer label for a node.
+        </li>
+        <li>
+          NT lines, each containing three vertex indices and integer label for a triangle.
+        </li>
+        <li>
+          NE lines, each containing two vertex indices and integer label for a boundary edge.
+        </li>
+      </ol>
+      The "labels" seem to be "0" for interior objects and 1 for boundary objects.
+      All edges are boundary objects.  (This might not be true.  A geometry
+      might include internal edges, and perhaps these count as interior objects,
+      but definitely, the edge list does not include arbitrary triangle edges,
+      only those on the boundary.)  All triangles are interior objects.
+      Vertices may be boundary or interior objects.
+    <p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../examples/bamg/bamg.html">
+      BAMG</a>,
+      examples which
+      illustrate the use of BAMG, 
+      a program for generating 2D meshes that can be used to
+      define the geometry for the the finite element package FREEFEM++.
+    </p>
+
+    <p>
+      <a href = "../../examples/freefem++/freefem++.html">
+      FREEFEM++</a>,
+      examples which
+      illustrate the use of the FREEFEM++ package, 
+      a high-level integrated development environment for the numerical 
+      solution of nonlinear multiphysics partial differential equations (PDE's) 
+      in 2D and 3D.
+    </p>
+
+    <p>
+      <a href = "../../f_src/freefem++_msh_io/freefem++_msh_io.html">
+      FREEFEM++_MSH_IO</a>,
+      a FORTRAN90 library which
+      can read and write files used by the FreeFem++ finite element program
+      to store mesh information.
+    </p>
+
+    <p>
+      <a href = "../../examples/mitchell_freefem++/mitchell_freefem++.html">
+      MITCHELL_FREEFEM++</a>,
+      examples which
+      illustrate the implementation of the Mitchell 2D elliptic 
+      partial differential equation (PDE) test problems using FREEFEM++.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Frederic Hecht,<br>
+          New development in FreeFem++,<br>
+          Journal of Numerical Mathematics,<br>
+          Volume 20, Number 3-4, 2012, pages 251-265.
+        </li>
+        <li>
+          Frederic Hecht,<br>
+          BAMG: Bidimensional Anisotropic Mesh Generator,<br>
+          draft version v1.00, December 2006.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>MESH_SAMPLE</b> does not solve a problem; it simply generates a mesh
+      on a circle, and saves the mesh to a file.  This example is meant to
+      illustrate the structure of the mesh file format that is used
+      by FreeFem++.
+      <ul>
+        <li>
+          <a href = "mesh_sample.edp">mesh_sample.edp</a>,
+          the input file.
+        </li>
+        <li>
+          <a href = "mesh_sample.sh">mesh_sample.sh</a>,
+          runs FreeFem++ on the input file.
+        </li>
+        <li>
+          <a href = "mesh_sample_output.txt">mesh_sample_output.txt</a>,
+          the output file.
+        </li>
+        <li>
+          <a href = "mesh_sample.msh">mesh_sample.msh</a>,
+          the file containing the mesh information.
+        </li>
+        <li>
+          <a href = "mesh_sample.png">mesh_sample.png</a>,
+          a PNG image of the mesh.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../data.html">
+      the DATA directory</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 18 December 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

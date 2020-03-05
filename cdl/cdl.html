@@ -1,0 +1,154 @@
+<html>
+
+  <head>
+    <title>
+      CDL Files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      CDL Files
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>CDL</b> is a data directory which
+      contains examples of files that use the CDL format,
+      a text file created by the NCDUMP program from a NETCDF file.
+    </p>
+
+    <p>
+      NETCDF (Network Common Data Form) is a set of software libraries
+      and machine-independent data formats that support the creation,
+      access, and sharing of array-oriented scientific data.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>ncdump</b> -h <i>file</i>.<b>nc</b> &gt; <i>file</i>.<b>cdl</b>
+      </blockquote>
+      reads the NETCDF file <i>file</i>.<b>nc</b> and prints out only the header
+      information in CDL format.
+    </p>
+
+    <p>
+      <blockquote>
+        <b>ncdump</b> -c <i>file</i>.<b>nc</b> &gt; <i>file</i>.<b>cdl</b>
+      </blockquote>
+      reads the NETCDF file <i>file</i>.<b>nc</b> and prints out the header
+      information and the values of coordinate variables in CDL format.
+    <p>
+
+    <p>
+      <blockquote>
+        <b>ncdump</b> <i>file</i>.<b>nc</b> &gt; <i>file</i>.<b>cdl</b>
+      </blockquote>
+      reads the NETCDF file <i>file</i>.<b>nc</b> and prints out the header
+      information and the values of all variables in CDL format.
+    <p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../datasets/gfd2/gfd2.html">
+      GFD2</a>,
+      a dataset directory which
+      contains geophysical data, stored in NETCDF format.
+    </p>
+
+    <p>
+      <a href = "../../data/netcdf/netcdf.html">
+      NETCDF</a>,
+      a data directory which
+      contains files stored in NETCDF format.
+    </p>
+
+    <p>
+      <a href = "../../data/netcdf_mpas/netcdf_mpas.html">
+      NETCDF_MPAS</a>,
+      a data directory which
+      contains examples of MPAS grid data stored as NETCDF files.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Russ Rew, Glenn Davis, Steve Emmerson, Harvey Davies, Ed Hartney,
+          The NetCDF User's Guide,<br>
+          Unidata Program Center, March 2009,<br>
+          <a href = "../../pdf/netcdf.pdf">netcdf.pdf</a>,
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      For most of the following examples, the original NETCDF file
+      is available in the
+      <a href = "../../data/netcdf/netcdf.html">the NETCDF data directory</a>.
+      <ul>
+        <li>
+          <a href = "foo.cdl">foo.cdl</a>, a tiny example with
+          named dimensions "lat", "lon", "time", and variables "z", "t",
+          "p", "rh", "lat", "lon", "time", variable attributes "units",
+          "_FillValue", "valid_range", and some data;
+        </li>
+        <li>
+          <a href = "pres_temp_4D.cdl">pres_temp_4D.cdl</a>;
+        </li>
+        <li>
+          <a href = "sfc_pres_temp.cdl">sfc_pres_temp.cdl</a>;
+        </li>
+        <li>
+          <a href = "simple_xy.cdl">simple_xy.cdl</a>;
+        </li>
+        <li>
+          <a href = "x1.2562.grid.cdl">x1.2562.grid.cdl</a>
+          an MPAS grid file for a mesh on the sphere,
+          using 2562 nodes, 5120 vertices, 7680 edges.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 27 December 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

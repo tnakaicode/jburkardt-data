@@ -1,0 +1,41 @@
+#		"@(#)cell_data.inp	7.2 Stardent 91/10/17"
+#			Copyright (c) 1991 by
+#			Stardent Computer Inc.
+#			All Rights Reserved
+#	
+#	This software comprises unpublished confidential information of
+#	Stardent Computer Inc. and may not be used, copied or made
+#	available to anyone, except in accordance with the license
+#	under which it is furnished.
+#	
+#	This file is under sccs control at Stardent in:
+#	/net/hubble/eng-rel/source/avs55/sccs/avs/data/ucd/s.cell_data.inp
+#	
+5 2 3 3 1
+1 0.0     0.0      1.0
+2 1.0     0.0      0.0
+3 0.0     0.0     -1.0
+4 0.0      0.0     0.0
+5 0.0      1.0     0.0
+    1      1 tet    2 4 3 5
+    2      1 tet    2 5 1 4
+3 1 1 1
+stress sx,lb
+stress sy,lb
+stress sz,lb
+1 -0.365215003     -35.8738136     -361.978912
+2  1.74866045    -0.839139104     -322.003967 
+3 -0.834806740     -7.11162329     -320.847076
+4 -0.525194049     -4.70460224     -337.666687
+5  2.85993004     0.653052568     -150.667130
+3 1 1 1
+temp1, F
+temp2, F
+temp3, F
+1 10. 20. 30.
+2 40. 50. 60.
+1 1
+chela, X
+1 888
+
+

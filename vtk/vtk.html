@@ -1,0 +1,300 @@
+<html>
+
+  <head>
+    <title>
+      VTK Files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      VTK Files
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>VTK</b>
+      is a data directory which
+      contains examples of the VTK file format used by the Visualization Toolkit.
+    </p>
+
+    <p>
+      The Visualization Toolkit includes functions that can read and write graphics
+      information in a variety of formats.  For completeness, the designers
+      included a native VTK file format.
+    </p>
+
+    <p>
+      Some 3D graphics programs, in turn, can import this VTK file format.
+    </p>
+
+    <p>
+      <b>PARAVIEW</b> is a 3D graphics program which can read VTK files and
+      display the data.  The home page for PARAVIEW is
+      <a href = "http://www.paraview.org/">
+                 http://www.paraview.org/ </a>.
+    </p>
+
+    <h3 align = "center">
+      VTK File characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII or binary;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The VTK file format consists of five parts; the first three are mandatory,
+      and the last two are optional.
+      <dl>
+        <dt>
+          <b># vtk DataFile Version</b> <i>m.n</i>
+        </dt>
+        <dd>
+          The header line.  "m.n" is the version number.
+        </dd>
+        <dt>
+          <i>a title</i>
+        </dt>
+        <dd>
+          The title may be up to 256 characters, terminated by a new line.
+        </dd>
+        <dt>
+          <b>ASCII</b> or <b>BINARY</b>
+        </dt>
+        <dd>
+          indicates the format used for subsequent data.
+        </dd>
+        <dt>
+          <b>DATASET</b> <i>type</i>
+        </dt>
+        <dd>
+          values for type are "STRUCTURED_POINTS" or "STRUCTURED_GRID" or "UNSTRUCTURED_GRID" or
+          "POLYDATA" or "RECTILINEAR_GRID"; Depending on the type chosen, there
+          will be further lines of keywords and values to define the data.
+        </dd>
+        <dt>
+          <b>POINT_DATA</b> <i>n</i>
+        </dt>
+        <dd>
+           The number of data items <i>n</i> of each type must match the number of
+           points in the dataset.
+        </dd>
+      </dl>
+    </p>
+
+    <p>
+      When describing the cells in terms of point indices, the points must be
+      indexed starting at 0.
+    </p>
+
+    <p>
+      All point data must use 3 coordinates.  Even if your model has 2D geometry,
+      each point must have (X,Y,Z) coordinates.  Simply set Z = 0 if you want to
+      work in 2D.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Programs and Data:
+    </h3>
+
+    <p>
+      <a href = "../../m_src/ns3d_fem/ns3d_fem.html">
+      NS3D_FEM</a>
+      a MATLAB program which
+      sets up and solves a finite element formulation of the steady
+      incompressible 3D Navier Stokes equations on a user-defined geometry.
+      The program can output graphics files for TECPLOT, VU or the VTK format
+      used by PARAVIEW.
+    </p>
+
+    <p>
+      <a href = "../../m_src/threed_to_vtk/threed_to_vtk.html">
+      THREED_TO_VTK</a>,
+      a MATLAB program which
+      accepts computational data from a 3D finite element fluid flow program
+      and writes it to a VTK "legacy" file for postprocessing by PARAVIEW.
+    </p>
+
+    <p>
+      <a href = "../../m_src/twod_to_vtk/twod_to_vtk.html">
+      TWOD_TO_VTK</a>,
+      a MATLAB program which
+      accepts computational data from a 2D finite element fluid flow program
+      and writes it to a VTK "legacy" file for postprocessing by PARAVIEW.
+    </p>
+
+    <p>
+      <a href = "../../c_src/vitles_to_vtk/vitles_to_vtk.html">
+      VITLES_TO_VTK</a>,
+      a C program which
+      reads VITLES solution files and creates a VTK file suitable
+      for graphics processing by PARAVIEW and other 3D graphics packages.
+    </p>
+
+    <p>
+      <a href = "../../data/vtu/vtu.html">
+      VTU</a>,
+      a data directory which
+      contains examples of VTU files,
+      an XML-based file format used by the Visualization Toolkit for unstructured grids,
+      and which can be displayed by the PARAVIEW program;
+    </p>
+
+    <p>
+      <a href = "../../f_src/vtk_io/vtk_io.html">
+      VTK_IO</a>,
+      a FORTRAN90 library which
+      reads and writes files in the VTK format.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Will Schroeder, Ken Martin, Bill Lorensen,<br>
+          The Visualization Toolkit,
+          An Object-Oriented Approach to 3D Graphics,<br>
+          Prentice Hall, 1998,<br>
+          ISBN: 0139546944,<br>
+          LC: QA76.64.S36.
+        </li>
+        <li>
+          Amy Henderson Squillacote,<br>
+          The ParaView Guide,<br>
+          Kitware Inc, 2007,<br>
+          ISBN13: 978-1-930934-21-4.
+        </li>
+        <li>
+          Kitware Incorporated,<br>
+          The Visualization Toolkit User's Guide,<br>
+          Kitware Inc
+        </li>
+        <li>
+          <a href = "http://public.kitware.com/VTK/">
+                     http://public.kitware.com/VTK/</a>
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "dec.vtk">dec.vtk</a>,
+          (ASCII format, POLYDATA) prices for DEC stock;
+        </li>
+        <li>
+          <a href = "ge.vtk">ge.vtk</a>,
+          (ASCII format, POLYDATA) prices for GE stock;
+        </li>
+        <li>
+          <a href = "gm.vtk">gm.vtk</a>,
+          (ASCII format, POLYDATA) prices for GM stock;
+        </li>
+        <li>
+          <a href = "hello.vtk">hello.vtk</a>,
+          (ASCII format, POLYDATA) Stroked lines spell "hello";
+        </li>
+        <li>
+          <a href = "ibm.vtk">ibm.vtk</a>,
+          (ASCII format, POLYDATA) prices for IBM stock;
+        </li>
+        <li>
+          <a href = "k.vtk">k.vtk</a>,
+          (ASCII format, POLYDATA) VTK output;
+        </li>
+        <li>
+          <a href = "mesh_smag_0040.vtk">mesh_smag_0040.vtk</a>,
+          (ASCII format, UNSTRUCTURED GRID)
+          a (U,V,W) and P flow field in a long rectangular channel;
+        </li>
+        <li>
+          <a href = "polyex.vtk">polyex.vtk</a>,
+          (ASCII format, POLYDATA) a cube;
+        </li>
+        <li>
+          <a href = "rbc_001.vtk">rbc_001.vtk</a>,
+          (ASCII format, UNSTRUCTURED_GRID), the first file of 80,
+          which form an animation of the motion and
+          deformation of a red blood cell.
+        </li>
+        <li>
+          <a href = "rbc_vtk.tar.gz">rbc_vtk.tar.gz</a>,
+          a GZIP'ed TAR file of all 80 VTK files for the red blood cell animation.
+        </li>
+        <li>
+          <a href = "texthres.vtk">texthres.vtk</a>,
+          (ASCII format, STRUCTURED_POINTS) Texture map for thresholding data (use boolean textures for 2D map);
+        </li>
+        <li>
+          <a href = "texthres2.vtk">texthres2.vtk</a>,
+          (ASCII format, STRUCTURED_POINTS) Texture map for thresholding data (use boolean textures for 2D map);
+        </li>
+        <li>
+          <a href = "t.vtk">t.vtk</a>,
+          (ASCII format, POLYDATA) VTK output;
+        </li>
+        <li>
+          <a href = "triangle_mesh_linear.vtk">triangle_mesh_linear.vtk</a>,
+          (ASCII format, UNSTRUCTURED_GRID) an example of an unstructured grid in 2D,
+          8 nodes, 6 cells;  (Note that 2D points must be specified with 3 components.
+          Simply set the third component to zero!)
+        </li>
+        <li>
+          <a href = "triangle_mesh_linear.png">triangle_mesh_linear.png</a>,
+          a screen shot from PARAVIEW.
+        </li>
+        <li>
+          <a href = "ugridex.vtk">ugridex.vtk</a>,
+          (ASCII format, UNSTRUCTURED_GRID) an example of an unstructured grid in 3D;
+        </li>
+        <li>
+          <a href = "vtk.vtk">vtk.vtk</a>,
+          (ASCII format, POLYDATA) Line representation of "VTK";
+        </li>
+        <li>
+          <a href = "v.vtk">v.vtk</a>,
+          (ASCII format, POLYDATA)  VTK output;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 06 February 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

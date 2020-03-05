@@ -1,0 +1,156 @@
+<html>
+
+  <head>
+    <title>
+      METIS MESH Files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      METIS MESH Files
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>METIS_MESH</b> is a data directory which
+      contains examples of "mesh" files used by the
+      <a href = "../../c_src/metis/metis.html">METIS</a> program.
+      <b>METIS</b> can read a mesh file, and partition the elements
+      in a balanced way so that each partition has about the same
+      number of elements, while minimizing the number of cases in
+      which elements from different parts of the partition share
+      an edge or face.  This process is designed with the idea
+      that the mesh represents a computation that is to be divided
+      up among various processors, with the stipulation that
+      the amount of interprocessor communication must be limited.
+    </p>
+
+    <h3 align = "center">
+      METIS MESH File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII
+        </li>
+        <li>
+          a mesh of <b>N</b> elements is stored in a file of <b>N+1</b> lines;
+        </li>
+        <li>
+          the first line lists the number of elements, and a code that
+          indicates the type of element;
+          <ol>
+            <li>
+              2D triangles;
+            </li>
+            <li>
+              3D tetrahedrons;
+            </li>
+            <li>
+              3D hexahedrons ("bricks" with 6 sides and 8 vertices);
+            </li>
+            <li>
+              2D quadrilaterals;
+            </li>
+          </ol>
+        </li>
+        <li>
+          each subsequent line lists the vertices of one element;
+        </li>
+        <li>
+          for triangular and tetrahedral elements, the vertices may be
+          listed in any order; quadrilateral and hexahedral elements
+          require that the vertices be listed in a particular order;
+        </li>
+        <li>
+          comment lines begin with a "%" sign;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          George Karypis and Vipin Kumar,<br>
+          METIS, a Software Package for Partitioning Unstructured Graphs
+          and Computing Fill-Reduced Orderings of Sparse Matrices;
+        </li>
+        <li>
+          George Karypis and Vipin Kumar,<br>
+          A fast and high quality multilevel scheme for partitioning
+          irregular graphs,<br>
+          SIAM Journal on Scientific Computing,<br>
+          Volume 20, Number 1, 1998, pages 359-392;
+        </li>
+        <li>
+          <a href = "http://www.cs.umn.edu/~metis">
+                     http://www.cs.umn.edu/~metis</a>, <br>
+          The METIS home page;
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "metis.mesh">metis.mesh</a>, a mesh of the
+          a region that looks like the word "METIS";
+        </li>
+        <li>
+          <a href = "tri.mesh">tri.mesh</a>, a tiny example mesh
+          of a 2D region, using triangular elements;
+        </li>
+        <li>
+          <a href = "tet.mesh">tet.mesh</a>, a tiny example mesh
+          of a 3D region, using tetrahedral elements;
+        </li>
+        <li>
+          <a href = "quad.mesh">quad.mesh</a>, a tiny example mesh
+          of a 2D region, using quadrilateral elements;
+        </li>
+        <li>
+          <a href = "hex.mesh">hex.mesh</a>, a tiny example mesh
+          of a 3D region, using hexahedral (brick) elements;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 01 May 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>
+

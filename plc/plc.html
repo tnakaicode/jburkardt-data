@@ -1,0 +1,264 @@
+<html>
+
+  <head>
+    <title>
+      PLC Files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      PLC Files
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>PLC</b> is a data directory which
+      contains examples of PLC files, a format used to store
+      piecewise linear complex data.
+    </p>
+
+    <p>
+      The PLC file format is used to store data intended as input
+      to the DIR3 (Delaunay Incremental Refinement) meshing program.
+      The data describes the surface that bounds a 3D region to be meshed.
+    </p>
+
+    <h2 align = "center">
+      The PLC File Format
+    </h2>
+
+    <p>
+      The .plc file format is used for defining a piecewise linear complex (PLC).  
+      The goal of this format is to fully specify a PLC and not require any 
+      additional intersection checks between features.
+    </p>
+
+    <p>
+      A .plc file consists of 5 sections.
+      <ol>
+        <li>
+          PLC
+        </li>
+        <li>
+          Dimension
+        </li>
+        <li>
+          Points
+        </li>
+        <li>
+          Segments
+        </li>
+        <li>
+          Faces (omitted if dimension is 2)
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      1: The PLC Section
+    </h3>
+
+    <p>
+      This section identifies the file type.
+    </p>
+
+    <p>
+      First line: <b>PLC</b>
+    </p>
+
+    <h3 align = "center">
+      2: The Dimension Section
+    </h3>
+
+    <p>
+      This section specifies the dimension of the PLC: either 2 or 3.
+    </p>
+
+    <p>
+      First line: <b>DIMENSION</b> <i>dim</i>
+    </p>
+
+    <h3 align = "center">
+      3: The Points Section
+    </h3>
+
+    <p>
+      This section gives the coordinates of all the points in the PLC.
+    </p>
+
+    <p>
+      First line: <b>POINTS</b> <i>number of points</i>
+    <p>
+
+    <p>
+      Remaining lines: <i>(point id) (x coord) (y coord) (z coord)</i>
+    </p>
+
+    <p>
+      The point id should be a unique integer identifier.  The z coord is omitted 
+      if the dimension is 2.
+    </p>
+
+    <h3 align = "center">
+      4: The Segments Section
+    </h3>
+
+    <p>
+      This section defines all of the segments.
+    </p>
+
+    <p>
+      First Line: <b>SEGMENTS</b> <i>(number of segments)</i>
+    <p>
+
+    <p>
+      Remaining lines: <i>(segment id) (end point 1) (end point 2)</i>
+    </p>
+
+    <p>
+      Here segment id is a unique integer identifier.
+    </p>
+
+    <h3 align = "center">
+      5: The Faces Section
+    </h3>
+
+    <p>
+      This section defines all of the faces.
+    </p>
+
+    <p>
+      First Line: <b>FACES</b> <i>(number of faces)</i>
+    </p>
+
+    <p>
+      Remaining lines: <i>(face id) (# boundary segments) (#interior segments) 
+      (# interior points)</i> (<b>N</b>/</b>C</b>) <i>(boundary segment list) 
+      (interior segment list) (interior point list)</i>
+    </p>
+
+    <p>
+      Each face id should be a unique integer identifier.
+    </p>
+
+    <p>
+      The boundary segment list must be a sequence of segments in a consistent 
+      order so that the boundary is always on the same side.  Holes are also 
+      specified an oriented list of segments included in the list of boundary 
+      segments.  The interior segment list is a list of segments which are 
+      contained in the face.   
+    </p>
+
+    <p>
+      Using the flag N or C tells the code to use simplifications in the convex 
+      case (the C option) or not (the N option).  In the convex case, the list 
+      of boundary segments do not need to be given in order. 
+    </p>
+
+    <h2 align = "center">
+      Example
+    </h2>
+
+<pre>
+PLC
+DIMENSION 3
+POINTS 10
+0 -4 -4 0
+1 4 -4 0
+2 4 4 0
+3 -4 4 0
+4 0 2 0 
+5 2 0 0
+6 0 -2 0
+7 -2 0 0
+8 0 0 1
+9 0 0 -1
+SEGMENTS 20
+100     0 1
+101     1 2
+102     2 3
+103     3 0
+104     4 5
+105     5 6
+106     6 7
+107     7 4
+108     0 6
+109     1 5
+110     2 4
+111     3 7
+112     4 8
+113     5 8
+114     6 8
+115     7 8
+116     4 9
+117     5 9
+118     6 9
+119     7 9
+FACES 9
+200 8 4 0 N    100 101 102 103 104 105 106 107 108 109 110 111
+201 3 0 0 C    104 112 113
+202 3 0 0 C    105 113 114
+203 3 0 0 C    106 114 115
+204 3 0 0 C    107 115 112
+205 3 0 0 C    104 116 117
+206 3 0 0 C    105 117 118
+207 3 0 0 C    106 118 119
+208 3 0 0 C    107 119 116
+</pre>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/off2plc/off2plc.html">
+      OFF2PLC</a>,
+      a C++ program which
+      reads an OFF file describing a surface in 3D, and creates an equivalent
+      PLC file, by Alex Rand.
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "box.plc">box.plc</a>;
+        </li>
+        <li>
+          <a href = "example.plc">example.plc</a>;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 12 June 2012.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

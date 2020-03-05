@@ -1,0 +1,184 @@
+<html>
+
+  <head>
+    <title>
+      STLB Files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      STLB Files <br> Stereolithography (binary)
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>STLB</b> is a data directory which
+      contains examples of STLB, or "binary STL" files.  "STL" stands for
+      "stereolithography", and indicates that the primary purpose of this
+      file format is to describe the shape of a 3D stationary object.
+      Stereolithography is a means of creating physical 3D models of
+      such objects, using resin or carefully cut and joined pieces of paper.
+    </p>
+
+    <p>
+      A binary STL file usually has a filename extension of ".stl".
+    </p>
+
+    <p>
+      A binary STL file contains a description of the surface of a solid that has been
+      decomposed into triangles.  The vertices of the triangles should
+      be listed in counterclockwise order, as viewed from outside the surface.
+      A normal vector for the triangle may also be listed.
+    </p>
+
+    <p>
+      The file begins with a <b>solid</b> record, (which can include a name
+      for the object), and ends with an <b>endsolid</b> record.  Each
+      triangle begins with a <b>facet</b> record and ends with an
+      <b>endfacet</b> record.  The normal vector, if given, is included as
+      part of the <b>facet</b> record, and is identified by the <b>normal</b>
+      keyword.  The normal vector should have unit length.  The three vertices
+      of the triangle are delimited by <b>outer loop</b> and </b>endloop</b>
+      records.  Each vertex is described on a <b>vertex</b> record that
+      lists its (X,Y,Z) coordinates.
+    </p>
+
+    <p>
+      A binary STL file has the following structure:
+      <ul>
+        <li>
+          An 80 byte ASCII header that can be used as a title.
+        </li>
+        <li>
+          A 4 byte unsigned long integer, the number of facets.
+        </li>
+        <li>
+          For each facet, a facet record of 50 bytes.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The facet record has the form:
+      <ul>
+        <li>
+          The normal vector, 3 floating values of 4 bytes each;
+        </li>
+        <li>
+          Vertex 1 XYZ coordinates, 3 floating values of 4 bytes each;
+        </li>
+        <li>
+          Vertex 2 XYZ coordinates, 3 floating values of 4 bytes each;
+        </li>
+        <li>
+          Vertex 3 XYZ coordinates, 3 floating values of 4 bytes each;
+        </li>
+        <li>
+          An unsigned integer, of 2 bytes, that should be zero;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Binary STL File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          binary
+        </li>
+        <li>
+          No color information
+        </li>
+        <li>
+          3D
+        </li>
+        <li>
+          No compression
+        </li>
+        <li>
+          1 image
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../examples/meshlab/meshlab.html">
+      MESHLAB</a>,
+      examples which
+      illustrate the use of the meshlab program, 
+      an advanced mesh processing system for automatic or user-assisted
+      editing, cleaning, filtering, converting and rendering of large
+      unstructured 3D triangular meshes.
+    </p>
+
+    <p>
+      <a href = "../../data/stla/stla.html">
+      STLA</a>,
+      a data directory which
+      contains examples of ASCII stereolithography (STL) files for 3D graphics;
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          3D Systems, Inc,<br>
+          Stereolithography Interface Specification,<br>
+          October 1989.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "cube.stl">cube.stl</a>, a cube.
+        </li>
+        <li>
+          <a href = "cube.png">cube.png</a>, a PNG image.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 09 June 2012.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

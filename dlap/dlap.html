@@ -1,0 +1,196 @@
+<html>
+
+  <head>
+    <title>
+      DLAP Files - The DLAP Sparse Matrix File Format
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      DLAP Files <br> Sparse Linear Algebra Package <br> File Format
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>DLAP</b> is a data directory which
+      contains examples of "DLAP" files.  These are files associated
+      with the Sparse Linear Algebra Package of Anne Greenbaum
+      and Mark Seager.  This package includes a file format that may
+      be used to store matrices externally.
+    </p>
+
+    <h3 align = "center">
+      DLAP File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII;
+        </li>
+        <li>
+          Store the nonzero elements of a matrix <b>A</b>;
+        </li>
+        <li>
+          Use a simple scheme in which every nonzero element is stored
+          as a row index, column index and value;
+        </li>
+        <li>
+          includes a space=saving option for symmetric matrices;
+        </li>
+        <li>
+          may include one right hand side vector <b>b</b>;
+        </li>
+        <li>
+          may include one solution vector <b>x</b>;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      DLAP files begin with a single header line containing five integers.
+      These integers are written in a FORTRAN FORMAT of '(5I10)', that is,
+      five integers, each written into a field of width 10 characters,
+      and right justified.  The format is
+      <pre>
+        N NELT ISYM IRHS ISOLN
+      </pre>
+      The interpretation of these values is as follows:
+      <ol>
+        <li>
+          <b>N</b>, the order of the matrix;
+        </li>
+        <li>
+          <b>NELT</b>, the number of nonzero values stored;
+        </li>
+        <li>
+          <b>ISYM</b>, 1 if the matrix is symmetric, and only the
+          lower triangular part is explicitly stored;
+        </li>
+        <li>
+          <b>IRHS</b>, 1 if a right hand side vector is included;
+        </li>
+        <li>
+          <b>ISOLN</b>, 1 if a solution vector is included;
+        </li>
+      </ol>
+      Note that, presumably, one would only include a solution vector
+      if one is also including a right hand side.  In fact, the DLAP software,
+      as written, will not properly handle a DLAP file that contains
+      a solution vector but not a right hand side.
+    </p>
+
+    <p>
+      Immediately following the header line comes a series of NELT
+      records, each containing the row, column and value of a nonzero
+      entry of the matrix.  Each line is written in a FORTRAN FORMAT
+      of '(1X,I5,1X,I5,1X,E16.7)', that is, a space, a right-justified
+      integer in a field of width 5, a space, another right-justified
+      integer in a field of width 5, a space, and a real number in
+      a field of width 16, with 7 digits after the decimal place and
+      written in an exponential format.  For K = 1 to NELT, the format is
+      <pre>
+        IA(K) JA(K) A(K)
+      </pre>
+      The interpretation of these values is as follows:
+      <ol>
+        <li>
+          <b>IA(K)</b>, the row index of the K-th element;
+        </li>
+        <li>
+          <b>JA(K)</b>, the column index of the K-th element;
+        </li>
+        <li>
+          <b>A(K)</b>, the value of the K-th element;
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      If IRHS = 1, then there follow N records containing a right
+      hand side vector.  Each line is written in a FORTRAN FORMAT
+      of '(1X,E16.7)', that is, a space, and a real number in
+      a field of width 16, with 7 digits after the decimal place and
+      written in an exponential format.  For I = 1 to N, the format is
+      <pre>
+        RHS(I)
+      </pre>
+    </p>
+
+    <p>
+      If ISOLN = 1, then there follow N records containing a solution
+      vector.  Each line is written in a FORTRAN FORMAT
+      of '(1X,E16.7)', that is, a space, and a real number in
+      a field of width 16, with 7 digits after the decimal place and
+      written in an exponential format.  For I = 1 to N, the format is
+      <pre>
+        SOLN(I)
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Mark Seager,<br>
+          A SLAP for the Masses,<br>
+          Technical Report: UCRL-100267,<br>
+          Lawrence Livermore National Laboratory, December 1988.
+        </li>
+        <li>
+          Web site:<br>
+          <a href = "http://www.netlib.org/slap/index.html">
+                     http://www.netlib.org/slap/index.html</a>
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample files:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "a5by5.dlap">a5by5.dlap</a>,
+          a very simple 5 by 5 matrix, right hand side and solution;
+        </li>
+        <li>
+          <a href = "a5by5_sym.dlap">a5by5_sym.dlap</a>,
+          a 5 by 5 symmetric matrix, right hand side and solution;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 23 January 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

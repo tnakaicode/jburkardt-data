@@ -1,0 +1,672 @@
+<html>
+
+  <head>
+    <title>
+      TRIANGLE_FILES - Files Used by the TRIANGLE Program
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      TRIANGLE_FILES <br>Files Used by the TRIANGLE Program
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TRIANGLE_FILES</b> is a data directory which
+      contains some examples of the groups of files used by the
+      TRIANGLE and SHOWME programs to produce triangulations
+      and Voronoi decompositions of a region.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/poly/poly.html">
+      POLY</a>,
+      a data directory which
+      contains examples of POLY files, a 2D format used by
+      triangle and showme for Planar Straight Line Graphs.
+    </p>
+
+    <p>
+      <a href = "../../c_src/showme/showme.html">
+      SHOWME</a>,
+      a C program which
+      uses the X Window library to display triangulatons,
+      by Jonathan Shewchuk.
+    </p>
+
+    <p>
+      <a href = "../../c_src/triangle/triangle.html">
+      TRIANGLE</a>,
+      a C program which
+      computes a triangulation of a geometric region,
+      by Jonathan Shewchuk.
+    </p>
+
+    <p>
+      <a href = "../../m_src/triangle_display/triangle_display.html">
+      TRIANGLE_DISPLAY</a>,
+      a MATLAB program which
+      displays the nodes and elements of a triangulation
+      on the MATLAB graphics screen, assuming the data has been
+      stored in NODE and ELE files by the TRIANGLE program.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Jonathan Shewchuk,<br>
+          Triangle: Engineering a 2D Quality Mesh Generator and
+          Delaunay Triangulator,<br>
+          in Applied Computational Geometry: Towards Geometric Engineering,<br>
+          edited by Ming Lin, Dinesh Manocha,<br>
+          Lecture Notes in Computer Science, Volume 1148,<br>
+          Springer, 1996,<br>
+          ISBN: 354061785X,<br>
+          LC: QA448.D38.A635.
+        </li>
+        <li>
+          Jonathan Shewchuk,<br>
+          Delaunay Refinement Algorithms for Triangular Mesh Generation,<br>
+          Computational Geometry, Theory and Applications,<br>
+          Volume 23, pages 21-74, May 2002.
+        </li>
+        <li>
+          <a href = "http://www-2.cs.cmu.edu/~quake/triangle.html">
+                     http://www-2.cs.cmu.edu/~quake/triangle.html</a>,
+          the TRIANGLE web site;
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Example Files:
+    </h3>
+
+    <p>
+      <b>A</b> is a planar straight line graph of the capital letter A.
+      We use it as input to get a constrained Delaunay triangulation.
+      <ul>
+        <li>
+          <a href = "A.poly">A.poly</a>,
+          the POLY file;
+        </li>
+        <li>
+          <a href = "A.1.poly">A.1.poly</a>,
+          the output polygon file;
+        </li>
+        <li>
+          <a href = "A.1.node">A.1.node</a>,
+          the output node file;
+        </li>
+        <li>
+          <a href = "A.1.ele">A.1.ele</a>;
+          the output element file;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>AIRFOIL_EXTERIOR</b> defines the boundary of an airfoil, and a box.
+      We want to mesh the region inside the box and exterior to the airfoil.  
+      We use the command
+      <pre>
+        triangle -a0.05 airfoil_exterior.poly
+      </pre>
+      <ul>
+        <li>
+          <a href = "airfoil_exterior.poly">airfoil_exterior.poly</a>,
+          the POLY file;
+        </li>
+        <li>
+          <a href = "airfoil_exterior_elements.png">airfoil_exterior_elements.png</a>,
+          a PNG image of the level 1 mesh.
+        </li>
+        <li>
+          <a href = "airfoil_exterior.node">airfoil_exterior.node</a>,
+          the level 0 node file;
+        </li>
+        <li>
+          <a href = "airfoil_exterior.1.ele">airfoil_exterior.1.ele</a>,
+          the level 1 element file.
+        </li>
+        <li>
+          <a href = "airfoil_exterior.1.node">airfoil_exterior.1.node</a>,
+          the level 1 node file;
+        </li>
+        <li>
+          <a href = "airfoil_exterior.1.poly">airfoil_exterior.1.poly</a>;
+          the level 1 poly file;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>AIRFOIL_INTERIOR</b> defines the boundary of an airfoil, whose
+      interior we want to mesh.  We use the command
+      <pre>
+        triangle -a0.05 airfoil_interior.poly
+      </pre>
+      <ul>
+        <li>
+          <a href = "airfoil_interior.poly">airfoil_interior.poly</a>,
+          the POLY file;
+        </li>
+        <li>
+          <a href = "airfoil_interior_elements.png">airfoil_interior_elements.png</a>,
+          a PNG image of the level 1 mesh.
+        </li>
+        <li>
+          <a href = "airfoil_interior.node">airfoil_interior.node</a>,
+          the level 0 node file;
+        </li>
+        <li>
+          <a href = "airfoil_interior.1.ele">airfoil_interior.1.ele</a>,
+          the level 1 element file.
+        </li>
+        <li>
+          <a href = "airfoil_interior.1.node">airfoil_interior.1.node</a>,
+          the level 1 node file;
+        </li>
+        <li>
+          <a href = "airfoil_interior.1.poly">airfoil_interior.1.poly</a>;
+          the level 1 poly file;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>BOX</b> is a planar straight line graph of a double box.
+      We use it as input to get a constrained Delaunay triangulation.
+      <ul>
+        <li>
+          <a href = "box.poly">box.poly</a>,
+          the initial POLY file;
+        </li>
+      </ul>
+      The command "triangle -pc box" creates the first mesh.  (We need the -pc
+      because we didn't surround our initial area with segments.) 
+      <ul>
+        <li>
+          <a href = "box.1.poly">box.1.poly</a>,
+          the POLY file;
+        </li>
+        <li>
+          <a href = "box.1.node">box.1.node</a>,
+          the node file;
+        </li>
+        <li>
+          <a href = "box.1.ele">box.1.ele</a>;
+          the element file;
+        </li>
+        <li>
+          <a href = "box.1.ele.png">box.1.ele.png</a>;
+          a PNG image of the elements.
+        </li>
+      </ul>
+      The command "triangle -rpa0.2 box.1" refines the box.1 mesh with
+      an area constraint of 0.2:
+      <ul>
+        <li>
+          <a href = "box.2.poly">box.2.poly</a>,
+          the POLY file;
+        </li>
+        <li>
+          <a href = "box.2.node">box.2.node</a>,
+          the node file;
+        </li>
+        <li>
+          <a href = "box.2.ele">box.2.ele</a>;
+          the element file;
+        </li>
+        <li>
+          <a href = "box.2.ele.png">box.2.ele.png</a>;
+          a PNG image of the elements.
+        </li>
+      </ul>
+      The command "triangle -rpa0.05 box.2" refines the box.2 mesh with
+      an area constraint of 0.05, 1/4 of the previous maximum area:
+      <ul>
+        <li>
+          <a href = "box.3.poly">box.3.poly</a>,
+          the POLY file;
+        </li>
+        <li>
+          <a href = "box.3.node">box.3.node</a>,
+          the node file;
+        </li>
+        <li>
+          <a href = "box.3.ele">box.3.ele</a>;
+          the element file;
+        </li>
+        <li>
+          <a href = "box.3.ele.png">box.3.ele.png</a>;
+          a PNG image of the elements.
+        </li>
+      </ul>
+      The command "triangle -rpa0.0125 box.3" refines the box.3 mesh with
+      an area constraint of 0.0125, 1/4 of the previous maximum area:
+      <ul>
+        <li>
+          <a href = "box.4.poly">box.4.poly</a>,
+          the POLY file;
+        </li>
+        <li>
+          <a href = "box.4.node">box.4.node</a>,
+          the node file;
+        </li>
+        <li>
+          <a href = "box.4.ele">box.4.ele</a>;
+          the element file;
+        </li>
+        <li>
+          <a href = "box.4.ele.png">box.4.ele.png</a>;
+          a PNG image of the elements.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>DIAMOND_02_00009</b> is another set of test data, for which
+      we want the Voronoi diagram.
+      <ul>
+        <li>
+          <a href = "diamond_02_00009.node">diamond_02_00009.node</a>,
+          a sample input file of 9 nodes;
+        </li>
+        <li>
+          <a href = "diamond_02_00009.1.node">diamond_02_00009.1.node</a>,
+          the output Delaunay nodes;
+        </li>
+        <li>
+          <a href = "diamond_02_00009.1.ele">diamond_02_00009.1.ele</a>,
+          the output Delaunay triangles;
+        </li>
+        <li>
+          <a href = "diamond_02_00009.1.v.node">diamond_02_00009.1.v.node</a>,
+          the output Voronoi vertices;
+        </li>
+        <li>
+          <a href = "diamond_02_00009.1.v.edge">diamond_02_00009.1.v.edge</a>,
+          the output lines and rays that make up the Voronoi diagram;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>DOUBLE_HEX</b> describes a unit square with two hexagonal holes.
+      72 points are listed on the outer boundary, and 12 on each of the
+      holes.  It is desired to create a nice looking mesh of about 500
+      nodes, and no additional nodes on the boundary segments.
+      <ul>
+        <li>
+          <a href = "double_hex.poly">double_hex.poly</a>,
+          is the original POLY file;
+        </li>
+        <li>
+          <a href = "double_hex.poly.png">double_hex.poly.png</a>,
+          a PNG image of the segments;
+        </li>
+      </ul>
+      Our first command
+      <blockquote><b>
+        triangle -p double_hex.poly
+      </b></blockquote>
+      requests that we triangulate the current points:
+      <ul>
+        <li>
+          <a href = "double_hex.1.node">double_hex.1.node</a>,
+          the NODE file after step 1;
+        </li>
+        <li>
+          <a href = "double_hex.1.node.png">double_hex.1.node.png</a>,
+          a PNG image of the nodes.
+        </li>
+        <li>
+          <a href = "double_hex.1.poly">double_hex.1.poly</a>,
+          the POLY file after step 1;
+        </li>
+        <li>
+          <a href = "double_hex.1.ele">double_hex.1.ele</a>,
+          the ELE file after step 1;
+        </li>
+        <li>
+          <a href = "double_hex.1.ele.png">double_hex.1.ele.png</a>,
+          a PNG image of
+          the ELE file, created by SHOWME;
+        </li>
+      </ul>
+      Our second command
+      <blockquote><b>
+        triangle -pqY -a0.0015 double_hex.1.poly
+      </b></blockquote>
+      requests that we triangulate the current points, adding new nodes
+      as necessary to make a nice mesh, with no triangle being larger
+      than 0.0015 in area, and with no points added on boundary segments.
+      We end up with 525 nodes and 956 elements:
+      <ul>
+        <li>
+          <a href = "double_hex.2.node">double_hex.2.node</a>,
+          the NODE file after step 2;
+        </li>
+        <li>
+          <a href = "double_hex.2.node.png">double_hex.2.node.png</a>,
+          a PNG image of the nodes.
+        </li>
+        <li>
+          <a href = "double_hex.2.poly">double_hex.2.poly</a>,
+          the POLY file after step 2;
+        </li>
+        <li>
+          <a href = "double_hex.2.ele">double_hex.2.ele</a>,
+          the ELE file after step 2;
+        </li>
+        <li>
+          <a href = "double_hex.2.ele.png">double_hex.2.ele.png</a>,
+          a PNG image of the elements;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>DOUBLE_HEX2</b> describes a unit square with two hexagonal holes.
+      36 points are listed on the outer boundary, and 6 on each of the
+      holes.  It is desired to create a nice looking mesh of about 235
+      elements, and no additional nodes on the boundary segments.
+      <ul>
+        <li>
+          <a href = "double_hex2.poly">double_hex2.poly</a>,
+          is the original POLY file;
+        </li>
+        <li>
+          <a href = "double_hex2.poly.png">double_hex2.poly.png</a>,
+          a PNG image of the segments;
+        </li>
+      </ul>
+      Our first command
+      <blockquote><b>
+        triangle -p double_hex2.poly
+      </b></blockquote>
+      requests that we triangulate the current points:
+      <ul>
+        <li>
+          <a href = "double_hex2.1.node">double_hex2.1.node</a>,
+          the NODE file after step 1;
+        </li>
+        <li>
+          <a href = "double_hex2.1.poly">double_hex2.1.poly</a>,
+          the POLY file after step 1;
+        </li>
+        <li>
+          <a href = "double_hex2.1.ele">double_hex2.1.ele</a>,
+          the ELE file after step 1;
+        </li>
+        <li>
+          <a href = "double_hex2.1.ele.png">double_hex2.1.ele.png</a>,
+          a PNG image of
+          the ELE file, created by SHOWME;
+        </li>
+      </ul>
+      Our second command
+      <blockquote><b>
+        triangle -pqY -a0.0060 double_hex2.1.poly
+      </b></blockquote>
+      requests that we triangulate the current points, adding new nodes
+      as necessary to make a nice mesh, with no triangle being larger
+      than 0.0060 in area, and with no points added on boundary segments.
+      We end up with 141 nodes and 236 elements:
+      <ul>
+        <li>
+          <a href = "double_hex2.2.node">double_hex2.2.node</a>,
+          the NODE file after step 2;
+        </li>
+        <li>
+          <a href = "double_hex2.2.poly">double_hex2.2.poly</a>,
+          the POLY file after step 2;
+        </li>
+        <li>
+          <a href = "double_hex2.2.ele">double_hex2.2.ele</a>,
+          the ELE file after step 2;
+        </li>
+        <li>
+          <a href = "double_hex2.2.ele.png">double_hex2.2.ele.png</a>,
+          a PNG image of the ELE file, created by SHOWME;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>DOUBLE_HEX3</b> describes a unit square with two hexagonal holes.
+      4 points are listed on the outer boundary, and 6 on each of the
+      holes.  We want triangle to triangulate this region.
+      <ul>
+        <li>
+          <a href = "double_hex3.poly">double_hex3.poly</a>,
+          is the POLY file;
+        </li>
+        <li>
+          <a href = "double_hex3.node">double_hex3.node</a>,
+          is the NODE file;
+        </li>
+        <li>
+          <a href = "double_hex3.node.png">double_hex2.node.png</a>,
+          a PNG image of the nodes;
+        </li>
+      </ul>
+      Our command
+      <blockquote><b>
+        triangle -pq -a0.0015 double_hex3.poly
+      </b></blockquote>
+      requests that we triangulate the region, adding points as necessary so that
+      no triangle has an area greater than 0.0015.
+      <ul>
+        <li>
+          <a href = "double_hex3.1.node">double_hex3.1.node</a>,
+          the NODE file after step 1;
+        </li>
+        <li>
+          <a href = "double_hex3.1.node.png">double_hex3.1.node.png</a>,
+          a PNG image of the nodes.
+        </li>
+        <li>
+          <a href = "double_hex3.1.poly">double_hex3.1.poly</a>,
+          the POLY file after step 1;
+        </li>
+        <li>
+          <a href = "double_hex3.1.ele">double_hex3.1.ele</a>,
+          the ELE file after step 1;
+        </li>
+        <li>
+          <a href = "double_hex3.1.ele.png">double_hex3.1.ele.png</a>,
+          a PNG image of the elements;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>ELL</b> is a triangulation of an L-shaped region, using
+      a mesh of 21 nodes and 24 elements.
+      <ul>
+        <li>
+          <a href = "ell.node">
+          ell.node</a>,
+          the nodes;
+        </li>
+        <li>
+          <a href = "ell.ele">
+          ell.ele</a>, the elements;
+        </li>
+        <li>
+          <a href = "ell.png">
+          ell.png</a>,
+          a PNG image of the ELE file, created by SHOWME;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>GREENLAND</b> is a triangulation of Greenland, using
+      a graded (varying-size) mesh of 33,343 nodes and 64,125 elements.
+      The resulting image is essentially a red blob the shape of Greenland.
+      However, using the ZOOM tool, it is possible to see interesting
+      details of the mesh.
+      <ul>
+        <li>
+          <a href = "greenland.node">
+          greenland.node</a>,
+          the nodes;
+        </li>
+        <li>
+          <a href = "greenland.ele">
+          greenland.ele</a>, the elements;
+        </li>
+        <li>
+          <a href = "greenland_zoom.png">
+          greenland_zoom.png</a>,
+          a zoomed image of the upper right margin of the triangulation.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>LA</b> is a POLY file containing information representing soil layers.
+      The data includes points that are bounded by line segments defining the
+      different layers.  The intent is that certain layers will be triangulated
+      with smaller area requirements. 
+      <ul>
+        <li>
+          <a href = "la.poly">
+          la.poly</a>,
+          the POLY file;
+        </li>
+      </ul>
+    </p>
+
+
+    <p>
+      <b>SPIRAL</b> is a node file containing points that form a spiral.
+      <ul>
+        <li>
+          <a href = "spiral.node">spiral.node</a>, the nodes;
+        </li>
+        <li>
+          <a href = "spiral.node.png">spiral.node.png</a>, a PNG image of the nodes;
+        </li>
+      </ul>
+      The command "triangle spiral" produces a Delaunay triangulation of the points,
+      in the following node and element files:
+      <ul>
+        <li>
+          <a href = "spiral.1.ele">spiral.1.ele</a>, the elements;
+        </li>
+        <li>
+          <a href = "spiral.1.ele.png">spiral.1.ele.png</a>, a PNG image of the elements;
+        </li>
+        <li>
+          <a href = "spiral.1.node">spiral.1.node</a>, the nodes;
+        </li>
+        <li>
+          <a href = "spiral.1.node.png">spiral.1.node.png</a>, a PNG image of the nodes;
+        </li>
+      The command "triangle -q spiral" produces a Delaunay triangulation with no angle
+      smaller than 20 degrees (the default).  This is done by adding points as necessary:
+      in the following node and element files:
+      <ul>
+        <li>
+          <a href = "spiral.q.1.ele">spiral.q.1.ele</a>, the elements;
+        </li>
+        <li>
+          <a href = "spiral.q.1.ele.png">spiral.q.1.ele.png</a>, a PNG image of the elements;
+        </li>
+        <li>
+          <a href = "spiral.q.1.node">spiral.q.1.node</a>, the nodes;
+        </li>
+        <li>
+          <a href = "spiral.q.1.node.png">spiral.q.1.node.png</a>, a PNG image of the nodes;
+        </li>
+      The command "triangle -q32.5 spiral" produces a Delaunay triangulation with no angle
+      smaller than 32.5 degrees.  This is done by adding points as necessary:
+      in the following node and element files:
+      <ul>
+        <li>
+          <a href = "spiral.r.1.ele">spiral.r.1.ele</a>, the elements;
+        </li>
+        <li>
+          <a href = "spiral.r.1.ele.png">spiral.r.1.ele.png</a>, a PNG image of the elements;
+        </li>
+        <li>
+          <a href = "spiral.r.1.node">spiral.r.1.node</a>, the nodes;
+        </li>
+        <li>
+          <a href = "spiral.r.1.node.png">spiral.r.1.node.png</a>, a PNG image of the nodes;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SQUARE_CIRCLE_HOLE</b> is a planar straight line graph of a
+      square region with an off center circular hole, and 826 points computed
+      by a CVT calculation, prepared by Hua Fei.
+      <ul>
+        <li>
+          <a href = "square_circle_hole.poly">square_circle_hole.poly</a>,
+          the POLY file;
+        </li>
+        <li>
+          <a href = "square_circle_hole.1.node">
+          square_circle_hole.1.node</a>,
+          the nodes;
+        </li>
+        <li>
+          <a href = "square_circle_hole.1.ele">
+          square_circle_hole.1.ele</a>, the elements;
+        </li>
+        <li>
+          <a href = "square_circle_hole.1.png">
+          square_circle_hole.1.png</a>,
+          an image of the triangulation.
+        </li>
+        <li>
+          <a href = "square_circle_hole.1.output.txt">
+          square_circle_hole.1.output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 09 October 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

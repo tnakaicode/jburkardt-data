@@ -1,0 +1,451 @@
+<html>
+
+  <head>
+    <title>
+      HB Files - The Harwell Boeing Sparse Matrix File Format
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      HB Files <br> Harwell Boeing <br> Sparse Matrix File Format
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>HB</b> is a data directory which
+      contains examples of files in the "HB" or "Harwell Boeing"
+      Sparse Matrix File Format, used to store a sparse matrix in a file.
+    </p>
+
+    <p>
+      Note that the Rutherford Boeing format is an updated, more flexible
+      version of the Harwell Boeing format.
+    </p>
+
+    <p>
+      The space required to
+      represent the matrix is reduced by using a compressed column
+      storage format.  If the matrix is read from the file into memory,
+      it is common to use the same compressed column storage to
+      represent the matrix in memory.
+    </p>
+
+    <p>
+      A matrix is an <b>m</b> by <b>n</b> rectangular array of numbers.
+      A <i>sparse</i> matrix is one in which "most" of the entries are zero.
+      If the matrix is sparse enough, then it is often much more efficient
+      not to allocate space for the full <b>m*n</b> set of entries, but
+      rather to keep track of the location and value of the nonzero entries.
+    </p>
+
+    <h3 align = "center">
+      HB File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII;
+        </li>
+        <li>
+          Each data item in the file must occur in particular columns.
+        </li>
+        <li>
+          Oriented to FORTRAN, in the explicit use of FORTRAN FORMAT codes;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      HB files begin with a header of 4, or sometimes 5, lines:
+      <dl>
+        <dt>
+          Line 1:
+        </dt>
+        <dd>
+          <ul>
+            <li>
+              TITLE, (72 characters)
+            </li>
+            <li>
+              KEY, (8 characters)
+            </li>
+          </ul>
+        </dd>
+        <dt>
+          Line 2:
+        </dt>
+        <dd>
+          <ul>
+            <li>
+              TOTCRD, integer, total number of data lines, (14 characters)
+            </li>
+            <li>
+              PTRCRD, integer, number of data lines for pointers, (14 characters)
+            </li>
+            <li>
+              INDCRD, integer, number of data lines for row or variable
+              indices, (14 characters)
+            </li>
+            <li>
+              VALCRD, integer, number of data lines for numerical values
+              of matrix entries, (14 characters)
+            </li>
+            <li>
+              RHSCRD, integer, number of data lines for right hand side vectors,
+              starting guesses, and solutions, (14 characters)
+            </li>
+          </ul>
+        </dd>
+        <dt>
+          Line 3:
+        </dt>
+        <dd>
+          <ul>
+            <li>
+              MXTYPE, matrix type (see table), (3 characters)
+            </li>
+            <li>
+              blank space, (11 characters)
+            </li>
+            <li>
+              NROW, integer, number of rows or variables, (14 characters)
+            </li>
+            <li>
+              NCOL, integer, number of columns or elements, (14 characters)
+            </li>
+            <li>
+              NNZERO, integer, number of row or variable indices.  For
+              "assembled" matrices, this is just the number of nonzero entries.
+             (14 characters)
+            </li>
+            <li>
+              NELTVL, integer, number of elemental matrix entries.  For
+              "assembled" matrices, this is 0.
+             (14 characters)
+            </li>
+          </ul>
+        </dd>
+        <dt>
+          Line 4:
+        </dt>
+        <dd>
+          <ul>
+            <li>
+              PTRFMT, FORTRAN I/O format for pointers, (16 characters)
+            </li>
+            <li>
+              INDFMT, FORTRAN I/O format for row or variable indices, (16 characters)
+            </li>
+            <li>
+              VALFMT, FORTRAN I/O format for matrix entries, (20 characters)
+            </li>
+            <li>
+              RHSFMT, FORTRAN I/O format for right hand sides, initial guesses,
+              and solutions, (20 characters)
+            </li>
+          </ul>
+        </dd>
+        <dt>
+          Line 5: (only present if 0 &lt; RHSCRD!)
+        </dt>
+        <dd>
+          <ul>
+            <li>
+              RHSTYP, describes the right hand side information, (3 characters)
+            </li>
+            <li>
+              blank space, (11 characters)
+            </li>
+            <li>
+              NRHS, integer, the number of right hand sides, (14 characters)
+            </li>
+            <li>
+              NRHSIX, integer, number of row indices, (14 characters)
+            </li>
+          </ul>
+        </dd>
+      </dl>
+    </p>
+
+    <p>
+      Each character of the <b>MXTYPE</b> variable specifies a separate
+      fact about the matrix:
+      <ol>
+        <li>
+          <b>R</b>, <b>C</b> or <b>P</b> indicates that the matrix
+          values are <i>real</i>, <i>complex</i>, or that only the
+          <i>pattern</i> of nonzeroes is going to be supplied.  Note
+          that if complex arithmetic is specified, then any data vectors
+          included in the file will also be assumed to be complex.
+          FORTRAN I/O treats a complex number as a simple pair of real numbers.
+          Thus, a line that records the single complex number <b>12+17i</b>
+          would look like
+          <pre>
+            12.0  17.0
+          </pre>
+        </li>
+        <li>
+          <b>U</b>, <b>S</b>, <b>H</b>, <b>Z</b> or <b>R</b> indicates that
+          the matrix is symmetric, unsymmetric, Hermitian, skew symmetric,
+          or rectangular.  Each of these facts implies something about how
+          the nonzero elements of the matrix are stored in the file.
+          <ul>
+            <li>
+              <b>U</b>: if the matrix is unsymmetric (and square), then every nonzero
+              element of the matrix corresponds to an entry in the file.
+            </li>
+            <li>
+              <b>S</b>: if the matrix is symmetric (which implies that it is square),
+              (and which typically only occurs for
+              real arithmetic), then half of the nonzero off-diagonal elements don't
+              need to be stored in the file.  A user need only specify the
+              diagonal elements, and perhaps just those beneath the diagonal.
+              A program reading the file must, correspondingly, assume that
+              a value associated with one off-diagonal element should also
+              be assigned to its corresponding transposed location.
+            </li>
+            <li>
+              <b>H</b>: if the matrix is Hermitian, (which implies that it is square)
+              (and which typically only occurs for
+              complex arithmetic), then half of the nonzero off-diagonal elements don't
+              need to be stored in the file.  A user need only specify the
+              diagonal elements, and perhaps just those beneath the diagonal.
+              A program reading the file must, correspondingly, assume that
+              a value associated with one off-diagonal element should also
+              be used to assign a value to its corresponding transposed location.
+            </li>
+            <li>
+              <b>Z</b>: if the matrix is skew symmetric, (which implies that it is square)
+              (and which typically only occurs for
+              real arithmetic), then the diagonal is zero, and only half of the
+              nonzero offdiagonal elements need to be stored.  (I believe
+              that the <b>Z</b> code is only appropriate for a real matrix,
+              and that the case of a skew Hermitian matrix is not provide for!)
+            </li>
+            <li>
+              <b>R</b>: if the matrix is rectangular, then every nonzero element of the matrix
+              must be stored.  In effect, this is the same as the unsymmetric case.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>A</b> indicates that the matrix is "assembled" (the typical case)
+          while <b>E</b> indicates that the matrix is a finite element matrix
+          that is going to be described as the "sum" of a set of smaller
+          matrices.
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      Each character of the <b>RHSTYP</b> specifies a separate fact about
+      the right hand side information.  (Of course, if there are no right
+      hand sides, (RHSCRD = 0) then there is no header line 5, and hence
+      no need to worry about this variable!)
+    </p>
+
+    <p>
+      <ol>
+        <li>
+          <b>F</b> means that all vectors will be listed as "full" vectors,
+          that is, as a list of <b>NROW</b> numbers; <b>M</b> means that,
+          instead, all vectors will be listed in the same format as the matrix.
+          The <b>M</b> option only makes sense if the matrix is being presented
+          in unassembled format.
+        </li>
+        <li>
+          <b>G</b> means that one or more starting guesses or approximate
+          solution vectors are being supplied.  If no guess vectors are
+          supplied, this character should be blank (or, actually, anything
+          but a <b>G</b>).
+        </li>
+        <li>
+          <b>X</b> means that one or more exact solution vectors are being
+          supplied.  If no exact solution vectors are supplied, leave this
+          character blank.
+        </li>
+      </ol>
+    </p>
+
+    <h3>
+      The Data Records
+    </h3>
+
+    <p>
+      After the header lines comes data.  This data is organized into four
+      distinct sets, of pointers, indices, matrix values, and right hand side
+      information.  The number of lines devoted to each set of information were
+      specified in header line number 2.  It is common for the final set of data
+      to be omitted.  In a few cases, the third set, which describes matrix
+      values, is omitted.  In that case, the file only has information about
+      <i>where</i> the nonzero entries of the matrix are, but does not actually
+      specify what those values are.  Such a matrix file is called a "pattern"
+      matrix, and in fact, if this is the case, usually the first character
+      of <b>MXTYPE</b> is given as <b>P</b> for "pattern only".
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Programs and Data:
+    </h3>
+
+    <p>
+      <a href = "../../f_src/dlap_io/dlap_io.html">
+      DLAP_IO</a>,
+      a FORTRAN90 library which
+      reads and writes DLAP sparse matrix files;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hb_io/hb_io.html">
+      HB_IO</a>,
+      a C++ library which
+      reads and writes sparse linear systems stored in the Harwell-Boeing Sparse Matrix format.
+    </p>
+
+    <p>
+      <a href = "../../m_src/hb_to_mm/hb_to_mm.html">
+      HB_TO_MM</a>,
+      a MATLAB program which
+      converts a sparse matrix from Harwell-Boeing to Matrix Market format.
+    </p>
+
+    <p>
+      <a href = "../../m_src/hb_to_msm/hb_to_msm.html">
+      HB_TO_MSM</a>,
+      a MATLAB program which
+      converts a sparse matrix stored in a <a href = ../../data/hb/hb.html">
+      Harwell Boeing file</a> to MATLAB sparse matrix format;
+    </p>
+
+    <p>
+      <a href = "../../f77_src/hb_to_st/hb_to_st.html">
+      HB_TO_ST</a>,
+      a FORTRAN77 program which
+      converts a sparse matrix from Harwell-Boeing to sparse triplet format.
+    </p>
+
+    <p>
+      <a href = "../../datasets/hbsmc/hbsmc.html">
+      HBSMC</a>,
+      a dataset directory which
+      contains the Harwell Boeing Sparse Matrix Collection;
+    </p>
+
+    <p>
+      <a href = "../../m_src/mm_to_hb/mm_to_hb.html">
+      MM_TO_HB</a>,
+      a MATLAB program which
+      reads the sparse matrix information from an MM Matrix Market file
+      and writes a corresponding HB Harwell Boeing file.
+    </p>
+
+    <p>
+      <a href = "../../m_src/msm_to_hb/msm_to_hb.html">
+      MSM_TO_HB</a>,
+      a MATLAB program which
+      writes a MATLAB sparse matrix to a Harwell Boeing (HB) file;
+    </p>
+
+    <p>
+      <a href = "../../data/rb/rb.html">
+      RB</a>,
+      a data directory which
+      contains examples of RB files,
+      the Rutherford Boeing sparse matrix file format;
+    </p>
+
+    <p>
+      <a href = "../../f_src/st_to_hb/st_to_hb.html">
+      ST_TO_HB</a>,
+      a FORTRAN90 program which
+      converts a sparse matrix file from ST format to
+      Harwell Boeing format (HB);
+    </p>
+
+    <p>
+      <a href = "../../c_src/superlu/superlu.html">
+      SUPERLU</a>,
+      a C program which
+      applies a fast direct solution method to a sparse linear system.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Iain Duff, Roger Grimes, John Lewis,<br>
+          User's Guide for the Harwell-Boeing Sparse Matrix Collection,<br>
+          Technical Report TR/PA/92/86,<br>
+          CERFACS, October 1992.
+        </li>
+        <li>
+          Iain Duff, Roger Grimes, John Lewis,<br>
+          Sparse Matrix Test Problems,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 15, Number 1, March 1989, pages 1-14.
+        </li>
+        <li>
+          Web site:<br>
+          <a href = "http://math.nist.gov/MatrixMarket/data/Harwell-Boeing/">
+                     http://math.nist.gov/MatrixMarket/data/Harwell-Boeing/</a>
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "5by5_rua.hb">5by5_rua.hb</a>,
+          a very simple 5 by 5 matrix;
+        </li>
+        <li>
+          <a href = "kershaw_rua.hb">kershaw_rua.hb</a>,
+          the Kershaw matrix, a 4 by 4 symmetric positive definite
+          matrix for which the incomplete Cholesky factorization
+          fails on a negative pivot;
+        </li>
+        <li>
+          <a href = "../../datasets/hbsmc/hbsmc.html">
+          the Harwell Boeing Sparse Matrix Collection</a>,
+          contains many (mostly large) examples;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 24 April 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

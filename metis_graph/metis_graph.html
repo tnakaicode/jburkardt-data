@@ -1,0 +1,145 @@
+<html>
+
+  <head>
+    <title>
+      METIS GRAPH Files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      METIS GRAPH Files
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>METIS_GRAPH</b> is a data directory which
+      contains examples of "graph" files used by the METIS program.
+    </p>
+
+    <p>
+      <b>METIS</b> can read a graph file, and partition the nodes
+      in a balanced way so that each partition has about the same
+      number of nodes, and the number of cut edges is minimized.
+      This process is designed with the idea that the graph represents
+      a computation that is to be divided up among various processors,
+      with the stipulation that the amount of interprocessor communication
+      must be limited.
+    </p>
+
+    <h3 align = "center">
+      METIS GRAPH File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII
+        </li>
+        <li>
+          a graph of <b>N</b> nodes is stored in a file of <b>N+1</b> lines;
+        </li>
+        <li>
+          the first line lists the number of nodes and the number of edges;
+        </li>
+        <li>
+          If the first line contains more than two values, the extra values
+          indicate the weights;
+        </li>
+        <li>
+          each subsequent line lists the "neighbors" of a node;
+        </li>
+        <li>
+          comment lines begin with a "%" sign;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          George Karypis and Vipin Kumar,<br>
+          METIS, a Software Package for Partitioning Unstructured Graphs
+          and Computing Fill-Reduced Orderings of Sparse Matrices;
+        </li>
+        <li>
+          George Karypis, Vipin Kumar,<br>
+          A fast and high quality multilevel scheme for partitioning
+          irregular graphs,<br>
+          SIAM Journal on Scientific Computing,<br>
+          Volume 20, Number 1, 1998, pages 359-392;
+        </li>
+        <li>
+          <a href = "http://www.cs.umn.edu/~metis">
+                     http://www.cs.umn.edu/~metis</a>, <br>
+          The METIS home page;
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "4elt.graph">4elt.graph</a>, a "small" graph
+          representing a 2D finite element mesh (15,606 nodes and
+          45,878 edges);
+        </li>
+        <li>
+          <a href = "test.mgraph">test.mgraph</a>, a "very small" graph
+          that includes two vertex weights (766 nodes and 1,314 edges);
+        </li>
+        <li>
+          <a href = "tiny_01.graph">tiny_01.graph</a>, a "tiny" graph
+          that includes no weights (7 nodes and 11 edges);
+        </li>
+        <li>
+          <a href = "tiny_02.graph">tiny_02.graph</a>, a "tiny" graph
+          that includes edge weights (7 nodes and 11 edges);
+        </li>
+        <li>
+          <a href = "tiny_03.graph">tiny_03.graph</a>, a "tiny" graph
+          that includes vertex and edge weights (7 nodes and 11 edges);
+        </li>
+        <li>
+          <a href = "tiny_04.graph">tiny_04.graph</a>, a "tiny" graph
+          that includes three sets of vertex weights (7 nodes and 11 edges);
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 01 May 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

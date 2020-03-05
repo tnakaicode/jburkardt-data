@@ -1,0 +1,7 @@
+netcdf simple_xy {
+dimensions:
+	x = 6 ;
+	y = 12 ;
+variables:
+	int data(x, y) ;
+}

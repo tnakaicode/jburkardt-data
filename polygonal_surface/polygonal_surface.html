@@ -1,0 +1,222 @@
+<html>
+
+  <head>
+    <title>
+      POLYGONAL_SURFACE - Two Files Defining a Polygonal Surface
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      POLYGONAL_SURFACE <br> Two Files Defining a Polygonal Surface
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>POLYGONAL_SURFACE</b>
+      is a data directory which
+      contains examples of files defining a polygonal surface.
+    </p>
+
+    <p>
+      A polygonal surface
+      can be thought of as a surface composed of polygonal faces.
+      The polygons must all be of the same type (triangles, quadrilaterals
+      or whatever).
+    </p>
+
+    <p>
+      If the polygons are of higher order than triangles,
+      the user must take care that the vertices of each polygon all
+      lie in a plane.  Otherwise, no planar polygon will pass through
+      the vertices.  If the nonplanarity is significant, then the
+      display will not look right at all.
+    </p>
+
+    <p>
+      The information defining the polygonal surface can be stored in
+      two simple files:
+      <ul>
+        <li>
+          the <i>node file</i> lists a set of <b>(x,y,z)</b> values,
+          which are vertices of the polygons.
+        </li>
+        <li>
+          the <i>element file</i> lists, for each polygonal face,
+          the indices of the nodes that form its vertices.  These nodes
+          are generally listed in a "counterclockwise" order, that is,
+          they would be seen as being counterclockwise to an observer
+          from the "outside" or "top" of the surface.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/bezier_surface/bezier_surface.html">
+      BEZIER_SURFACE</a>
+      a data directory which
+      describes Bezier surfaces and a file format for storing them.
+    </p>
+
+    <p>
+      <a href = "../../data/fem2d/fem2d.html">
+      FEM2D</a>,
+      a data directory which
+      contains examples of 2D FEM files,
+      text files that describe a 2D finite element geometry
+      and associated nodal values;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem2d_pack/fem2d_pack.html">
+      FEM2D_PACK</a>,
+      a C++ library which
+      contains utilities for 2D finite element calculations.
+    </p>
+
+    <p>
+      <a href = "../../m_src/polygonal_surface_display/polygonal_surface_display.html">
+      POLYGONAL_SURFACE_DISPLAY</a>,
+      a MATLAB program which
+      can read in a polygonal surface dataset and display the data.
+    </p>
+
+    <p>
+      <a href = "../../data/triangulation_order3/triangulation_order3.html">
+      TRIANGULATION_ORDER3</a>,
+      a data directory which
+      describes the related idea of
+      a linear triangulation in which each triangle is defined by 3 nodes.
+    </p>
+
+    <p>
+      <a href = "../../data/triangulation_order6/triangulation_order6.html">
+      TRIANGULATION_ORDER6</a>,
+      a data directory which
+      describes the related idea of
+      a quadratic triangulation in which each triangle is defined by 6 nodes.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Edward Angel,<br>
+          Interactive Computer Graphics,
+          a Top-Down Approach with OpenGL,<br>
+          Addison-Wesley, 2000.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>SPHERE_Q4</b> is a sphere, tiled with an 8 by 8 array of
+      logically rectangular patches.  The dataset was created by
+      the sample calling program for
+      <b>FEMPACK</b> and
+      the image is a snapshot of the 3D display created by
+      <b>POLYGONAL_SURFACE_DISPLAY</b>.
+      <ul>
+        <li>
+          <a href = "sphere_q4_nodes.txt">
+          sphere_q4_nodes.txt</a>, the node file;
+        </li>
+        <li>
+          <a href = "sphere_q4_elements.txt">
+          sphere_q4_elements.txt</a>, the element file;
+        </li>
+        <li>
+          <a href = "sphere_q4.png">
+          sphere_q4.png</a>,
+          a <a href = "../../data/png/png.html">PNG</a> image of
+          the shape.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SPHERE_T3</b> is a sphere, tiled with an 8 by 8 array of
+      logically triangular patches.  The dataset was created by
+      the sample calling program for
+      <b>FEMPACK</b> and
+      the image is a snapshot of the 3D display created by
+      <b>POLYGONAL_SURFACE_DISPLAY</b>.
+      <ul>
+        <li>
+          <a href = "sphere_t3_nodes.txt">
+          sphere_t3_nodes.txt</a>, the node file;
+        </li>
+        <li>
+          <a href = "sphere_t3_elements.txt">
+          sphere_t3_elements.txt</a>, the element file;
+        </li>
+        <li>
+          <a href = "sphere_t3.png">
+          sphere_t3.png</a>,
+          a <a href = "../../data/png/png.html">PNG</a> image of
+          the shape.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TETRA_T6</b> is a tetrahedron  The dataset was created by hand.
+      The image is a snapshot of the 3D display created by
+      <b>POLYGONAL_SURFACE_DISPLAY</b>.
+      <ul>
+        <li>
+          <a href = "tetra_t6_nodes.txt">
+          tetra_t6_nodes.txt</a>, the file of 10 nodes.
+        </li>
+        <li>
+          <a href = "tetra_t6_elements.txt">
+          tetra_t6_elements.txt</a>, the element file.
+        </li>
+        <li>
+          <a href = "tetra_t6.png">
+          tetra_t6.png</a>,
+          a <a href = "../../data/png/png.html">PNG</a> image of
+          the shape.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 05 December 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

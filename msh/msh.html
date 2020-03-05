@@ -1,0 +1,255 @@
+<html>
+
+  <head>
+    <title>
+      MSH - 3D Finite Element Mesh Format for GMSH
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      MSH <br> 3D Finite Element Mesh Format for GMSH
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>MSH</b>
+      is a data directory which
+      contains examples of MSH files, which define a 3D finite element mesh
+      for the GMSH meshing program.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../py_src/dolfin-convert/dolfin-convert.html">
+      DOLFIN-CONVERT</a>,
+      a Python program which
+      can convert mesh files from Gmsh, MEDIT, METIS or SCOTCH format to an
+      XML format suitable for use by DOLFIN or FENICS,
+      by Anders Logg.
+    </p>
+
+    <p>
+      <a href = "../../examples/gmsh/gmsh.html">
+      GMSH</a>,
+      examples which
+      illustrate the use of the Gmsh program,
+      a 3D mesh generator for the finite element method (FEM).
+    </p>
+
+    <p>
+      <a href = "../../m_src/tet_mesh_to_gmsh/tet_mesh_to_gmsh.html">
+      TET_MESH_TO_GMSH</a>,
+      a MATLAB program which
+      reads information defining a tet mesh, namely
+      a file of node coordinates and a file of elements defined by
+      node indices, and creates a corresponding Gmsh mesh file.
+    </p>
+
+    <p>
+      <a href = "../../m_src/triangulation_to_gmsh/triangulation_to_gmsh.html">
+      TRIANGULATION_TO_GMSH</a>,
+      a MATLAB program which
+      reads a file of node coordinates and a file of elements defined by
+      node indices, and creates a corresponding Gmsh mesh file.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Christophe Geuzaine, Jean-Francois Remacle,<br>
+          Gmsh: a three-dimensional finite element mesh generator with
+          built-in pre- and post-processing facilities,<br>
+          International Journal for Numerical Methods in Engineering,<br>
+          Volume 79, Number 11, pages 1309-1331, 2009.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      CIRCLE_2D is a mesh of a circle in 2D,
+      using 25 nodes and 20 quadrilateral elements.
+      <ul>
+        <li>
+          <a href = "circle_2d.msh">circle_2d.msh</a>
+          a Gmsh version of the mesh.
+        </li>
+        <li>
+          <a href = "circle_2d.png">circle_2d.png</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      CYLINDER_2D is a mesh for 2D flow past a square cylinder, 
+      using 1649 nodes and 3078 elements.
+      <ul>
+        <li>
+          <a href = "cylinder_2d.msh">cylinder_2d.msh</a>
+          a Gmsh version of the mesh.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      CYLINDER_3D is a mesh for 3D flow in a 0.41x2.5x0.41 channel, 
+      past a (square) cylinder, using 49,602 nodes and 9,792 elements.
+      <ul>
+        <li>
+          <a href = "cylinder_3d.msh">cylinder_3d.msh</a>
+          a Gmsh version of the mesh.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>ELL_2D</b> is a 2D mesh of the L-shaped region, with 
+      26 nodes and 56 triangular elements.
+      <ul>
+        <li>
+          <a href = "ell_2d.msh">ell_2d.msh</a>, the mesh file.
+        </li>
+        <li>
+          <a href = "ell_2d.png">ell_2d.png</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>RECTANGLE</b> is a 2D mesh of a rectangle, with 20 nodes and
+      24 elements.  The rectangle has been divided into 3 rows and 4
+      columns of squares, and then each square has been split into
+      a pair of triangles.
+      <ul>
+        <li>
+          <a href = "rectangle.msh">rectangle.msh</a>, the mesh file.
+        </li>
+        <li>
+          <a href = "rectangle.png">rectangle.png</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      STEP_2D is a mesh for 2D flow past a forward and backward step,
+      using 537 nodes and 960 elements.
+      <ul>
+        <li>
+          <a href = "step_2d.msh">step_2d.msh</a>
+          a Gmsh version of the mesh.
+        </li>
+        <li>
+          <a href = "step_2d.png">step_2d.png</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      STEP_3D is a mesh associated with 3D flow in a 10x50x10 channel, 
+      past a forward and backward step, using 38,992 nodes and 7,680 elements.
+      <ul>
+        <li>
+          <a href = "step_3d.msh">step_3d.msh</a>
+          a Gmsh version of the mesh.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>T1</b> is a mesh of a 2D rectangular channel, with 431 nodes and
+      852 elements.
+      <ul>
+        <li>
+          <a href = "t1.msh">t1.msh</a>, the mesh file.
+        </li>
+        <li>
+          <a href = "t1.png">t1.png</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>T13_DATA</b> is a 3D mesh with 788 nodes and
+      1864 elements.
+      <ul>
+        <li>
+          <a href = "t13_data.msh">t13_data.msh</a>, the mesh file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TEST</b> is a 2D channel formed by starting with a long rectangular
+      channel and creating a narrow neck by removing elliptical portions
+      from the top and bottom.  The resulting mesh has 4,325 nodes and
+      8,656 elements.
+      <ul>
+        <li>
+          <a href = "test.msh">test.msh</a>, 
+          the mesh file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TINY</b> is a tiny 2D mesh, with 6 nodes and
+      2 quadrilateral elements, plus an associated nodal scalar dataset.
+      <ul>
+        <li>
+          <a href = "tiny.msh">tiny.msh</a>, the mesh file.
+        </li>
+        <li>
+          <a href = "tiny.png">tiny.png</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>VIEW5</b> is a 2D mesh with data, with 6 nodes and
+      2 elements, 3 nodal scalar maps and two vectors.
+      <ul>
+        <li>
+          <a href = "view5.msh">view5.msh</a>, the mesh file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../data.html">
+      the DATA directory</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 19 June 2016.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

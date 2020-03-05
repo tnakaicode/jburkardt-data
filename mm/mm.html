@@ -1,0 +1,298 @@
+<html>
+
+  <head>
+    <title>
+      MM - Matrix Market File Format
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      MM <br> The Matrix Market File Format
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>MM</b> is a data directory which
+      contains files stored in the format used by the Matrix Market for
+      the storage and exchange of matrices.
+    </p>
+
+    <h3 align = "center">
+      MM File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII format;
+        </li>
+        <li>
+          allow comment lines, which begin with a percent sign;
+        </li>
+        <li>
+          use a "coordinate" format for sparse matrices;
+        </li>
+        <li>
+          use an "array" format for general dense matrices;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      A file in the Matrix Market format comprises four parts:
+      <ol>
+        <li>
+          <b>Header line:</b> contains an identifier, and four text fields;
+        </li>
+        <li>
+          <b>Comment lines:</b> allow a user to store information and comments;
+        </li>
+        <li>
+          <b>Size line:</b> specifies the number of rows and columns,
+          and the number of nonzero elements;
+        </li>
+        <li>
+          <b>Data lines:</b> specify the location of the matrix entries
+          (implicitly or explicitly) and their values.
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      The header line has the form
+      <pre>
+%%MatrixMarket <i>object</i> <i>format</i> <i>field</i> <i>symmetry</i>
+      </pre>
+      The header line must be the first line of the file, and the header
+      line must begin with the string <b>%%MatrixMarket</b>.  The four
+      fields that follow that string are
+      <ul>
+        <li>
+          <i>object</i> is usually <b>matrix</b>, and that is the
+          case we will consider here.  Another legal value is
+          <b>vector</b>, whose format is similar, but with some
+          obvious simplifications.
+        </li>
+        <li>
+          <i>format</i> is either <b>coordinate</b> or <b>array</b>;
+        </li>
+        <li>
+          <i>field</i> is either <b>real</b>, <b>double</b>, <b>complex</b>,
+          <b>integer</b> or <b>pattern</b>.
+        </li>
+        <li>
+          <i>symmetry</i> is either <b>general</b> (legal for real, complex,
+          integer or pattern fields),
+          <b>symmetric</b> (real, complex, integer or pattern),
+          <b>skew-symmetric</b> (real, complex or integer), or
+          <b>hermitian</b> (complex only).
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      If the <i>field</i> of a matrix is <b>pattern</b>, then
+      only the locations of the nonzeros will be listed.  This
+      presumes, obviously, that we are using the <b>coordinate</b>
+      format!
+    </p>
+
+    <p>
+      If the <i>symmetry</i> of a matrix is <b>symmetric</b> or
+      <b>hermitian</b>, then only the entries on or below the
+      main diagonal are to be listed.  If the <i>symmetry</i>
+      is <b>skew-symmetric</b>, then only the entries strictly
+      below the main diagonal are to be listed.
+    </p>
+
+    <p>
+      The comment lines, if any, should follow the header line.
+      The only requirement is that each comment line begin with
+      a percent sign.
+    </p>
+
+    <p>
+      If <i>format</i> was specified as <b>array</b>, then the
+      size line has the form:
+      <pre>
+        <i>m n</i>
+      </pre>
+      where
+      <ul>
+        <li>
+          <i>m</i> is the number of rows in the matrix;
+        </li>
+        <li>
+          <i>n</i> is the number of columns in the matrix;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      If <i>format</i> was specified as <b>coordinate</b>, then the
+      size line has the form:
+      <pre>
+        <i>m n nonzeros</i>
+      </pre>
+      where
+      <ul>
+        <li>
+          <i>m</i> is the number of rows in the matrix;
+        </li>
+        <li>
+          <i>n</i> is the number of columns in the matrix;
+        </li>
+        <li>
+          <i>nonzeros</i> is the number of nonzero entries in the matrix
+          (for general symmetry), or the number of nonzero entries
+          on or below the diagonal (for symmetric or Hermitian symmetry),
+          or the number of nonzero entries below the diagonal (for
+          skew-symmetric symmetry).
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      If <i>format</i> was specified as <b>array</b>, there must
+      follow exactly <b>m</b> * <b>n</b> data lines, one for
+      each entry, listed by columns, having the form
+      <pre>
+        <i>value</i>
+      </pre>
+      where
+      <ul>
+        <li>
+          <i>value</i> is the value of the entry.  If the <i>field</i> is
+          <b>complex</b>, a pair of real numbers is required.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      If <i>format</i> was specified as <b>coordinate</b>, there must
+      follow exactly <b>nonzeros</b> data lines, one for
+      each matrix entry that is to be listed, having the form
+      <pre>
+        <i>i j value</i>
+      </pre>
+      where
+      <ul>
+        <li>
+          <i>i</i> is the row of the entry;
+        </li>
+        <li>
+          <i>j</i> is the column of the entry;
+        </li>
+        <li>
+          <i>value</i> is the value of the entry.  If the <i>field</i> is
+          <b>complex</b>, a pair of real numbers is required.  If the
+          value of <i>format</i> was <b>pattern</b>, then no value is
+          listed here; only the values of <i>i</i> and <i>j</i> occur.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "http://math.nist.gov/MatrixMarket/">
+                     http://math.nist.gov/MatrixMarket/</a><br>
+          The Matrix Market Web Site.
+        </li>
+        <li>
+          Ronald Boisvert, Roldan Pozo, Karin Remington,<br>
+          The Matrix Market Exchange Formats: Initial Design,<br>
+          Technical Report NISTIR-5935,<br>
+          National Institute of Standards and Technology, December 1996.<br>
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "gr_900_900_crg.mm">gr_900_900_crg.mm</a>,
+          a 900 by 900 matrix in COORDINATE REAL GENERAL form.
+        </li>
+        <li>
+          <a href = "gre_343_343_crg.mm">gre_343_343_crg.mm</a>,
+          a 343 by 343 matrix in COORDINATE REAL GENERAL form.
+        </li>
+        <li>
+          <a href = "m_04_03_arg.mm">m_04_03_arg.mm</a>,
+          a 4 by 3 matrix in ARRAY REAL GENERAL form.
+        </li>
+        <li>
+          <a href = "m_05_05_cch.mm">m_05_05_cch.mm</a>,
+          a 5 by 5 matrix in COORDINATE COMPLEX HERMITIAN form.
+        </li>
+        <li>
+          <a href = "m_05_05_cig.mm">m_05_05_cig.mm</a>,
+          a 5 by 5 matrix in COORDINATE INTEGER GENERAL form.
+        </li>
+        <li>
+          <a href = "m_05_05_cpg.mm">m_05_05_cpg.mm</a>,
+          a 5 by 5 matrix in COORDINATE PATTERN GENERAL form.
+        </li>
+        <li>
+          <a href = "m_05_05_crk.mm">m_05_05_crk.mm</a>,
+          a 5 by 5 matrix in COORDINATE REAL SKEW-SYMMETRIC form.
+        </li>
+        <li>
+          <a href = "m_05_05_crg.mm">m_05_05_crg.mm</a>,
+          a 5 by 5 matrix in COORDINATE REAL GENERAL form.
+        </li>
+        <li>
+          <a href = "m_05_05_crs.mm">m_05_05_crs.mm</a>,
+          a 5 by 5 matrix in COORDINATE REAL SYMMETRIC form.
+        </li>
+        <li>
+          <a href = "wathen_29_29_adg.mm">wathen_29_29_adg.mm</a>,
+          a 29 by 29 matrix in ARRAY DOUBLE GENERAL form.
+        </li>
+        <li>
+          <a href = "west_67_67_crg.mm">west_67_67_crg.mm</a>,
+          a 67 by 67 matrix in COORDINATE REAL GENERAL form.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 25 March 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

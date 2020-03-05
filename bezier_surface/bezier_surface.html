@@ -1,0 +1,233 @@
+<html>
+
+  <head>
+    <title>
+      BEZIER_SURFACE - Two Files Defining a Bezier Surface
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      BEZIER_SURFACE <br> Two Files Defining a Bezier Surface
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>BEZIER_SURFACE</b>
+      is a data directory which
+      contains examples of Bezier surfaces.
+    </p>
+
+    <p>
+      A Bezier surface can be thought of as a surface constructed of <i>patches</i>
+      (in the same way that a quilt is made).  Each patch, in turn,
+      is defined as the image of a Bezier function
+      <b>(x(u,v), y(u,v), z(u,v))</b> defined over the unit rectangle
+      in the <b>(u,v)</b> parameter space.
+    </p>
+
+    <p>
+      The information defining the Bezier surface can be stored in
+      two simple files:
+      <ul>
+        <li>
+          the <i>node file</i> lists a set of <b>(x,y,z)</b> values,
+          some of which are points on the surface, and some of which
+          are used to define the slopes;
+        </li>
+        <li>
+          the <i>rectangle file</i> lists, for each <b>(u,v)</b> rectangle,
+          the 16 nodes needed to construct the corresponding patch
+          of the surface.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The nodes may be listed in any order.  When defining a rectangle,
+      the nodes are indexed by their order in the node file.  The
+      16 nodes to be associated with the rectangle are listed in an order
+      that suggests positions in a unit rectangle, suggested by the
+      following diagram:
+      <pre>
+         A
+         |
+         |  13--14--15--16
+         |   |   |   |   |
+         |   9--10--11--12
+         |   |   |   |   |
+         |   5---6---7---8
+       V |   |   |   |   |
+         |   1---2---3---4
+         |
+         +----------------->
+            U
+      </pre>
+    </p>
+
+    <p>
+      Note that the node data associated with parameter points on
+      the corners of the <b>(u,v)</b> rectangle corresponds to
+      physical points on the corresponding <b>(x,y,z)</b> surface;
+      however, the node data associated with non-corner parameter points
+      are NOT points on the surface.  In particular, only the <b>(x,y,z)</b>
+      data associated with nodes 1, 4, 13, and 16 of the <b>(u,v)</b>
+      rectangle contain coordinates of points on the surface.
+    </p>
+
+    <p>
+      Another way to look at the <b>(u,v)</b> parameter space is
+      to double index the points:
+      <pre>
+         A
+         |
+         |  3,0 3,1 3,2 3,3
+         |
+         |  2,0 2,1 2,2 2,3
+         |
+         |  1,0 1,1 1,2 1,3
+       V |
+         |  0,0 0,1 0,2 0,3
+         |
+         +----------------->
+            U
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../f_src/bezier_surface/bezier_surface.html">
+      BEZIER_SURFACE</a>,
+      a FORTRAN90 library which
+      reads, writes, prints and manipulates data that defines a Bezier surface;
+    </p>
+
+    <p>
+      <a href = "../../m_src/bezier_surface_display/bezier_surface_display.html">
+      BEZIER_SURFACE_DISPLAY</a>,
+      a MATLAB program which 
+      can read the information defining a Bezier surface and display an image of it.
+    </p>
+
+    <p>
+      <a href = "../../data/triangulation_order3/triangulation_order3.html">
+      TRIANGULATION_ORDER3</a>,
+      a data directory which 
+      describes the related idea of
+      a linear triangulation in which each triangle is defined by 3 nodes.
+    </p>
+
+    <p>
+      <a href = "../../data/triangulation_order6/triangulation_order6.html">
+      TRIANGULATION_ORDER6</a>,
+      a data directory which
+      describes the related idea of
+      a quadratic triangulation in which each triangle is defined by 6 nodes.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Edward Angel,<br>
+          Interactive Computer Graphics,
+          a Top-Down Approach with OpenGL,<br>
+          Addison-Wesley, 2000,<br>
+          ISBN: 0-201-38597-X,<br>
+          LC: T385.A514.
+        </li>
+        <li>
+          The Wikipedia article "Utah teapot" in
+          <a href = "http://en.wikipedia.org/wiki/Utah_teapot">
+                     http://en.wikipedia.org/wiki/Utah_teapot</a>
+
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      The <b>TEACUP</b> is a simple model of a teacup.
+      <ul>
+        <li>
+          <a href = "teacup_nodes.txt">teacup_nodes.txt</a>
+          contains 251 nodes;
+        </li>
+        <li>
+          <a href = "teacup_rectangles.txt">teacup_rectangles.txt</a>
+          defines 26 rectangles.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The <b>TEAPOT</b> or <b>UTAH TEAPOT</b> or <b>NEWELL TEAPOT</b>
+      is a standard reference object for computer graphics.
+      <ul>
+        <li>
+          <a href = "teapot_nodes.txt">teapot_nodes.txt</a>
+          contains 306 nodes;
+        </li>
+        <li>
+          <a href = "teapot_rectangles.txt">teapot_rectangles.txt</a>
+          defines 32 rectangles.
+        </li>
+        <li>
+          <a href = "teapot_linear.png">teapot_linear.png</a>
+          a simple rendering of the teapot using flat planes,
+          by <b>bezier_surface_display</b>.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The <b>TEASPOON</b> is a simple model of a teaspoon.
+      <ul>
+        <li>
+          <a href = "teaspoon_nodes.txt">teaspoon_nodes.txt</a>
+          contains 256 nodes;
+        </li>
+        <li>
+          <a href = "teaspoon_rectangles.txt">teaspoon_rectangles.txt</a>
+          defines 16 rectangles.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 19 June 2006
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

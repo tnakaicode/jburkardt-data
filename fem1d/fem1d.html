@@ -1,0 +1,330 @@
+<html>
+
+  <head>
+    <title>
+      FEM1D - Three Files Describing a 1D Finite Element Model
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FEM1D <br> Three Files Describing a 1D Finite Element Model
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FEM1D</b>
+      is a data directory which
+      contains examples of 1D FEM files, which define a 1D finite element model.
+    </p>
+
+    <p>
+      The FEM format is a simple dataset of three files that
+      can be used to describe a finite element model.
+    </p>
+
+    <p>
+      The finite element model is assumed to include three items:
+      <ul>
+        <li>
+          Node coordinates (in 1D, 2D or 3D);
+        </li>
+        <li>
+          Elements defined by a sequence of node indices (for this simple format,
+          we assume the elements are all of the same order);
+        </li>
+        <li>
+          Node values (scalars, vectors, or any set of data);
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      FEM File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII
+        </li>
+        <li>
+          Each line is one "record"
+        </li>
+        <li>
+          Each record is either a comment record or a data record;
+        </li>
+        <li>
+          Comment records begin with the "#" character;
+        </li>
+        <li>
+          A data record records node coordinates for one node, or
+          the node indices for one element, or the set of node data
+          for one node;
+        </li>
+        <li>
+          For a given file, each data record contains the same number
+          of items, separated by blanks.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../c_src/fem1d/fem1d.html">
+      FEM1D</a>,
+      a C program which
+      applies the finite element method to a 1D linear two point
+      boundary value problem.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem1d_adaptive/fem1d_adaptive.html">
+      FEM1D_ADAPTIVE</a>,
+      a C++ program which
+      applies the finite element method to a 1D linear two point
+      boundary value problem
+      using adaptive refinement to improve the solution.
+    </p>
+
+    <p>
+      <a href = "../../c_src/fem1d_bvp_linear/fem1d_bvp_linear.html">
+      FEM1D_BVP_LINEAR</a>,
+      a C program which
+      applies the finite element method, with piecewise linear elements,
+      to a two point boundary value problem in one spatial dimension.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem1d_nonlinear/fem1d_nonlinear.html">
+      FEM1D_NONLINEAR</a>,
+      a C++ program which
+      applies the finite element method to a 1D nonlinear two point
+      boundary value problem.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem1d_sample/fem1d_sample.html">
+      FEM1D_SAMPLE</a>,
+      a C++ library which
+      evaluates a finite element function defined on an order 3 or order 6 triangulation.
+    </p>
+
+    <p>
+      <a href = "../../data/fem2d/fem2d.html">
+      FEM2D</a>,
+      a data directory which
+      contains examples of 2D FEM files,
+      three text files that describe a 2D finite element geometry;
+    </p>
+
+    <p>
+      <a href = "../../data/fem3d/fem3d.html">
+      FEM3D</a>,
+      a data directory which
+      contains examples of 3D FEM files,
+      three text files that describe a 3D finite element geometry;
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Hans Rudolf Schwarz,<br>
+          Methode der Finiten Elemente,<br>
+          Teubner Studienbuecher, 1980,<br>
+          ISBN: 3-519-02349-0.
+        </li>
+        <li>
+          Gilbert Strang, George Fix,<br>
+          An Analysis of the Finite Element Method,<br>
+          Cambridge, 1973,<br>
+          ISBN: 096140888X,<br>
+          LC: TA335.S77.
+        </li>
+        <li>
+          Olgierd Zienkiewicz,<br>
+          The Finite Element Method,<br>
+          Sixth Edition,<br>
+          Butterworth-Heinemann, 2005,<br>
+          ISBN: 0750663200,<br>
+          LC: TA640.2.Z54
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>ARCTAN</b> is an example of a 1D finite element model, using
+      29 nodes, and piecewise linear elements, in which a scalar value is stored.
+      The exact solution of the problem is the arctangent function.
+      This data was computed by the
+      <a href = "../../m_src/fem1d_adaptive/fem1d_adaptive.html">
+      FEM1D_ADAPTIVE</a> program.
+      <ul>
+        <li>
+          <a href = "arctan_nodes.txt">arctan_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "arctan_elements.txt">arctan_elements.txt</a>
+        </li>
+        <li>
+          <a href = "arctan_values.txt">arctan_values.txt</a>
+        </li>
+        <li>
+          <a href = "arctan.png">arctan.png</a>,
+          a PNG image of the finite element function.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>FEM1D</b> is an example of a 1D finite element model, using
+      11 nodes, and piecewise linear elements, in which a scalar value is stored.
+      This data was computed by the
+      <a href = "../../m_src/fem1d_nonlinear/fem1d_nonlinear.html">
+      FEM1D_NONLINEAR</a> program.
+      <ul>
+        <li>
+          <a href = "fem1d_nodes.txt">fem1d_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "fem1d_elements.txt">fem1d_elements.txt</a>
+        </li>
+        <li>
+          <a href = "fem1d_values.txt">fem1d_values.txt</a>
+        </li>
+        <li>
+          <a href = "fem1d.png">fem1d.png</a>,
+          a PNG image of the finite element function.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SIN0</b> is a degree 0 finite element model for SIN(PI*X) on [0,3].
+      <ul>
+        <li>
+          <a href = "sin0_nodes.txt">sin0_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "sin0_values.txt">sin0_values.txt</a>
+        </li>
+        <li>
+          <a href = "sin0_elements.txt">sin0_elements.txt</a>
+        </li>
+        <li>
+          <a href = "sin0.png">sin0.png</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SIN1</b> is a degree 1 finite element model for SIN(PI*X) on [0,3].
+      <ul>
+        <li>
+          <a href = "sin1_nodes.txt">sin1_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "sin1_values.txt">sin1_values.txt</a>
+        </li>
+        <li>
+          <a href = "sin1_elements.txt">sin1_elements.txt</a>
+        </li>
+        <li>
+          <a href = "sin1.png">sin1.png</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SIN2</b> is a degree 2 finite element model for SIN(PI*X) on [0,3].
+      <ul>
+        <li>
+          <a href = "sin2_nodes.txt">sin2_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "sin2_values.txt">sin2_values.txt</a>
+        </li>
+        <li>
+          <a href = "sin2_elements.txt">sin2_elements.txt</a>
+        </li>
+        <li>
+          <a href = "sin2.png">sin2.png</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SIN4</b> is a degree 4 finite element model for SIN(PI*X) on [0,3].
+      <ul>
+        <li>
+          <a href = "sin4_nodes.txt">sin4_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "sin4_values.txt">sin4_values.txt</a>
+        </li>
+        <li>
+          <a href = "sin4_elements.txt">sin4_elements.txt</a>
+        </li>
+        <li>
+          <a href = "sin4.png">sin4.png</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SIN8</b> is a degree 8 finite element model for SIN(PI*X) on [0,3].
+      <ul>
+        <li>
+          <a href = "sin8_nodes.txt">sin8_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "sin8_values.txt">sin8_values.txt</a>
+        </li>
+        <li>
+          <a href = "sin8_elements.txt">sin8_elements.txt</a>
+        </li>
+        <li>
+          <a href = "sin8.png">sin8.png</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../data.html">
+      the DATA directory</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 01 March 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

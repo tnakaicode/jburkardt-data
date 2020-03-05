@@ -1,0 +1,321 @@
+<html>
+
+  <head>
+    <title>
+      CC - Compressed Column (CC) Sparse Matrix File Format
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      CC <br> Compressed Column (CC) Sparse Matrix File Format
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>CC</b> is a data directory which
+      contains examples of files in the Compressed Column (CC)
+      format for storing sparse matrices.
+    </p>
+
+    <p>
+      The sparse compressed column data structure involves:
+      <ul>
+        <li>
+          <b>M</b> and <b>N</b>, the number of rows and columns of the matrix
+          (we'll often assume assume the matrix is square, in which case
+          <b>M=N</b>);
+        </li>
+        <li>
+          <b>NZ_NUM</b>, the number of nonzero entries in the matrix.
+        </li>
+        <li>
+          <b>COL(1:N+1)</b>, the location in <b>ROW</b> and <b>A</b> of
+          the first entry associated with each column; the last entry of
+          <b>COL</b> indicates where the first entry of column <b>N+1</b>
+          would go.
+        </li>
+        <li>
+          <b>ROW(1:NZ_NUM)</b>, the row indices of the nonzero entries;
+          entries are grouped by column.  Within each column, the
+          entries are presumed to be ascending sorted by row;
+        </li>
+        <li>
+          <b>A(1:NZ_NUM)</b>, the nonzero entries;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The associated CC file format to store this information uses
+      3 separate files, containing the column, row, and entry information
+      separately.  The value of <b>M</b> can be inferred from the maximum
+      value to occur in the row file.  The value of <b>N</b> can be inferred
+      from the length of the column file (minus 1), and the value of
+      <b>NZ_NUM</b> from the length of the row or entry files.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/cr/cr.html">
+      CR</a>,
+      a data directory which
+      contains examples of Compressed Row (CR) files, 
+      a three-file format for the sparse compressed row matrix format;
+    </p>
+
+    <p>
+      <a href = "../../data/dlap/dlap.html">
+      DLAP</a>,
+      a data directory which
+      contains examples of DLAP files,
+      a sparse matrix file format used by the DLAP package;
+    </p>
+
+    <p>
+      <a href = "../../data/dsp/dsp.html">
+      DSP</a>,
+      a data directory which
+      contains examples of DSP files, a sparse matrix file format, storing just
+      (I,J,A(I,J)), and using one-based indexing.
+    </p>
+
+    <p>
+      <a href = "../../data/hb/hb.html">
+      HB</a>,
+      a data directory which
+      contains examples of Harwell Boeing (HB) files, a sparse matrix file format;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/linplus/linplus.html">
+      LINPLUS</a>,
+      a C++ library which
+      carries out simple manipulations of matrices in a variety of formats,
+      including matrices stored in symmetric, banded, and sparse formats.
+    </p>
+
+    <p>
+      <a href = "../../data/st/st.html">
+      ST</a>,
+      a data directory which
+      contains examples of ST files,
+      the Sparse Triplet format, a sparse matrix file format,
+      storing just (I,J,A(I,J)), and using zero-based indexing.
+    </p>
+
+    <h3 align = "center">
+      Example:
+    </h3>
+
+    <p>
+      The 4 by 6 matrix
+      <pre>
+        11   0   0  14   0  16
+         0  22   0   0  25  26
+         0   0  33  34   0  36
+        41   0  43  44   0  46
+      </pre>
+      could be stored as the following CC files:
+      <p>
+      <b>COL:</b>
+      <p>
+      <pre>
+        1
+        3
+        4
+        6
+        9
+       10
+       14
+      </pre>
+      <p>
+      <b>ROW:</b>
+      <p>
+      <pre>
+        1  (column 1 begins)
+        4
+        2  (column 2 begins)
+        3  (column 3 begins)
+        4
+        1  (column 4 begins)
+        3
+        4
+        2  (column 5 begins)
+        1  (column 6 begins)
+        2
+        3
+        4
+      </pre>
+      <p>
+      <b>ENTRY:</b>
+      <p>
+      <pre>
+        11.0  (column 1 begins)
+        41.0
+        22.0  (column 2 begins)
+        33.0  (column 3 begins)
+        43.0
+        14.0  (column 4 begins)
+        34.0
+        44.0
+        25.0  (column 5 begins)
+        16.0  (column 6 begins)
+        26.0
+        36.0
+        46.0
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      CC File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          A matrix is described by three files.
+        </li>
+        <li>
+          Each file is in the ASCII format;
+        </li>
+        <li>
+          Each line contains a single value.
+        </li>
+        <li>
+          depending on the programming language being used, the indices in
+          the <b>ROW</b> and <b>COLUMN</b> arrays may be 0-based or
+          1-based.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Timothy Davis,<br>
+          Direct Methods for Sparse Linear Systems,<br>
+          SIAM, 2006,<br>
+          ISBN: 0898716136,<br>
+          LC: QA188.D386.
+        </li>
+        <li>
+          Tim Kelley,<br>
+          Iterative Methods for Linear and Nonlinear Equations,<br>
+          SIAM, 2004,<br>
+          ISBN: 0898713528,<br>
+          LC: QA297.8.K45.
+        </li>
+        <li>
+          Yousef Saad,<br>
+          Iterative Methods for Sparse Linear Systems,<br>
+          Second Edition,<br>
+          SIAM, 20003,<br>
+          ISBN: 0898715342,<br>
+          LC: QA188.S17.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>X01</b> is a simple example for which <b>M=N=5</b>
+      and <b>NZ_NUM=12</b>.
+      <ul>
+        <li>
+          <a href = "x01_a.txt">x01_a.txt</a>, the matrix entries.
+        </li>
+        <li>
+          <a href = "x01_i.txt">x01_i.txt</a>, the row indices.
+        </li>
+        <li>
+          <a href = "x01_j.txt">x01_j.txt</a>, the column pointers.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>X02</b> is related to a finite difference approximation
+      (-1,2-1) of the second derivative at a set of 20 equally spaced points
+      in 1D.  Thus <b>M=N=20</b> and <b>NZ_NUM=58</b>.
+      <ul>
+        <li>
+          <a href = "x02_a.txt">x02_a.txt</a>, the matrix entries.
+        </li>
+        <li>
+          <a href = "x02_i.txt">x02_i.txt</a>, the row indices.
+        </li>
+        <li>
+          <a href = "x02_j.txt">x02_j.txt</a>, the column pointers.
+        </li>
+        <li>
+          <a href = "x02_b.txt">x02_b.txt</a>, a right hand side b.
+        </li>
+        <li>
+          <a href = "x02_x.txt">x02_x.txt</a>, the solution of the
+          linear system A*x=b.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>X03</b> is related to a finite difference approximation
+      (-1,-1,4,-1,-1) of the second derivative at a 5 by 5 grid of
+      equally spaced points in 2D.  Thus <b>M=N=25</b> and <b>NZ_NUM=105</b>.
+      <ul>
+        <li>
+          <a href = "x03_a.txt">x03_a.txt</a>, the matrix entries.
+        </li>
+        <li>
+          <a href = "x03_i.txt">x03_i.txt</a>, the row indices.
+        </li>
+        <li>
+          <a href = "x03_j.txt">x03_j.txt</a>, the column pointers.
+        </li>
+        <li>
+          <a href = "x03_cc_setup.f90">x03_cc_setup.f90</a>,
+          a FORTRAN90 program which set up the arrays.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 20 July 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

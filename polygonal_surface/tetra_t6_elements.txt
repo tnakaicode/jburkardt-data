@@ -1,0 +1,27 @@
+# tet_quad_faces.txt
+#
+#  Discussion:
+#
+#    Node indices that make each (quadratic/6 node triangle) face
+#    of a tetrahedron.
+#
+#  Modified:
+#
+#    17 January 2007
+#
+#  Author:
+#
+#    John Burkardt
+#
+#  Reference:
+#
+#    Anwei Liu, Barry Joe,
+#    Quality Local Refinement of Tetrahedral Meshes Based
+#    on 8-Subtetrahedron Subdivision,
+#    Mathematics of Computation,
+#    Volume 65, Number 215, July 1996, pages 1183-1200.
+#
+         1       5       2       9       4       7
+         2       8       3      10       4       9
+         3       6       1       7       4      10
+         1       6       3       8       2       5

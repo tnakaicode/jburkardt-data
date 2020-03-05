@@ -1,0 +1,345 @@
+<html>
+
+  <head>
+    <title>
+      GRF Files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      GRF Files
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>GRF</b> is a data directory which
+      contains examples of GRF files.  GRF files are used to store
+      an embedding of an abstract graph.  The abstract graph comprises
+      a set of nodes, and edges that connect some pairs of nodes.  The
+      embedding assigns a position to each node, and draws edges as
+      straight lines between the nodes.
+    </p>
+
+    <p>
+      The original format derives from the SPREMB package developed
+      at the University of Queensland, Australia.
+    </p>
+
+    <p>
+      There are three variations on the file format.  For all the formats,
+      lines beginning with the "#" character are comment lines (this is a
+      modification I added, but it's easy to strip such lines out if you
+      don't want them.)
+      We assume that the nodes of the graph are numbered, with a typical
+      node numbered I.  Information about node I is stored on the
+      I-th noncomment line of the file.  (It is not actually necessary
+      that the I-th node be listed on the I-th noncomment line, but it
+      is customary.)  Edges of the graph that begin
+      at node I will be described by listing the nodes at the terminal
+      end of the edge.  Thus, if there are edges from node I to nodes
+      J(1), J(2), ..., J(K), then these nodes will be listed.
+    </p>
+
+    <p>
+      The I-th noncomment line of the file is
+      <pre>
+        I  X(I) Y(I) J(1) J(2) ... J(K)
+      </pre>
+      where X(I) and Y(I) are the coordinates of a point used
+      to represent the node in a drawing.  All point coordinates
+      should be between 0 and 1.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../datasets/graffiti/graffiti.html">
+      GRAFFITI</a>,
+      a dataset directory which
+      contains 195 abstract graphs, with adjacency and embedding information,
+      stored in the GRF format.
+    </p>
+
+    <p>
+      <a href = "../../data/graph_representation/graph_representation.html">
+      GRAPH_REPRESENTATION</a>,
+      a data directory which
+      contains examples of ways of representing abstract
+      mathematical graphs
+    </p>
+
+    <p>
+      <a href = "../../m_src/grf_display/grf_display.html">
+      GRF_DISPLAY</a>,
+      a MATLAB program which
+      reads a GRF file defining a mathematical graph and
+      displays it in the MATLAB graphics window.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/grf_display_opengl/grf_display_opengl.html">
+      GRF_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads a GRF file defining a mathematical graph and
+      displays it in an OpenGL graphics window.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/grf_io/grf_io.html">
+      GRF_IO</a>,
+      a C++ library which
+      reads or writes a GRF file;
+    </p>
+
+    <p>
+      <a href = "../../f_src/grf_io/grf_io.html">
+      GRF_IO</a>,
+      a FORTRAN90 library which
+      reads or writes a GRF file;
+    </p>
+
+    <p>
+      <a href = "../../m_src/grf_io/grf_io.html">
+      GRF_IO</a>,
+      a MATLAB library which
+      reads or writes a GRF file;
+    </p>
+
+    <p>
+      <a href = "../../f_src/grf_to_eps/grf_to_eps.html">
+      GRF_TO_EPS</a>,
+      a FORTRAN90 program which
+      converts a GRF file to EPS format;
+    </p>
+
+    <p>
+      <a href = "../../f_src/grf_to_xyl/grf_to_xyl.html">
+      GRF_TO_XYL</a>,
+      a FORTRAN90 program which
+      converts information describing the adjacency and embedding of an
+      abstract graph from GRF to XYL format.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Peter Eades, Ian Fogg, David Kelly,<br>
+          SPREMB: A System for Developing Graph Algorithms,<br>
+          Congressus Numerantium,<br>
+          Volume 66, December 1988, pages 123-140.
+        </li>
+        <li>
+          Stephen Skiena,<br>
+          Implementing Discrete Mathematics:
+          Combinatorics and Graph Theory with Mathematica,<br>
+          Addison Wesley, 1990,<br>
+          ISBN: 0201509431,<br>
+          LC: QA164.S56.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample files:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "coxeter.grf">coxeter.grf</a>,
+          the Coxeter graph;
+        </li>
+        <li>
+          <a href = "coxeter.png">coxeter.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "cyclegroup.grf">cyclegroup.grf</a>,
+          the cycle group graph;
+        </li>
+        <li>
+          <a href = "cyclegroup.png">cyclegroup.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "dodecahedron.grf">dodecahedron.grf</a>,
+          the dodecahedron graph;
+        </li>
+        <li>
+          <a href = "dodecahedron.png">dodecahedron.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "folkman.grf">folkman.grf</a>,
+          the Folkman graph;
+        </li>
+        <li>
+          <a href = "folkman.png">folkman.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "franklin.grf">franklin.grf</a>,
+          the Franklin graph;
+        </li>
+        <li>
+          <a href = "franklin.png">franklin.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "frucht.grf">frucht.grf</a>,
+          the Frucht graph;
+        </li>
+        <li>
+          <a href = "frucht.png">frucht.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "grotztsch.grf">grotztsch.grf</a>,
+          the Grotztsch graph;
+        </li>
+        <li>
+          <a href = "grotztsch.png">grotztsch.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "heawood.grf">heawood.grf</a>,
+          the Heawood graph;
+        </li>
+        <li>
+          <a href = "heawood.png">heawood.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "herschel.grf">herschel.grf</a>,
+          the Herschel graph;
+        </li>
+        <li>
+          <a href = "herschel.png">herschel.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "icosahedron.grf">icosahedron.grf</a>,
+          the icosahedron graph;
+        </li>
+        <li>
+          <a href = "icosahedron.png">icosahedron.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "k5.grf">k5.grf</a>,
+          the complete graph on 5 vertices;
+        </li>
+        <li>
+          <a href = "k5.png">k5.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "knightstour.grf">knightstour.grf</a>,
+          image of a knight's tour on a chess board;
+        </li>
+        <li>
+          <a href = "knightstour.png">knightstour.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "n1234.grf">n1234.grf</a>,
+          the n1234 graph;
+        </li>
+        <li>
+          <a href = "n1234.png">n1234.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "n5.grf">n5.grf</a>,
+          the n5 graph;
+        </li>
+        <li>
+          <a href = "n5.png">n5.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "nomatching.grf">nomatching.grf</a>,
+          the nomatching graph;
+        </li>
+        <li>
+          <a href = "nomatching.png">nomatching.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "nonlinegraphs.grf">nonlinegraphs.grf</a>,
+          the nonlinegraphs graph;
+        </li>
+        <li>
+          <a href = "nonlinegraphs.png">nonlinegraphs.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "petersen.grf">petersen.grf</a>,
+          the Petersen graph, which is not Hamiltonian;
+        </li>
+        <li>
+          <a href = "petersen.png">petersen.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "tutte.grf">tutte.grf</a>,
+          the Tutte graph;
+        </li>
+        <li>
+          <a href = "tutte.png">tutte.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "unique3colorable.grf">unique3colorable.grf</a>,
+          the unique3colorable graph;
+        </li>
+        <li>
+          <a href = "unique3colorable.png">unique3colorable.png</a>,
+          a PNG image.
+        </li>
+        <li>
+          <a href = "walther.grf">walther.grf</a>,
+          the Walther graph;
+        </li>
+        <li>
+          <a href = "walther.png">walther.png</a>,
+          a PNG image.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 19 January 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

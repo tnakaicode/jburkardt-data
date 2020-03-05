@@ -1,0 +1,303 @@
+<html>
+
+  <head>
+    <title>
+      crs
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      crs
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>crs</b>,
+      a data directory which
+      contains examples of the Compressed Row Storage (CRS) 
+      sparse matrix file format.
+    </p>
+
+    <p>
+      The CRS data structure involves:
+      <ul>
+        <li>
+          <b>M</b> and <b>N</b>, the number of rows and columns of the matrix
+          (we'll often assume assume the matrix is square, in which case
+          <b>M=N</b>);
+        </li>
+        <li>
+          <b>NZ_NUM</b>, the number of nonzero entries in the matrix.
+        </li>
+        <li>
+          <b>ROW(1:M+1)</b>, the location in <b>COL</b> and <b>A</b> of
+          the first entry associated with each row; the last entry of
+          <b>ROW</b> indicates where the first entry of row <b>M+1</b>
+          would go.
+        </li>
+        <li>
+          <b>COL(1:NZ_NUM)</b>, the column indices of the nonzero entries;
+          entries are grouped by row.  Within each row, the
+          entries are presumed to be ascending sorted by column;
+        </li>
+        <li>
+          <b>A(1:NZ_NUM)</b>, the nonzero entries;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The associated CRS file format to store this information uses
+      3 separate files, containing the column, row, and entry information
+      separately.  The value of <b>N</b> can be inferred from the maximum
+      value to occur in the column file.  The value of <b>M</b> can be inferred
+      from the length of the row file (minus 1), and the value of
+      <b>NZ_NUM</b> from the length of the column or entry files.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "https://www.gnu.org/licenses/lgpl-3.0.en.html">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/dlap/dlap.html">
+      DLAP</a>,
+      a data directory which
+      contains examples of DLAP files,
+      a sparse matrix file format used by the DLAP package;
+    </p>
+
+    <p>
+      <a href = "../../data/dsp/dsp.html">
+      DSP</a>,
+      a data directory which
+      contains examples of DSP files, a sparse matrix file format, storing just
+      (I,J,A(I,J)), and using one-based indexing.
+    </p>
+
+    <p>
+      <a href = "../../data/hb/hb.html">
+      HB</a>,
+      a data directory which
+      contains examples of Harwell Boeing (HB) files, a sparse matrix file format;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/linplus/linplus.html">
+      LINPLUS</a>,
+      a C++ library which
+      carries out simple manipulations of matrices in a variety of formats,
+      including matrices stored in symmetric, banded, and sparse formats.
+    </p>
+
+    <p>
+      <a href = "../../data/cc/cc.html">
+      CC</a>,
+      a data directory which
+      contains examples of Compressed Column (CC) files,
+      a three-file format for sparse matrices;
+    </p>
+
+    <p>
+      <a href = "../../data/st/st.html">
+      ST</a>,
+      a data directory which
+      contains examples of ST files,
+      the Sparse Triplet format, a sparse matrix file format,
+      storing just (I,J,A(I,J)), and using zero-based indexing.
+    </p>
+
+    <h3 align = "center">
+      Example:
+    </h3>
+
+    <p>
+      The 4 by 6 matrix
+      <pre>
+        11   0   0  14   0  16
+         0  22   0   0  25  26
+         0   0  33  34   0  36
+        41   0  43  44   0  46
+      </pre>
+      could be stored as the following CRS files:
+      (Here we are using 1-based indices)
+      <p>
+      <b>ROW:</b>
+      <p>
+      <pre>
+        1
+        4
+        7
+       10
+       14
+      </pre>
+      <p>
+      <b>COL:</b>
+      <p>
+      <pre>
+        1  (row 1 begins on line 1)
+        4
+        6
+        2  (row 2 begins on line 4)
+        5
+        6
+        3  (row 3 begins on line 7)
+        4
+        6
+        1  (row 4 begins on line 10)
+        3
+        4
+        6
+        *  (row 5 would begin on line 14)
+      </pre>
+      <p>
+      <b>ENTRY:</b>
+      <p>
+      <pre>
+        11.0  (row 1 begins on line 1)
+        14.0
+        16.0
+        22.0  (row 2 begins on line 4)
+        25.0
+        26.0
+        33.0  (row 3 begins on line 7)
+        34.0
+        36.0
+        41.0  (row 4 begins on line 10)
+        43.0
+        44.0
+        46.0
+        *     (row 5 would begin on line 14)
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      CRS File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          A matrix is described by three files.
+        </li>
+        <li>
+          Each file is in the ASCII format;
+        </li>
+        <li>
+          Each line contains a single value.
+        </li>
+        <li>
+          depending on the programming language being used, the indices in
+          the <b>ROW</b> and <b>COLUMN</b> arrays may be 0-based or
+          1-based.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Timothy Davis,<br>
+          Direct Methods for Sparse Linear Systems,<br>
+          SIAM, 2006,<br>
+          ISBN: 0898716136,<br>
+          LC: QA188.D386.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>X01</b> is a simple example for which <b>M=N=5</b>
+      and <b>NZ_NUM=12</b>.
+      <ul>
+        <li>
+          <a href = "x01_a.txt">x01_a.txt</a>, the matrix entries.
+        </li>
+        <li>
+          <a href = "x01_i.txt">x01_i.txt</a>, the compressed row pointers.
+        </li>
+        <li>
+          <a href = "x01_j.txt">x01_j.txt</a>, the column indices.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>X02</b> is related to a finite difference approximation
+      (-1,2-1) of the second derivative at a set of 20 equally spaced points
+      in 1D.  Thus <b>M=N=20</b> and <b>NZ_NUM=58</b>.
+      <ul>
+        <li>
+          <a href = "x02_a.txt">x02_a.txt</a>, the matrix entries.
+        </li>
+        <li>
+          <a href = "x02_i.txt">x02_i.txt</a>, the compressed row pointers.
+        </li>
+        <li>
+          <a href = "x02_j.txt">x02_j.txt</a>, the column indices.
+        </li>
+        <li>
+          <a href = "x02_b.txt">x02_b.txt</a>, a right hand side b.
+        </li>
+        <li>
+          <a href = "x02_x.txt">x02_x.txt</a>, the solution of the
+          linear system A*x=b.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>X03</b> is related to a finite difference approximation
+      (-1,-1,4,-1,-1) of the second derivative at a 5 by 5 grid of
+      equally spaced points in 2D.  Thus <b>M=N=25</b> and <b>NZ_NUM=105</b>.
+      <ul>
+        <li>
+          <a href = "x03_a.txt">x03_a.txt</a>, the matrix entries.
+        </li>
+        <li>
+          <a href = "x03_i.txt">x03_i.txt</a>, the compressed row pointers.
+        </li>
+        <li>
+          <a href = "x03_j.txt">x03_j.txt</a>, the column indices.
+        </li>
+        <li>
+          <a href = "x03_cr_setup.f90">x03_cr_setup.f90</a>,
+          a FORTRAN90 program which set up the arrays.
+        </li>
+      </ul>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 14 February 2020.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

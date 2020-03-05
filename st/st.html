@@ -1,0 +1,264 @@
+<html>
+
+  <head>
+    <title>
+      ST - Sparse Triplet Matrix File Format
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      ST <br> Sparse Triplet Matrix File Format
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>ST</b> is a data directory which
+      contains examples of the "sparse triplet format", a simple
+      <i>data structure</i>
+      and a <i>file format</i> for storing sparse matrices.
+    </p>
+
+    <p>
+      The <i>sparse triplet data structure</i> simply records, for each nonzero
+      entry of the matrix, the row, column and value.  Thus, the information
+      in the data structure might be
+      <ul>
+        <li>
+          <b>M</b> and <b>N</b>, the number of rows and columns in the
+          (original full) matrix;
+        </li>
+        <li>
+          <b>NZ_NUM</b>, the number of nonzero elements in the matrix;
+        </li>
+        <li>
+          <b>ROW(1:NZ_NUM)</b>, the row indices of the nonzero elements;
+        </li>
+        <li>
+          <b>COL(1:NZ_NUM)</b>, the column indices of the nonzero elements;
+        </li>
+        <li>
+          <b>VAL(1:NZ_NUM)</b>, the values of the nonzero elements;
+        </li>
+      </ul>
+      Row and column indices are 0-based.
+    </p>
+
+    <p>
+      The <i>sparse triplet file format</i> is an ASCII file of
+      <b>NZ_NUM</b> lines, with each line corresponding to a
+      nonzero entry of the matrix, and containing the row index,
+      column index and value of that entry, separated by spaces.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/linplus/linplus.html">
+      LINPLUS</a>,
+      a C++ library which
+      carries out simple manipulations of matrices in a variety of formats,
+      including matrices stored in symmetric, banded, and sparse formats.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mgmres/mgmres.html">
+      MGMRES</a>,
+      a C++ library which
+      applies the restarted GMRES algorithm to solve a sparse linear system,
+      by Lili Ju.
+    </p>
+
+    <p>
+      <a href = "../../c_src/st_io/st_io.html">
+      ST_IO</a>,
+      a C library which
+      reads and writes sparse linear systems 
+      stored in the Sparse Triplet (ST) format.
+    </p>
+
+    <p>
+      <a href = "../../c_src/st_to_cc/st_to_cc.html">
+      ST_TO_CC</a>,
+      a C library which
+      converts sparse matrix data from Sparse Triplet (ST) format 
+      to Compressed Column (CC) format.
+    </p>
+
+    <p>
+      <a href = "../../f_src/st_to_hb/st_to_hb.html">
+      ST_TO_HB</a>,
+      a FORTRAN90 program which
+      converts a sparse matrix file from Sparse Triplet (ST) format to
+      Harwell Boeing (HB) format;
+    </p>
+
+    <p>
+      <a href = "../../m_src/st_to_mm/st_to_mm.html">
+      ST_TO_MM</a>,
+      a MATLAB program which
+      converts a sparse matrix file from Sparse Triplet (ST) format to
+      Matrix Market (MM) format;
+    </p>
+
+    <p>
+      <a href = "../../m_src/st_to_msm/st_to_msm.html">
+      ST_TO_MSM</a>,
+      a MATLAB program which
+      reads a Sparse Triplet (ST) file
+      and creates a corresponding MATLAB Sparse Matrix (MSM).
+    </p>
+
+    <h3 align = "center">
+      Example:
+    </h3>
+
+    <p>
+      The 4 by 6 matrix
+      <pre>
+        11   0   0  14   0  16
+         0  22   0   0  25  26
+         0   0  33  34   0  36
+        41   0  43  44   0  46
+      </pre>
+      could be stored as an ST file which reads:
+      <pre>
+        0  0  11.0
+        0  3  14.0
+        0  5  16.0
+        1  1  22.0
+        1  3  25.0
+        1  5  26.0
+        2  2  33.0
+        2  3  34.0
+        2  5  36.0
+        3  0  41.0
+        3  2  43.0
+        3  3  44.0
+        3  5  46.0
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      ST File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII format;
+        </li>
+        <li>
+          each line has the form <b>I J A(I,J)</b>
+        </li>
+        <li>
+          the <b>I</b> and <b>J</b> indices are zero-based.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Timothy Davis,<br>
+          Direct Methods for Sparse Linear Systems,<br>
+          SIAM, 2006.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "a5by5_st.txt">a5by5_st.txt</a>, 
+          a 5 by 5 matrix with 13 entries,
+          zero-based indexes.
+        </li>
+        <li>
+          <a href = "ash219_st.txt">ash219_st.txt</a>,
+          a 219 by 85 matrix with 438 entries,
+          zero-based indexes.
+        </li>
+        <li>
+          <a href = "bcsstk01_st.txt">bcsstk01_st.txt</a>,
+          a 48 by 48 matrix with 224 entries,
+          zero-based indexes.
+        </li>
+        <li>
+          <a href = "bcsstk16_st.txt">bcsstk16_st.txt</a>,
+          a 4884 by 4884 matrix with 147631 entries,
+          zero-based indexes.
+        </li>
+        <li>
+          <a href = "fs_183_1_st.txt">fs_183_1_st.txt</a>,
+          a 183 by 183 matrix with 1069 entries,
+          zero-based indexes.
+        </li>
+        <li>
+          <a href = "kershaw_st.txt">kershaw_st.txt</a>, 
+          the 4 by 4 Kershaw matrix with 12 entries,
+          zero-based indexes.
+        </li>
+        <li>
+          <a href = "lp_afiro_st.txt">lp_afiro_st.txt</a>,
+          the 27 by 51 matrix with 102 entries,
+          zero-based indexes.
+        </li>
+        <li>
+          <a href = "mbeacxc_st.txt">mbeacxc_st.txt</a>,
+          the 491 by 490 matrix with 49920 entries,
+          zero-based indexes.
+        </li>
+        <li>
+          <a href = "t1_st.txt">t1_st.txt</a>,
+          the 4 by 4 matrix with 10 entries,
+          zero-based indexes.
+        </li>
+        <li>
+          <a href = "west0067_st.txt">west0067_st.txt</a>,
+          the 67 by 67 matrix with 299 entries,
+          zero-based indexes.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 20 July 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

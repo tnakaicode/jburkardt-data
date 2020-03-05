@@ -1,0 +1,341 @@
+<html>
+
+  <head>
+    <title>
+      TRI_SURFACE - Pairs of Files Defining a 3D Triangulated Surface
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      TRI_SURFACE <br> Pairs of Files Defining a 3D Triangulated Surface
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TRI_SURFACE</b>
+      is a data directory which
+      contains examples of files which define a triangulated surface.
+    </p>
+
+    <p>
+      A triangulated surface is an approximation to a 3D surface, created
+      by a collection of triangles defined in 3D.  The TRI_SURFACE format
+      requires two files:
+      <ul>
+        <li>
+          the <i>node file</i> lists the 3D coordinates of
+          a set of points.
+        </li>
+        <li>
+          the <i>element file</i> lists triples of node indices, forming
+          triangles.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../m_src/obj_to_tri_surface/obj_to_tri_surface.html">
+      OBJ_TO_TRI_SURFACE</a>,
+      a MATLAB program which
+      reads an OBJ file and extracts
+      the surface mesh data as a TRI_SURFACE dataset.
+    </p>
+
+    <p>
+      <a href = "../../m_src/ply_to_tri_surface/ply_to_tri_surface.html">
+      PLY_TO_TRI_SURFACE</a>,
+      a MATLAB program which
+      reads a PLY file and extracts the surface mesh data as a
+      TRI_SURFACE dataset.
+    </p>
+
+    <p>
+      <a href = "../../m_src/stla_to_tri_surface/stla_to_tri_surface.html">
+      STLA_TO_TRI_SURFACE</a>,
+      a MATLAB program which
+      reads an ASCII STL fil and extracts
+      the surface mesh data as a TRI_SURFACE dataset.
+    </p>
+
+    <p>
+      <a href = "../../m_src/stla_to_tri_surface_fast/stla_to_tri_surface_fast.html">
+      STLA_TO_TRI_SURFACE_FAST</a>,
+      a MATLAB program which
+      is a faster version of <b>stla_to_tri_surface</b>.
+    </p>
+
+    <p>
+      <a href = "../../f_src/tet_mesh_boundary/tet_mesh_boundary.html">
+      TET_MESH_BOUNDARY</a>,
+      a FORTRAN90 program which
+      returns the nodes and faces of the boundary of a tetrahedral mesh,
+      which themselves form a 3D triangular mesh or "TRI_SURFACE".
+    </p>
+
+    <p>
+      <a href = "../../m_src/tri_surface_display/tri_surface_display.html">
+      TRI_SURFACE_DISPLAY</a>,
+      a MATLAB program which
+      displays the 3D graphics information
+      in a TRI_SURFACE file;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tri_surface_io/tri_surface_io.html">
+      TRI_SURFACE_IO</a>,
+      a C++ library which
+      reads and writes the 3D graphics information
+      in a TRI_SURFACE file;
+    </p>
+
+    <p>
+      <a href = "../../m_src/tri_surface_to_obj/tri_surface_to_obj.html">
+      TRI_SURFACE_TO_OBJ</a>,
+      a MATLAB program which
+      reads a TRI_SURFACE dataset and extracts
+      the surface mesh data as an OBJ file.
+    </p>
+
+    <p>
+      <a href = "../../m_src/tri_surface_to_ply/tri_surface_to_ply.html">
+      TRI_SURFACE_TO_PLY</a>,
+      a MATLAB program which
+      converts a TRI_SURFACE dataset
+      to a dataset suitable for storage as a PLY file.
+    </p>
+
+    <p>
+      <a href = "../../m_src/tri_surface_to_stla/tri_surface_to_stla.html">
+      TRI_SURFACE_TO_STLA</a>,
+      a MATLAB program which
+      reads a TRI_SURFACE dataset and extracts
+      the surface mesh data as an ASCII STL file.
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>CESSNA</b> is the surface of a Cessna airplane,
+      defined by 3745 nodes and 7446 triangles.
+      <ul>
+        <li>
+          <a href = "cessna_nodes.txt">cessna_nodes.txt</a>,
+          the node coordinate file;
+        </li>
+        <li>
+          <a href = "cessna_elements.txt">cessna_elements.txt</a>,
+          the element file;
+        </li>
+        <li>
+          <a href = "cessna.png">cessna.png</a>,
+          a PNG image.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>CUBE</b> is the surface of a cube,
+      defined by 8 nodes and 12 triangles.
+      <ul>
+        <li>
+          <a href = "cube_nodes.txt">cube_nodes.txt</a>,
+          the node coordinate file;
+        </li>
+        <li>
+          <a href = "cube_elements.txt">cube_elements.txt</a>,
+          the element file;
+        </li>
+        <li>
+          <a href = "cube.png">cube.png</a>,
+          a PNG image.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>DART</b> is the surface of a dart
+      defined by 5 nodes and 6 triangles.
+      <ul>
+        <li>
+          <a href = "dart_nodes.txt">dart_nodes.txt</a>,
+          the node coordinate file;
+        </li>
+        <li>
+          <a href = "dart_elements.txt">dart_elements.txt</a>,
+          the element file;
+        </li>
+        <li>
+          <a href = "dart.png">dart.png</a>,
+          a PNG image.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>HUMANOID</b> is the surface of a humanoid shape,
+      defined by 64 nodes and 96 triangles.
+      <ul>
+        <li>
+          <a href = "humanoid_nodes.txt">humanoid_nodes.txt</a>,
+          the node coordinate file;
+        </li>
+        <li>
+          <a href = "humanoid_elements.txt">humanoid_elements.txt</a>,
+          the element file;
+        </li>
+        <li>
+          <a href = "humanoid.png">humanoid.png</a>,
+          a PNG image.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>MAGNOLIA</b> is the surface of a magnolia blossom,
+      defined by 3741 nodes and 1247 triangles.
+      <ul>
+        <li>
+          <a href = "magnolia_nodes.txt">magnolia_nodes.txt</a>,
+          the node coordinate file;
+        </li>
+        <li>
+          <a href = "magnolia_elements.txt">magnolia_elements.txt</a>,
+          the element file;
+        </li>
+        <li>
+          <a href = "magnolia.png">magnolia.png</a>,
+          a PNG image.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SHARK</b> is the surface of a shark,
+      defined by 2560 nodes and 5116 triangles.
+      <ul>
+        <li>
+          <a href = "shark_nodes.txt">shark_nodes.txt</a>,
+          the node coordinate file;
+        </li>
+        <li>
+          <a href = "shark_elements.txt">shark_elements.txt</a>,
+          the element file;
+        </li>
+        <li>
+          <a href = "shark.png">shark.png</a>,
+          a PNG image.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SHUTTLE</b> is the surface of a space shuttle,
+      defined by 310 nodes and 616 triangles.
+      <ul>
+        <li>
+          <a href = "shuttle_nodes.txt">shuttle_nodes.txt</a>,
+          the node coordinate file;
+        </li>
+        <li>
+          <a href = "shuttle_elements.txt">shuttle_elements.txt</a>,
+          the element file;
+        </li>
+        <li>
+          <a href = "shuttle.png">shuttle.png</a>,
+          a PNG image.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SPHERE</b> is the surface of a sphere,
+      defined by 58 nodes and 112 triangles.
+      <ul>
+        <li>
+          <a href = "sphere_nodes.txt">sphere_nodes.txt</a>,
+          the node coordinate file;
+        </li>
+        <li>
+          <a href = "sphere_elements.txt">sphere_elements.txt</a>,
+          the element file;
+        </li>
+        <li>
+          <a href = "sphere.png">sphere.png</a>,
+          a PNG image.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TEAPOT</b> is the surface of a teapot,
+      defined by 530 nodes and 1024 triangles.
+      <ul>
+        <li>
+          <a href = "teapot_nodes.txt">teapot_nodes.txt</a>,
+          the node coordinate file;
+        </li>
+        <li>
+          <a href = "teapot_elements.txt">teapot_elements.txt</a>,
+          the element file;
+        </li>
+        <li>
+          <a href = "teapot.png">teapot.png</a>,
+          a PNG image.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TETRAHEDRON</b> is the surface of a tetrahedron,
+      defined by 4 nodes and 4 triangles.
+      <ul>
+        <li>
+          <a href = "tetrahedron_nodes.txt">tetrahedron_nodes.txt</a>,
+          the node coordinate file;
+        </li>
+        <li>
+          <a href = "tetrahedron_elements.txt">tetrahedron_elements.txt</a>,
+          the element file;
+        </li>
+        <li>
+          <a href = "tetrahedron.png">tetrahedron.png</a>,
+          a PNG image.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to
+      <a href = "../data.html">the DATA page.</a>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 25 May 2012.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

@@ -1,0 +1,186 @@
+<html>
+
+  <head>
+    <title>
+      FD1D - Two Files Describing a 1D Finite Difference Model
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FD1D <br> Two Files Describing a 1D Finite Difference Model
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FD1D</b>
+      is a data directory which
+      contains examples of 1D FD files, which define a finite difference model.
+    </p>
+
+    <p>
+      The FD format is a simple dataset of two files that
+      can be used to describe a finite difference model.
+    </p>
+
+    <p>
+      The finite difference model is assumed to include just two kinds of information:
+      <ul>
+        <li>
+          Node coordinates in 1D;
+        </li>
+        <li>
+          Node values (scalars, vectors, or any set of data);
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      FD File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII
+        </li>
+        <li>
+          Each line is one "record"
+        </li>
+        <li>
+          Each record is either a comment record or a data record;
+        </li>
+        <li>
+          Comment records begin with the "#" character;
+        </li>
+        <li>
+          A data record records node coordinates for one node, or
+          the set of node data for one node;
+        </li>
+        <li>
+          For a given file, each data record contains the same number
+          of items, separated by blanks.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../m_src/fd_to_tec/fd_to_tec.html">
+      FD_TO_TEC</a>,
+      a MATLAB program which
+      converts FD (finite difference) models into TECPLOT ASCII files.
+    </p>
+
+    <p>
+      <a href = "../../m_src/fd1d_display/fd1d_display.html">
+      FD1D_DISPLAY</a>,
+      a MATLAB program which
+      reads a pair of files defining a 1D finite difference model, and plots the data.
+    </p>
+
+    <p>
+      <a href = "../../data/fd2d/fd2d.html">
+      FD2D</a>,
+      a data directory which
+      contains examples of 2D FD files, two text files that can be used to describe
+      many finite difference models;
+    </p>
+
+    <p>
+      <a href = "../../data/fd3d/fd3d.html">
+      FD3D</a>,
+      a data directory which
+      contains examples of 3D FD files, two text files that can be used to describe
+      many finite difference models;
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>ARCTAN</b> contains sample data from the arctangent function
+      at 29 non-uniformly spaced nodes.
+      <ul>
+        <li>
+          <a href = "arctan_nodes.txt">arctan_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "arctan_values.txt">arctan_values.txt</a>
+        </li>
+        <li>
+          <a href = "arctan.png">arctan.png</a>,
+          a PNG snapshot of the plot.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>FD1D_BVP_TEST01</b> contains the computed and exact solutions for
+      a boundary value problem.
+      <ul>
+        <li>
+          <a href = "fd1d_bvp_test01_nodes.txt">fd1d_bvp_test01_nodes.txt</a>,
+          the nodes for test 1.
+        </li>
+        <li>
+          <a href = "fd1d_bvp_test01_values.txt">fd1d_bvp_test01_values.txt</a>,
+          the computed and exact values for test 1.
+        </li>
+        <li>
+          <a href = "fd1d_bvp_test01.png">fd1d_bvp_test01.png</a>,
+          a PNG image of a plot of the computed and exact values.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>PAIR</b> shows how a plot is made when there are two columns of
+      data in the "values" file.  The first column is a copy of the
+      original ARCTAN data, and the second column is some perturbed values.
+      <ul>
+        <li>
+          <a href = "pair_nodes.txt">pair_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "pair_values.txt">pair_values.txt</a>
+        </li>
+        <li>
+          <a href = "pair.png">pair.png</a>,
+          a PNG snapshot of the plot.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../data.html">
+      the DATA directory</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 29 January 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

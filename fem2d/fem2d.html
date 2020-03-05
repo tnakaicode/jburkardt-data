@@ -1,0 +1,322 @@
+<html>
+
+  <head>
+    <title>
+      FEM2D - Files Describing a 2D Finite Element Model
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FEM2D <br> Files Describing a 2D Finite Element Model
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FEM2D</b>
+      is a data directory which
+      contains examples of 2D FEM files, which define a 2D finite element model.
+    </p>
+
+    <p>
+      The FEM format is a simple dataset that
+      can be used to describe the nodes, elements, and functions associated
+      with a finite element model.
+    </p>
+
+    <p>
+      The finite element model may include files defining the following:
+      <ul>
+        <li>
+          a <i>node file</i>, containing node coordinates (in 1D, 2D or 3D);
+        </li>
+        <li>
+          an <i>element file</i>, defining elements by a sequence of node
+          indices (for this simple format, we assume the elements are all
+          of the same order).  Depending on convenience, the nodes might be
+          indexed using a 0-based or 1-based scheme.
+        </li>
+        <li>
+          a <i>value file</i>, listing one or more (real) values associated with
+          each node.
+        </li>
+        <li>
+          a <i>boundary node mask file</i>, containing a 0 for each interior
+          node, a 1 for each boundary node.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      FEM File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII
+        </li>
+        <li>
+          Each line is one "record"
+        </li>
+        <li>
+          Each record is either a comment record or a data record;
+        </li>
+        <li>
+          Comment records begin with the "#" character;
+        </li>
+        <li>
+          A data record records node coordinates for one node, or
+          the node indices for one element, or the set of node data
+          for one node;
+        </li>
+        <li>
+          For a given file, each data record contains the same number
+          of items, separated by blanks.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/fem2d_heat/fem2d_heat.html">
+      FEM2D_HEAT</a>,
+      a C++ program which
+      solves the 2D time dependent heat equation on the unit square.
+    </p>
+
+    <p>
+      <a href = "../../f_src/fem2d_poisson/fem2d_poisson.html">
+      FEM2D_POISSON</a>,
+      a FORTRAN90 program which
+      solves the 2D Poisson equation on a rectangle, using the finite element method,
+      and piecewise quadratic triangular elements.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_boundary_node_mask/triangulation_boundary_node_mask.html">
+      TRIANGULATION_BOUNDARY_NODES</a>,
+      a C++ program which
+      reads data defining a triangulation, determines which nodes
+      lie on the boundary, and writes their coordinates to a file.
+    </p>
+
+    <p>
+      <a href = "../../m_src/triangulation_display/triangulation_display.html">
+      TRIANGULATION_DISPLAY</a>,
+      a MATLAB program which
+      displays the nodes and elements of a triangulation on the MATLAB graphics screen;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_display_opengl/triangulation_display_opengl.html">
+      TRIANGULATION_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads files defining a 2D triangulation and displays an image using OpenGL.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Hans Rudolf Schwarz,<br>
+          Methode der Finiten Elemente,<br>
+          Teubner Studienbuecher, 1980,<br>
+          ISBN: 3-519-02349-0.
+        </li>
+        <li>
+          Gilbert Strang, George Fix,<br>
+          An Analysis of the Finite Element Method,<br>
+          Cambridge, 1973,<br>
+          ISBN: 096140888X,<br>
+          LC: TA335.S77.
+        </li>
+        <li>
+          Olgierd Zienkiewicz,<br>
+          The Finite Element Method,<br>
+          Sixth Edition,<br>
+          Butterworth-Heinemann, 2005,<br>
+          ISBN: 0750663200,<br>
+          LC: TA640.2.Z54
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>BIG_CAVITY</b> is a square region, with a grid of 8,185 nodes
+      and 4000 elements of order 6 triangles.  The values file contains
+      the horizontal and vertical components of velocity at each node.
+      <ul>
+        <li>
+          <a href = "big_cavity_nodes.txt">big_cavity_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "big_cavity_elements.txt">big_cavity_elements.txt</a>
+        </li>
+        <li>
+          <a href = "big_cavity_elements.png">big_cavity_elements.png</a>,
+          an image of the triangulation.
+        </li>
+        <li>
+          <a href = "big_cavity_values.txt">big_cavity_values.txt</a>
+        </li>
+        <li>
+          <a href = "big_cavity_boundary_node_mask.txt">big_cavity_boundary_node_mask.txt</a>,
+          0 for interior nodes, 1 for boundary nodes, 368 boundary nodes total.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>CHANNEL</b> is a 10x3 rectangular region, with a 11x4 grid of 44 nodes
+      and 60 elements of order 3 triangles.  The values file contains
+      the horizontal and vertical components of velocity, and the pressure, at
+      each node.
+      <ul>
+        <li>
+          <a href = "channel_nodes.txt">channel_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "channel_elements.txt">channel_elements.txt</a>
+        </li>
+        <li>
+          <a href = "channel_values.txt">channel_values.txt</a>
+        </li>
+        <li>
+          <a href = "channel_boundary_node_mask.txt">channel_boundary_node_mask.txt</a>,
+          0 for interior nodes, 1 for boundary nodes, 26 boundary nodes total.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>ELL</b> is an L-shaped region, with a grid of 65 nodes
+      and 96 elements of order 3 triangles.
+      <ul>
+        <li>
+          <a href = "ell_nodes.txt">ell_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "ell_elements.txt">ell_elements.txt</a>
+        </li>
+        <li>
+          <a href = "ell_elements.png">ell_elements.png</a>,
+          an image of the triangulation.
+        </li>
+        <li>
+          <a href = "ell_values.txt">ell_values.txt</a>
+        </li>
+        <li>
+          <a href = "ell_boundary_node_mask.txt">ell_boundary_node_mask.txt</a>,
+          0 for interior nodes, 1 for boundary nodes, 32 boundary nodes total.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>GREENLAND</b> is a triangulation of Greenland, using 33,343 nodes and
+      64,125 elements of order 3 triangles.
+      <ul>
+        <li>
+          <a href = "greenland_nodes.txt">greenland_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "greenland_elements.txt">greenland_elements.txt</a>
+        </li>
+        <li>
+          <a href = "greenland.png">greenland.png</a>,
+          an image of a portion of the triangulation, after "zooming in" twice.
+        </li>
+        <li>
+          <a href = "greenland_boundary_node_mask.txt">greenland_boundary_node_mask.txt</a>,
+          0 for interior nodes, 1 for boundary nodes, 2559 boundary nodes total.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>LAKE</b> is a triangulation of a lake, using 621 nodes and
+      974 elements of order 3 triangles.
+      <ul>
+        <li>
+          <a href = "lake_nodes.txt">lake_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "lake_elements.txt">lake_elements.txt</a>
+        </li>
+        <li>
+          <a href = "lake_elements.png">lake_elements.png</a>,
+          an image of the triangulation.
+        </li>
+        <li>
+          <a href = "lake_values.txt">lake_values.txt</a>
+        </li>
+        <li>
+          <a href = "lake_boundary_node_mask.txt">lake_boundary_node_mask.txt</a>,
+          0 for interior nodes, 1 for boundary nodes, 268 boundary nodes total.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TINY</b> is a "tiny" example using 5 nodes
+      and 3 elements of order 3 triangles.
+      <ul>
+        <li>
+          <a href = "tiny_nodes.txt">tiny_nodes.txt</a>
+        </li>
+        <li>
+          <a href = "tiny_elements.txt">tiny_elements.txt</a>
+        </li>
+        <li>
+          <a href = "tiny_elements.png">tiny_elements.png</a>,
+          an image of the triangulation.
+        </li>
+        <li>
+          <a href = "tiny_values.txt">tiny_values.txt</a>
+        </li>
+        <li>
+          <a href = "tiny_boundary_node_mask.txt">tiny_boundary_node_mask.txt</a>,
+          0 for interior nodes, 1 for boundary nodes, 5 boundary nodes total.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../data.html">
+      the DATA directory</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 21 December 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

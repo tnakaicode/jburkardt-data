@@ -1,0 +1,352 @@
+<html>
+
+  <head>
+    <title>
+      FEM3D - Files Describing a 3D Finite Element Model
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FEM3D <br> Files Describing a 3D Finite Element Model
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FEM3D </b>
+      is a data directory which
+      contains examples of 3D FEM files, which define a 3D finite element model.
+    </p>
+
+    <p>
+      The FEM format is a simple dataset of several files that
+      can be used to describe a finite element model.
+    </p>
+
+    <p>
+      The finite element model might include the following files:
+      <ul>
+        <li>
+          a <i>node file</i>, node coordinates (in 1D, 2D or 3D);
+        </li>
+        <li>
+          an <i>element file</i>, elements defined by a sequence of node indices.
+          For this simple format, we assume the elements are all of the same
+          order, and the most common choices are linear or quadratic tetrahedrons;
+        </li>
+        <li>
+          a <i>value file</i>, listing the values of one or more functions
+          at each node.
+        </li>
+        <li>
+          a <i>boundary node mask file</i>, listing for each node the value
+          1 if it is a boundary node, and 0 otherwise.
+        </li>
+        <li>
+          a <i>boundary node file</i>, listing the coordinates of nodes that
+          lie on the boundary.
+        </li>
+        <li>
+          a <i>boundary element file</i>, listing the indices (from the
+          boundary node file) of the nodes that form elements (of one dimension
+          lower) lying on the boundary of the mesh.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      FEM File Characteristics:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          ASCII
+        </li>
+        <li>
+          Each line is one "record"
+        </li>
+        <li>
+          Each record is either a comment record or a data record;
+        </li>
+        <li>
+          Comment records begin with the "#" character;
+        </li>
+        <li>
+          A data record records node coordinates for one node, or
+          the node indices for one element, or the set of node data
+          for one node;
+        </li>
+        <li>
+          For a given file, each data record contains the same number
+          of items, separated by blanks.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/fem1d/fem1d.html">
+      FEM1D</a>,
+      a data directory which
+      contains examples of 1D FEM files,
+      text files that describe a 1D finite element model;
+    </p>
+
+    <p>
+      <a href = "../../data/fem2d/fem2d.html">
+      FEM2D</a>,
+      a data directory which
+      contains examples of 2D FEM files,
+      text files that describe a 2D finite element geometry;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem3d_pack/fem3d_pack.html">
+      FEM3D_PACK</a>,
+      a C++ library which
+      contains utilities for 3D finite element calculations.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem3d_project/fem3d_project.html">
+      FEM3D_PROJECT</a>,
+      a C++ program which
+      projects a function F(X,Y,Z), given as a data, into a given finite element space
+      of piecewise linear tetrahedral elements.
+    </p>
+
+    <p>
+      <a href = "../../f_src/fem3d_sample/fem3d_sample.html">
+      FEM3D_SAMPLE</a>,
+      a FORTRAN90 program which
+      evaluates a finite element function defined on 3D tetrahedral mesh.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Hans Rudolf Schwarz,<br>
+          Methode der Finiten Elemente,<br>
+          Teubner Studienbuecher, 1980,<br>
+          ISBN: 3-519-02349-0.
+        </li>
+        <li>
+          Gilbert Strang, George Fix,<br>
+          An Analysis of the Finite Element Method,<br>
+          Cambridge, 1973,<br>
+          ISBN: 096140888X,<br>
+          LC: TA335.S77.
+        </li>
+        <li>
+          Olgierd Zienkiewicz,<br>
+          The Finite Element Method,<br>
+          Sixth Edition,<br>
+          Butterworth-Heinemann, 2005,<br>
+          ISBN: 0750663200,<br>
+          LC: TA640.2.Z54.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Sample Files:
+    </h3>
+
+    <p>
+      <b>BLOCK</b> is 3D FEM data for the function
+      f(x,y,z)=x^2+2*y^2-z^2, on a 5x5x5 grid
+      of 125 nodes in the cube [0,4]x[0,4]x[0,4], organized into
+      384 linear tetrahedrons.
+      <ul>
+        <li>
+          <a href = "block_nodes.txt">block_nodes.txt</a>,
+          defines the nodes.
+        </li>
+        <li>
+          <a href = "block_elements.txt">block_elements.txt</a>,
+          defines the elements.
+        </li>
+        <li>
+          <a href = "block_values.txt">block_values.txt</a>,
+          defines the nodal values.
+        </li>
+        <li>
+          <a href = "block_boundary_node_mask.txt">block_boundary_node_mask.txt</a>,
+          0 for interior nodes, 1 for boundary nodes.
+        </li>
+        <li>
+          <a href = "block_boundary_nodes.txt">block_boundary_nodes.txt</a>,
+          defines the boundary nodes.
+        </li>
+        <li>
+          <a href = "block_boundary_elements.txt">block_boundary_elements.txt</a>,
+          defines the boundary faces.
+        </li>
+        <li>
+          <a href = "block_boundary.png">block_boundary.png</a>,
+          an image of the triangulated surface of the boundary.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>CASE1</b> is 3D FEM data for a 5x1x1 rectangular channel region
+      using 8261 nodes and 5000 quadratic (ten node) tetrahedral elements.
+      <ul>
+        <li>
+          <a href = "case1_nodes.txt">case1_nodes.txt</a>,
+          defines the nodes.
+        </li>
+        <li>
+          <a href = "case1_elements.txt">case1_elements.txt</a>,
+          defines the elements.
+        </li>
+        <li>
+          <a href = "case1_values.txt">case1_values.txt</a>,
+          defines the nodal values U, V, W, and P (three velocity
+          components and pressure).
+        </li>
+        <li>
+          <a href = "case1_boundary_node_mask.txt">case1_boundary_node_mask.txt</a>,
+          0 for interior nodes, 1 for boundary nodes.
+        </li>
+        <li>
+          <a href = "case1_boundary_nodes.txt">case1_boundary_nodes.txt</a>,
+          defines the boundary nodes.
+        </li>
+        <li>
+          <a href = "case1_boundary_elements.txt">case1_boundary_elements.txt</a>,
+          defines the boundary faces.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>CUBE</b> is 3D FEM data for the unit cube,
+      using 8 nodes, organized into 6 linear tetrahedrons.
+      <ul>
+        <li>
+          <a href = "cube_nodes.txt">cube_nodes.txt</a>,
+          defines the nodes.
+        </li>
+        <li>
+          <a href = "cube_elements.txt">cube_elements.txt</a>,
+          defines the elements.
+        </li>
+        <li>
+          <a href = "cube_boundary_node_mask.txt">cube_boundary_node_mask.txt</a>,
+          0 for interior nodes, 1 for boundary nodes.
+        </li>
+        <li>
+          <a href = "cube_boundary_nodes.txt">cube_boundary_nodes.txt</a>,
+          defines the boundary nodes.
+        </li>
+        <li>
+          <a href = "cube_boundary_elements.txt">cube_boundary_elements.txt</a>,
+          defines the boundary faces.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>P01</b> is 3D FEM data for a rectangular channel of dimensions
+      3x1x1 physical units, using 584 nodes and 2568 tetrahedral elements.
+      <ul>
+        <li>
+          <a href = "p01_nodes.txt">p01_nodes.txt</a>,
+          defines the nodes.
+        </li>
+        <li>
+          <a href = "p01_elements.txt">p01_elements.txt</a>,
+          defines the elements.
+        </li>
+        <li>
+          <a href = "p01_values.txt">p01_values.txt</a>,
+          defines the nodal values.
+        </li>
+        <li>
+          <a href = "p01.png">p01.png</a>,
+          an image of the mesh.
+        </li>
+        <li>
+          <a href = "p01_boundary_node_mask.txt">p01_boundary_node_mask.txt</a>,
+          0 for interior nodes, 1 for boundary nodes.
+        </li>
+        <li>
+          <a href = "p01_boundary_nodes.txt">p01_boundary_nodes.txt</a>,
+          defines the boundary nodes.
+        </li>
+        <li>
+          <a href = "p01_boundary_elements.txt">p01_boundary_elements.txt</a>,
+          defines the boundary faces.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>P04</b> is 3D FEM data for a sphere,
+      using 587 nodes and 2775 linear tetrahedral elements.
+      <ul>
+        <li>
+          <a href = "p04_nodes.txt">p04_nodes.txt</a>,
+          defines the nodes.
+        </li>
+        <li>
+          <a href = "p04_elements.txt">p04_elements.txt</a>,
+          defines the elements.
+        </li>
+        <li>
+          <a href = "p04.png">p04.png</a>,
+          an image of the mesh.
+        </li>
+        <li>
+          <a href = "p04_boundary_node_mask.txt">p04_boundary_node_mask.txt</a>,
+          0 for interior nodes, 1 for boundary nodes.
+        </li>
+        <li>
+          <a href = "p04_boundary_nodes.txt">p04_boundary_nodes.txt</a>,
+          defines the boundary nodes.
+        </li>
+        <li>
+          <a href = "p04_boundary_elements.txt">p04_boundary_elements.txt</a>,
+          defines the boundary faces.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../data.html">
+      the DATA directory</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 21 December 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

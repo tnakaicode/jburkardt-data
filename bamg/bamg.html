@@ -1,0 +1,208 @@
+<html>
+
+  <head>
+    <title>
+      BAMG - Bidimensional Anisotropic Mesh Generator
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      BAMG <br> Bidimensional Anisotropic Mesh Generator
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>BAMG</b>
+      is a data directory of files
+      that can be used with BAMG,
+      a program for generating 2D meshes that can be used to
+      define the geometry for the the finite element package FREEFEM++
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../py_src/dolfin-convert/dolfin-convert.html">
+      DOLFIN-CONVERT</a>,
+      a Python program which
+      can convert mesh file from Gmsh, MEDIT, METIS or SCOTCH format to an
+      XML format suitable for use by DOLFIN or FENICS,
+      by Anders Logg.
+    </p>
+
+    <p>
+      <a href = "../../examples/freefem++/freefem++.html">
+      FREEFEM++</a>,
+      a directory of examples which
+      illustrate the use of the FREEFEM++ package, 
+      a high-level integrated development environment for the numerical 
+      solution of nonlinear multiphysics partial differential equations in
+      2D and 3D.
+    </p>
+
+    <p>
+      <a href = "../../data/freefem++_msh/freefem++_msh.html">
+      FREEFEM++_MSH</a>,
+      a data directory which
+      contains examples of the mesh files created by the FreeFem++ program,
+      which use the extension ".msh".
+    </p>
+
+    <p>
+      <a href = "../../f_src/freefem++_msh_io/freefem++_msh_io.html">
+      FREEFEM++_MSH_IO</a>,
+      a FORTRAN90 library which
+      can read and write files used by the FreeFem++ finite element program
+      to store mesh information.
+    </p>
+
+    <p>
+      <a href = "../../examples/gmsh/gmsh.html">
+      GMSH</a>,
+      examples which
+      illustrate the use of the gmsh program,
+      a 3D mesh generator for the finite element method (FEM).
+    </p>
+
+    <p>
+      <a href = "../../examples/meshlab/meshlab.html">
+      MESHLAB</a>,
+      examples which
+      illustrate the use of the meshlab program, 
+      an advanced mesh processing system for automatic or user-assisted
+      editing, cleaning, filtering, converting and rendering of large
+      unstructured 3D triangular meshes.  MESHLAB can read and write
+      3DS, OBJ, OFF, PLY, and STL graphics files.
+    </p>
+
+    <p>
+      <a href = "../../examples/tetgen/tetgen.html">
+      TETGEN</a>,
+      examples of the use of TETGEN,
+      a program which can compute the convex hull and 
+      Delaunay tetrahedralization of a set of 3D points, or can start 
+      with a 3D region defined by its boundaries, and construct a 
+      boundary-constrained conforming quality Delaunay mesh,
+      by Hang Si.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Frederic Hecht,<br>
+          BAMG: Bidimensional Anisotropic Mesh Generator,<br>
+          draft version v1.00, December 2006.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      The <b>BATTERY</b> example is a geometry with a compliciated 
+      set of internal walls.  The buildmesh() function in FREEFEM++
+      cannot properly mesh this region.
+      <ul>
+        <li>
+          <a href = "battery_g.msh">battery_g.msh</a>,
+          the input geometry file file.
+        </li>
+        <li>
+          <a href = "battery_o.msh">battery_o.msh</a>,
+          the output mesh file.
+        </li>
+        <li>
+          <a href = "battery_o.png">battery_o.png</a>,
+          an image of the mesh.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The <b>CIRCLE</b> example defines a circle geometry.
+      <ul>
+        <li>
+          <a href = "circle_g.msh">circle_g.msh</a>,
+          the input geometry file file.
+        </li>
+        <li>
+          <a href = "circle_o.msh">circle_o.msh</a>,
+          the output mesh file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The <b>SQUARE</b> example defines a square geometry.
+      <ul>
+        <li>
+          <a href = "square_g.msh">square_g.msh</a>,
+          the input geometry file file.
+        </li>
+        <li>
+          <a href = "square_o.msh">square_o.msh</a>,
+          the output mesh file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The <b>SQUARE_SPLIT</b> example defines a square geometry
+      with a slanted internal wall.  BAMG produces a mesh which
+      is constrained to define the internal wall with element edges.
+      (I wanted to make this experiment before going on to the BATTERY example.)
+      <ul>
+        <li>
+          <a href = "square_split_g.msh">square_split_g.msh</a>,
+          the input geometry file file.
+        </li>
+        <li>
+          <a href = "square_split_o.msh">square_split_o.msh</a>,
+          the output mesh file.
+        </li>
+        <li>
+          <a href = "square_split_o.png">square_split_o.png</a>,
+          an image of the mesh.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../data.html">
+      the data directory</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 30 December 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

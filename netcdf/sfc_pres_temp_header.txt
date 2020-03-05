@@ -1,0 +1,14 @@
+netcdf sfc_pres_temp {
+dimensions:
+	latitude = 6 ;
+	longitude = 12 ;
+variables:
+	float latitude(latitude) ;
+		latitude:units = "degrees_north" ;
+	float longitude(longitude) ;
+		longitude:units = "degrees_east" ;
+	float pressure(latitude, longitude) ;
+		pressure:units = "hPa" ;
+	float temperature(latitude, longitude) ;
+		temperature:units = "celsius" ;
+}
